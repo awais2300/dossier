@@ -51,8 +51,11 @@
                                 <div class="card-body bg-custom3">
                                     <form class="user" role="form" method="post" id="add_form" action="">
                                         <div class="form-group row">
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-6">
                                                 <h4 id="cadet_name_heading"></h4>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h4 id="cadet_term_heading"></h4>
                                             </div>
                                         </div>
 
@@ -390,7 +393,7 @@
                                                 <td scope="row" style="padding:20px"><?= ++$count; ?></td>
                                                 <td scope="row" style="padding:20px; display:none"><?= $data['p_id']; ?></td>
                                                 <td scope="row" style="padding:20px"><?= $data['name']; ?></td>
-                                                <td scope="row" style="padding:20px"><?= $data['term']; ?></td>
+                                                <td scope="row" style="padding:20px"><?= $data['curr_term']; ?></td>
                                                 <td scope="row" style="display:none"><?= $data['PST_result']; ?></td>
                                                 <td scope="row" style="display:none"><?= $data['PST_attempt']; ?></td>
                                                 <td scope="row" style="display:none"><?= $data['SST_result']; ?></td>
@@ -515,6 +518,7 @@
         var $columns = $(this).find('td');
 
         $('#cadet_name_heading').html('<strong> Cadet Name: ' + $columns[2].innerHTML + '</strong>');
+        $('#cadet_term_heading').html('<strong> Cadet Term: ' + $columns[3].innerHTML + '</strong>');
 
         if ($columns[4].innerHTML == 'qualified') {
             $('#pst_result').html('<span style="color:green">Qualified</span>');
@@ -589,7 +593,8 @@
             url: '<?= base_url(); ?>D_O/view_PET_I',
             method: 'POST',
             data: {
-                'id': $columns[1].innerHTML
+                'id': $columns[1].innerHTML,
+                'term' : $columns[3].innerHTML  //Dossier Continue
             },
             success: function(data) {
                 var result = jQuery.parseJSON(data);
@@ -607,7 +612,8 @@
             url: '<?= base_url(); ?>D_O/view_PET_II',
             method: 'POST',
             data: {
-                'id': $columns[1].innerHTML
+                'id': $columns[1].innerHTML,
+                'term' : $columns[3].innerHTML  //Dossier Continue
             },
             success: function(data) {
                 var result = jQuery.parseJSON(data);

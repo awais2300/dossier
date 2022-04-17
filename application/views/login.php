@@ -24,35 +24,13 @@
   .red-border {
     border: 1px solid red !important;
   }
-
-  .img-main-login {
-    background: url('<?= base_url() ?>assets/img/main_image1.jpg');
-    background-position: center;
-    /* background-position: top; */
-    /* background-size: cover; */
-    background-repeat: no-repeat;
-    max-width: 100%;
-    max-height: 100%;
-    background-color: rgb(0, 1, 84);
-    opacity: 0.9;
-    /* display: block; */
-    /* remove extra space below image */
-  }
-
-  .img-logo {
-    background: url('<?= base_url() ?>assets/img/navy_logo2.png');
-    /* background-position: center; */
-    background-size: cover;
-    height: 170px;
-    width: 133px;
-    /* filter: blur(1px); */
-    /* border-radius: 25px; */
-  }
 </style>
 
-<body class="row bg-custom1 img-main-login" style="overflow: hidden;">
+
+<body class="row bg-custom1" style="overflow: hidden;">
 
   <div class="container">
+
 
     <!--  </div>
  -->
@@ -61,19 +39,15 @@
 
       <div class="col-xl-10 col-lg-12 col-md-9">
 
-        <div class="card bg-custom3 o-hidden border-0 shadow-lg my-5" style="background: transparent !important;">
+        <div class="card bg-custom3 o-hidden border-0 shadow-lg my-5">
           <!-- <div class="card-body p-0" style=""> -->
           <!-- Nested Row within Card Body -->
-          <div class="row justify-content-center">
-            <div class="img-logo"></div>
-          </div>
           <div class="row">
-            <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
               <div class="p-5">
                 <div class="text-center">
-                  <h1 class="h2 mb-4" style="color:black"><strong> E-Dossier Management System </strong></h1>
+                  <h1 class="h3 text-gray-900 mb-4"><strong> E-Dossier Management System </strong></h1>
                 </div>
                 <form class="user" role="form" id="login_form" method="post" action="<?php echo base_url(); ?>User_Login/login_process">
                   <div class="form-group">
@@ -91,7 +65,7 @@
                       <option value="co">CO - Commanding Officer</option>
                       <option value="exo">EXO - Executive Officer</option>
                       <option value="sqc">SC - Squadron Commander</option>
-                      <option value="cao">CAO - Cheif Admin Officer</option>
+                      <option value="cao">CAO - Cadet Admin Officer</option>
                       <option value="cao_sec">CAO SEC - CAO Secretary</option>
                       <option value="smo">SMO - Senior Medical Officer</option>
                       <option value="dean">DEAN</option>
@@ -148,7 +122,6 @@
 
               </div>
             </div>
-            <div class="col-lg-2"></div>
           </div>
 
           <!-- till here -->

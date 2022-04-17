@@ -56,7 +56,7 @@
 
                             <div class="card">
                                 <div class="card-header bg-custom1">
-                                    <h1 class="h4">Term-I Details</h1>
+                                    <h1 class="h4">PET-I Details</h1>
                                 </div>
 
                                 <div class="card-body bg-custom3">
@@ -144,7 +144,7 @@
 
                             <div class="card">
                                 <div class="card-header bg-custom1">
-                                    <h1 class="h4">Term-II Details</h1>
+                                    <h1 class="h4">PET-II Details</h1>
                                 </div>
 
                                 <div class="card-body bg-custom3">

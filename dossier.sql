@@ -2816,5 +2816,11 @@ UPDATE `navy_units` SET `unit_name`='PNS Aslat' WHERE `unit_name`='PNS Aslar';
 
 UPDATE `navy_units` SET `unit_name`='PNS Nasr' WHERE `unit_name`='PNS Nasab';
 
+ALTER TABLE physical_milestone CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+ALTER TABLE term_i_details CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+ALTER TABLE term_ii_details CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 
 COMMIT;

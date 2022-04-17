@@ -1508,14 +1508,36 @@ class D_O extends CI_Controller
 
             $oc_no = $_POST['oc_no'];
 
+            $curr_term = $this->db->select('term')->where('oc_no', $oc_no)->get('pn_form1s')->row_array(); //Dossier Continue
+            $milestone_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term',$curr_term['term'])->get('physical_milestone')->num_rows(); //Dossier Continue
+            $pet1_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term',$curr_term['term'])->get('term_i_details')->num_rows(); //Dossier Continue
+            $pet2_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term',$curr_term['term'])->get('term_ii_details')->num_rows(); //Dossier Continue
+
+            // echo '$milestone_term_exist';
+            // echo $milestone_term_exist;
+            // echo '$pet1_term_exist';
+            // echo $pet1_term_exist;
+            // echo '$pet2_term_exist';
+            // echo $pet2_term_exist;
+
             $this->db->select('f.oc_no f_oc_no, f.p_id f_p_id, f.term f_term, f.divison_name f_divison_name, f.name f_name, or.*, term_i_details.*,term_ii_details.*, term_i_details.*,term_ii_details.*');
             $this->db->from('pn_form1s f');
-            $this->db->join('physical_milestone or', 'f.p_id = or.p_id', 'left');
-            $this->db->join('term_i_details', 'term_i_details.p_id = or.p_id', 'left');
-            $this->db->join('term_ii_details', 'term_ii_details.p_id = or.p_id', 'left');
-            // $this->db->where('f.do_id', $this->session->userdata('user_id'));
+            $this->db->join('physical_milestone or', 'f.p_id = or.p_id AND f.term = or.term', 'left');
+            $this->db->join('term_i_details', 'term_i_details.p_id = or.p_id AND term_i_details.term = or.term', 'left');
+            $this->db->join('term_ii_details', 'term_ii_details.p_id = or.p_id AND term_ii_details.term = or.term', 'left');
             $this->db->where('f.divison_name', $this->session->userdata('division'));
             $this->db->where('f.oc_no', $oc_no);
+            // $this->db->where('f.term', $curr_term['term']); //Dossier Continue            
+            if ($milestone_term_exist > 0) {
+                $this->db->where('or.term', $curr_term['term']); //Dossier Continue
+            }
+            if ($pet1_term_exist > 0) {
+                $this->db->where('term_i_details.term', $curr_term['term']); //Dossier Continue
+            }
+            if ($pet2_term_exist > 0) {
+                $this->db->where('term_ii_details.term', $curr_term['term']); //Dossier Continue
+            }
+
             $data['milestone_records'] = $this->db->get()->row_array();
 
             echo json_encode($data['milestone_records']);
@@ -1911,17 +1933,11 @@ class D_O extends CI_Controller
                     'phase' => $phase
                 );
             } else {
-                if (isset($branch_id)) {
-                    if (($branch_id == '1') && ($curr_term == '6MS')) {
-                        $update_array = array(
-                            'term' => $next_term,
-                            'unit_id' => $unit_id
-                        );
-                    } else {
-                        $update_array = array(
-                            'term' => $next_term
-                        );
-                    }
+                if (($branch_id == '1') && ($curr_term == '6MS')) {
+                    $update_array = array(
+                        'term' => $next_term,
+                        'unit_id' => $unit_id
+                    );
                 } else {
                     $update_array = array(
                         'term' => $next_term
@@ -1942,8 +1958,18 @@ class D_O extends CI_Controller
                 ];
             }
 
-            // print_r($cond);
-            // print_r($update_array);exit;
+            // if ($all == 'no' && $this->session->userdata('acct_type') == 'joto') {
+            //     $cond  = [
+            //         'p_id' => $p_id,
+            //         'term' => $curr_term
+            //     ];
+            // } else if ($all == 'yes' && $this->session->userdata('acct_type') == 'joto') {
+            //     $cond  = [
+            //         'term' => $curr_term
+            //     ];
+            // }
+
+            //print_r($cond);exit;
             // echo $p_id;exit;
 
             $this->db->where($cond);
@@ -2622,7 +2648,7 @@ class D_O extends CI_Controller
     public function view_milestone_list()
     {
         if ($this->session->has_userdata('user_id')) {
-            $this->db->select('or.*, f.*');
+            $this->db->select('or.*, f.*, or.term as curr_term');
             $this->db->from('physical_milestone or');
             $this->db->join('pn_form1s f', 'f.p_id = or.p_id');
             // $this->db->where('or.do_id', $this->session->userdata('user_id'));
@@ -3301,7 +3327,12 @@ class D_O extends CI_Controller
                 'date_added' => date('Y-m-d H:i:s')
             );
 
-            $this->db->where('oc_no', $oc_no)->where('p_id', $p_id)->delete('physical_milestone');
+            $if_row_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $term)->get('physical_milestone')->row_array(); //Dossier Continue
+
+            if ($if_row_exist['term'] == $term) {
+                $this->db->where('oc_no', $oc_no)->where('p_id', $p_id)->where('term', $term)->delete('physical_milestone');
+            }
+
             $insert = $this->db->insert('physical_milestone', $insert_array);
 
             if (!empty($insert)) {
@@ -3387,7 +3418,11 @@ class D_O extends CI_Controller
                 'date_added' => date('Y-m-d H:i:s')
             );
 
-            $this->db->where('oc_no', $oc_no)->where('p_id', $p_id)->delete('term_i_details');
+            $if_row_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $term)->get('term_i_details')->row_array(); //Dossier Continue
+
+            if ($if_row_exist['term'] == $term) {
+                $this->db->where('oc_no', $oc_no)->where('p_id', $p_id)->where('term', $term)->delete('term_i_details');
+            }
             $insert = $this->db->insert('term_i_details', $insert_array);
         }
     }
@@ -3418,7 +3453,11 @@ class D_O extends CI_Controller
                 'date_added' => date('Y-m-d H:i:s')
             );
 
-            $this->db->where('oc_no', $oc_no)->where('p_id', $p_id)->delete('term_ii_details');
+            $if_row_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $term)->get('term_ii_details')->row_array(); //Dossier Continue
+
+            if ($if_row_exist['term'] == $term) {
+                $this->db->where('oc_no', $oc_no)->where('p_id', $p_id)->where('term', $term)->delete('term_ii_details');
+            }
             $insert = $this->db->insert('term_ii_details', $insert_array);
         }
     }
@@ -3427,7 +3466,8 @@ class D_O extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $p_id = $_POST['id'];
-            $data['term_i_details'] = $this->db->where('p_id', $p_id)->get('term_i_details')->row_array();
+            $term = $_POST['term']; //Dossier Continue
+            $data['term_i_details'] = $this->db->where('p_id', $p_id)->where('term',$term)->get('term_i_details')->row_array();
             echo json_encode($data['term_i_details']);
         }
     }
@@ -3436,7 +3476,8 @@ class D_O extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $p_id = $_POST['id'];
-            $data['term_ii_details'] = $this->db->where('p_id', $p_id)->get('term_ii_details')->row_array();
+            $term = $_POST['term']; //Dossier Continue
+            $data['term_ii_details'] = $this->db->where('p_id', $p_id)->where('term',$term)->get('term_ii_details')->row_array();
             echo json_encode($data['term_ii_details']);
         }
     }
@@ -5039,41 +5080,6 @@ class D_O extends CI_Controller
         }
     }
 
-    public function save_manual_result_file($result_type = NULL, $id = NULL, $term = NULL)
-    {
-        if ($_FILES['file']['name'][0] != NULL) {
-            $upload1 = $this->upload_result($_FILES['file']);
-            if (count($upload1) > 1) {
-                $files = implode(',', $upload1);
-            } else {
-                $files = $upload1[0];
-            }
-        } else {
-            $files = '';
-        }
-        $file_size = $_FILES['file']['size'] . " kb";
-        $file_name = $_FILES['file']['name'];
-        $file_type = $_FILES['file']['type'];
-        $file_path = $_FILES['file']['tmp_name'];
-
-        $insert_array = array(
-            'file_name' => $file_name,
-            'file_type' => $file_type,
-            'file_path' => $file_path,
-            'file_size' => $file_size,
-            'p_id' => $id,
-            'do_id' => $this->session->userdata('user_id'),
-            'phase' => 'Phase 1',
-            'term' => $term,
-            'doc_name' => $result_type,
-            'doc_type' => $result_type,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        );
-
-        $insert = $this->db->insert('academic_records', $insert_array);
-    }
-
 
     public function save_cadet_semester_result()
     {
@@ -5091,7 +5097,6 @@ class D_O extends CI_Controller
             $gpa_t6 = (float)$postData['gpa_t6'];
             $gpa_t7 = (float)$postData['gpa_t7'];
             $gpa_t8 = (float)$postData['gpa_t8'];
-
 
             $denominator_count = 8;
 
@@ -5141,10 +5146,6 @@ class D_O extends CI_Controller
                 $action = 'Update';
             } else {
                 $action = 'Insert';
-            }
-
-            if ($_FILES['file']['name'][0] != NULL) {
-                $this->save_manual_result_file('Result', $p_id, $term);
             }
 
             if ($this->session->userdata('unit_id') == '1') {
@@ -5438,16 +5439,6 @@ class D_O extends CI_Controller
         if ($this->input->post()) {
             $p_id = $_POST['p_id'];
             $query = $this->db->where('p_id', $p_id)->get('semester_results')->row_array();
-            echo json_encode($query);
-        }
-    }
-
-    public function get_manual_result_files()
-    {
-        if ($this->input->post()) {
-            $p_id = $_POST['p_id'];
-            $query = $this->db->where('p_id', $p_id)->get('academic_records')->result_array();
-
             echo json_encode($query);
         }
     }

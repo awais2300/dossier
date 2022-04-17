@@ -417,7 +417,7 @@
         </div>
 
 
-        <div id="no_data" class="row my-2" style="display:none">
+        <div id="no_data" class="row my-2" style="display:none">    
             <div class="col-lg-12 my-5">
                 <h4 style="color:red">No Cadet Found. Please check the OC No.</h4>
             </div>
