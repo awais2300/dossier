@@ -97,7 +97,7 @@
 
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Fill Officer Like Qualities Form </h1>
+                        <h1 class="h4">Fill Officer Like Qualities Form</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
@@ -158,14 +158,15 @@
                                                         <td scope="row" style="padding:25px"><?= $data['id']; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['quality_name']; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['max_marks']; ?></td>
-                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks[]" placeholder="Marks"></td>
+                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks" placeholder="Marks"></td>
                                                         <td scope="row"><input type="text" class="form-control form-control-user" name="final_marks[]" id="final_marks" placeholder="Marks"></td>
 
                                                     </tr>
                                                 <?php
-                                                $count++; } ?>
+                                                    $count++;
+                                                } ?>
                                                 <tr>
-                                                    <td scope="row" style="padding:25px"></td>
+                                                    <td scope="row"><button type="button" class="btn btn-primary btn-user btn-block" id="calculate_btn">Auto Calculate</button></td>
                                                     <td scope="row" style="padding:25px; text-align:right"><strong>Grand Total</strong></td>
                                                     <td scope="row" style="padding:25px"><strong>200</strong></td>
                                                     <td scope="row"><input type="text" class="form-control form-control-user" name="total_mid_marks" id="total_mid_marks" placeholder="Total Marks"></td>
@@ -384,15 +385,31 @@
         }
     });
 
-    $('#total_mid_marks').on('click', function() {
-        alert('dsfsdf');
-        var sum=0;
-        var inps = document.getElementsByName('mid_marks[]');
-            for (var i = 0; i <inps.length; i++) {
-                //sum=sum+i;
-                 }
-      //alert(sum);
-      $('#total_mid_marks').val(sum);
-      // alert(a);
+    $('#calculate_btn').on('click', function() {
+        var mid_sum = 0;
+        var final_sum = 0;
+
+        var mid_marks = document.getElementsByName('mid_marks[]');
+        var final_marks = document.getElementsByName('final_marks[]');
+
+        for (var i = 0; i < mid_marks.length; i++) {
+            if (mid_marks[i].value != '') {
+                mid_sum = mid_sum + parseInt(mid_marks[i].value);
+            }
+        }
+
+        for (var i = 0; i < final_marks.length; i++) {
+            if (final_marks[i].value != '') {
+                final_sum = final_sum + parseInt(final_marks[i].value);
+            }
+        }
+        $('#total_mid_marks').val(mid_sum);
+        $('#total_final_marks').val(final_sum);
+
+        $('#mid_percentage').val((mid_sum/200)*100);
+        $('#final_percentage').val((final_sum/200)*100);
+
     });
+
+   
 </script>

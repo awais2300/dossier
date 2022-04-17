@@ -1520,7 +1520,7 @@ class D_O extends CI_Controller
             // echo '$pet2_term_exist';
             // echo $pet2_term_exist;
 
-            $this->db->select('f.oc_no f_oc_no, f.p_id f_p_id, f.term f_term, f.divison_name f_divison_name, f.name f_name, or.*, term_i_details.*,term_ii_details.*, term_i_details.*,term_ii_details.*');
+            $this->db->select('f.oc_no f_oc_no, f.p_id f_p_id, f.term f_term, f.divison_name f_divison_name, f.name f_name, or.*, term_i_details.*,term_ii_details.mile_time as mile_time_II, term_ii_details.pushups as pushups_II, term_ii_details.chinups as chinups_II, term_ii_details.rope as rope_II, term_ii_details.sprint_time as sprint_time_II');
             $this->db->from('pn_form1s f');
             $this->db->join('physical_milestone or', 'f.p_id = or.p_id AND f.term = or.term', 'left');
             $this->db->join('term_i_details', 'term_i_details.p_id = or.p_id AND term_i_details.term = or.term', 'left');
@@ -3404,6 +3404,7 @@ class D_O extends CI_Controller
             $pushups = $postData['Pushups'];
             $chinups = $postData['Chinups'];
             $rope = $postData['rope'];
+            $sprint1 = $postData['sprint1'];
             $date_added = date('Y-m-d H:i:s');
 
             $insert_array = array(
@@ -3415,6 +3416,7 @@ class D_O extends CI_Controller
                 'pushups' => $pushups,
                 'chinups' => $chinups,
                 'rope' => $rope,
+                'sprint_time' => $sprint1,
                 'date_added' => date('Y-m-d H:i:s')
             );
 
@@ -3439,6 +3441,7 @@ class D_O extends CI_Controller
             $pushups = $postData['Pushups'];
             $chinups = $postData['Chinups'];
             $rope = $postData['rope'];
+            $sprint2 = $postData['sprint2'];
             $date_added = date('Y-m-d H:i:s');
 
             $insert_array = array(
@@ -3450,6 +3453,7 @@ class D_O extends CI_Controller
                 'pushups' => $pushups,
                 'chinups' => $chinups,
                 'rope' => $rope,
+                'sprint_time' => $sprint2,
                 'date_added' => date('Y-m-d H:i:s')
             );
 

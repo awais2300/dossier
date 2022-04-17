@@ -62,21 +62,18 @@
                                 <div class="card-body bg-custom3">
                                     <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>D_O/add_termI_details">
                                         <div class="form-group row">
-                                            <div class="col-sm-3">
-                                                <h3 id="">Mile Time</h3>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Mile Time</h4>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h3 id="">Chinups</h3>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Sprint Time</h4>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h3 id="">Pushups</h3>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Chinups</h4>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h3 id="">Rope</h3>
-                                            </div>
+                                            
                                         </div>
                                         <div class="form-group row">
-
                                             <div class="col-sm-4 mb-1" style="display:none">
                                                 <input type="text" class="" name="oc_num1" id="oc_num1">
                                             </div>
@@ -87,16 +84,30 @@
                                                 <input type="text" class="" name="term_pet1" id="term_pet1">
                                             </div>
 
-                                            <div class="col-sm-3 mb-1">
-                                                <input type="text" class="form-control form-control-user" name="mile_time_I" id="mile_time_I" style="" placeholder="mile time">
+                                            <div class="col-sm-4 mb-1">
+                                                <input type="text" class="form-control form-control-user" name="mile_time_I" id="mile_time_I" placeholder="mile time">
                                             </div>
-                                            <div class="col-sm-3 mb-1">
+                                            <div class="col-sm-4 mb-1">
+                                                <input type="text" class="form-control form-control-user" name="sprint_time_I" id="sprint_time_I"  placeholder="Sprint time">
+                                            </div>
+                                            <div class="col-sm-4 mb-1">
                                                 <input type="text" class="form-control form-control-user" name="Chinups_I" id="Chinups_I" placeholder="Chinups">
                                             </div>
-                                            <div class="col-sm-3 mb-1">
+                                            
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <h4 id="">Pushups</h4>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Rope</h4>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4 mb-1">
                                                 <input type="text" class="form-control form-control-user" name="Pushups_I" id="Pushups_I" placeholder="Pushups">
                                             </div>
-                                            <div class="col-sm-3 mb-1">
+                                            <div class="col-sm-4 mb-1">
                                                 <select class="form-control rounded-pill" name="Rope_I" id="Rope_I" data-placeholder="Select Grade" style="font-size: 0.8rem; height:50px;">
                                                     <option class="form-control form-control-user" value="">Select Grade</option>
                                                     <option class="form-control form-control-user" value="Alpha">Alpha</option>
@@ -104,8 +115,6 @@
                                                     <option class="form-control form-control-user" value="Charlie">Charlie</option>
                                                 </select>
                                             </div>
-
-
                                         </div>
                                         <div class="form-group row">
                                             <button type="button" class="btn btn-primary btn-user rounded-pill col-md-5" id="add_btn_termI" style="margin-left: 300px;">Save</button>
@@ -151,21 +160,17 @@
                                     <form class="user" role="form" method="post" id="add_form2" action="<?= base_url(); ?>D_O/add_termII_details">
 
                                         <div class="form-group row">
-                                            <div class="col-sm-3">
-                                                <h3 id="">Mile Time</h3>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Mile Time</h4>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h3 id="">Chinups</h3>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Sprint Time</h4>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h3 id="">Pushups</h3>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h3 id="">Rope</h3>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Chinups</h4>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-
                                             <div class="col-sm-4 mb-1" style="display:none">
                                                 <input type="text" class="" name="oc_num2" id="oc_num2">
                                             </div>
@@ -176,16 +181,29 @@
                                                 <input type="text" class="" name="term_pet2" id="term_pet2">
                                             </div>
 
-                                            <div class="col-sm-3 mb-1">
+                                            <div class="col-sm-4 mb-1">
                                                 <input type="text" class="form-control form-control-user" name="mile_time_II" id="mile_time_II" placeholder="mile time">
                                             </div>
-                                            <div class="col-sm-3 mb-1">
+                                            <div class="col-sm-4 mb-1">
+                                                <input type="text" class="form-control form-control-user" name="sprint_time_II" id="sprint_time_II" placeholder="Sprint time">
+                                            </div>
+                                            <div class="col-sm-4 mb-1">
                                                 <input type="text" class="form-control form-control-user" name="Chinups_II" id="Chinups_II" placeholder="Chinups">
                                             </div>
-                                            <div class="col-sm-3 mb-1">
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <h4 id="">Pushups</h4>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4 id="">Rope</h4>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4 mb-1">
                                                 <input type="text" class="form-control form-control-user" name="Pushups_II" id="Pushups_II" placeholder="Pushups">
                                             </div>
-                                            <div class="col-sm-3 mb-1">
+                                            <div class="col-sm-4 mb-1">
                                                 <select class="form-control rounded-pill" name="Rope_II" id="Rope_II" data-placeholder="Select Grade" style="font-size: 0.8rem; height:50px;">
                                                     <option class="form-control form-control-user" value="">Select Grade</option>
                                                     <option class="form-control form-control-user" value="Alpha">Alpha</option>
@@ -489,17 +507,9 @@
                                         <option class="form-control form-control-user" value="disqualified">Disqualified</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-2 mb-1">
+                                <!-- <div class="col-sm-2 mb-1">
                                      <input type="number" class="form-control rounded-pill" name="plx_attempt" id="plx_attempt" placeholder="Attempt No" style="font-size: 0.8rem; height:50px;" >
-                                   <!--  <select class="form-control rounded-pill" name="plx_attempt" id="plx_attempt" data-placeholder="Select Contractor" style="font-size: 0.8rem; height:50px;">
-                                        <option class="form-control form-control-user" value="">Attempt</option>
-                                        <option class="form-control form-control-user" value="1">1st</option>
-                                        <option class="form-control form-control-user" value="2">2nd</option>
-                                        <option class="form-control form-control-user" value="3">3rd</option>
-                                        <option class="form-control form-control-user" value="4">4th</option>
-                                        <option class="form-control form-control-user" value="5">5th</option>
-                                    </select> -->
-                                </div>
+                                </div> -->
 
                             </div>
                             <div class="form-group row">
@@ -593,6 +603,7 @@
         var Chinups = $('#Chinups_I').val();
         var rope = $('#Rope_I').val();
         var term = $('#term_pet1').val();
+        var sprint1 = $('#sprint_time_I').val();
 
         $.ajax({
             url: '<?= base_url(); ?>D_O/add_termI_details',
@@ -605,7 +616,8 @@
                 'Pushups': Pushups,
                 'Chinups': Chinups,
                 'rope': rope,
-                'term': term
+                'term': term,
+                'sprint1' : sprint1
             },
             success: function(response) {
             },
@@ -624,6 +636,7 @@
         var Chinups = $('#Chinups_II').val();
         var rope = $('#Rope_II').val();
         var term = $('#term_pet2').val();
+        var sprint2 = $('#sprint_time_II').val();
 
         $.ajax({
             url: '<?= base_url(); ?>D_O/add_termII_details',
@@ -636,7 +649,8 @@
                 'Pushups': Pushups,
                 'Chinups': Chinups,
                 'rope': rope,
-                'term' : term
+                'term' : term,
+                'sprint2' : sprint2
             },
             success: function(response) {
             },
@@ -736,12 +750,14 @@
                         $('#Pushups_I').val(result['pushups']);
                         $('#Rope_I').val(result['rope']);
                         $('#term_pet1').val(result['f_term']);
+                        $('#sprint_time_I').val(result['sprint_time']);
 
                         $('#mile_time_II').val(result['mile_time_II']);
                         $('#Chinups_II').val(result['chinups_II']);
                         $('#Pushups_II').val(result['pushups_II']);
                         $('#Rope_II').val(result['rope_II']);
                         $('#term_pet2').val(result['f_term']);
+                        $('#sprint_time_II').val(result['sprint_time_II']);
 
                     } else {
                         $('#no_data').show();

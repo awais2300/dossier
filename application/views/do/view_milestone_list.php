@@ -155,9 +155,9 @@
                                             <div class="col-sm-2">
                                                 <h6 id="plx_result"></h6>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <!-- <div class="col-sm-2">
                                                 <h6 id="plx_attempt" style="text-align:center"></h6>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-3">
@@ -231,6 +231,14 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-3">
+                                                <h6>&nbsp;<strong>Sprint Time:</strong></h6>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h6 id="sprint_time1_detail"></h6>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">
                                                 <h6>&nbsp;<strong>Chinups:</strong></h6>
                                             </div>
                                             <div class="col-sm-3">
@@ -298,6 +306,14 @@
                                             </div>
                                             <div class="col-sm-3">
                                                 <h6 id="mile_time2_detail"></h6>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">
+                                                <h6>&nbsp;<strong>Sprint Time:</strong></h6>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h6 id="sprint_time2_detail"></h6>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -601,6 +617,7 @@
                 var len = result.length;
 
                 $('#mile_time1_detail').html(result['mile_time']);
+                $('#sprint_time1_detail').html(result['sprint_time']);
                 $('#pushup1_detail').html(result['pushups']);
                 $('#chinups1_detail').html(result['chinups']);
                 $('#rope1_detail').html(result['rope']);
@@ -620,6 +637,7 @@
                 var len = result.length;
 
                 $('#mile_time2_detail').html(result['mile_time']);
+                $('#sprint_time2_detail').html(result['sprint_time']);
                 $('#pushup2_detail').html(result['pushups']);
                 $('#chinups2_detail').html(result['chinups']);
                 $('#rope2_detail').html(result['rope']);

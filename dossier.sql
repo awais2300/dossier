@@ -2738,6 +2738,7 @@ CREATE TABLE `term_I_details` (
   `pushups` varchar(200),
   `chinups` varchar(200),
   `rope` varchar(200),
+  `sprint_time` varchar(200),
   `date_added` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -2752,6 +2753,7 @@ CREATE TABLE `term_II_details` (
   `pushups` varchar(200),
   `chinups` varchar(200),
   `rope` varchar(200),
+  `sprint_time` varchar(200),
   `date_added` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
