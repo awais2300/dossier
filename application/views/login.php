@@ -70,7 +70,7 @@
                       <option value="smo">SMO - Senior Medical Officer</option>
                       <option value="dean">DEAN</option>
                       <option value="ctmwt">Captain MWT</option>
-                      <option value="hougp">HOUGP</option>
+                      <!-- <option value="hougp">HOUGP</option> -->
 
                     </select>
                   </div>
