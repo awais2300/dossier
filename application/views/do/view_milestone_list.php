@@ -55,7 +55,7 @@
                                                 <h4 id="cadet_name_heading"></h4>
                                             </div>
                                             <div class="col-sm-6">
-                                                <h4 id="cadet_term_heading"></h4>
+                                                <h4 id="cadet_term_heading"></h4> <!-- Dossier Continue-->
                                             </div>
                                         </div>
 
@@ -534,7 +534,7 @@
         var $columns = $(this).find('td');
 
         $('#cadet_name_heading').html('<strong> Cadet Name: ' + $columns[2].innerHTML + '</strong>');
-        $('#cadet_term_heading').html('<strong> Cadet Term: ' + $columns[3].innerHTML + '</strong>');
+        $('#cadet_term_heading').html('<strong> Cadet Term: ' + $columns[3].innerHTML + '</strong>'); //Dossier Continue
 
         if ($columns[4].innerHTML == 'qualified') {
             $('#pst_result').html('<span style="color:green">Qualified</span>');

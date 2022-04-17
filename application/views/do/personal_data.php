@@ -118,6 +118,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-1">
                                             <input type="text" class="form-control form-control-user" name="oc_no" id="oc_no" placeholder="OC NO.">
+                                            <span id="show_error_oc_no" style="font-size:10px; color:red; display:none">&nbsp;&nbsp;OC NO. Already exists!</span>
                                         </div>
                                         <div class="col-sm-6 mb-1">
                                             <input type="text" class="form-control form-control-user" name="course" id="course" placeholder="Course">
@@ -136,6 +137,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-1">
                                             <input type="text" class="form-control form-control-user" name="pno" id="pno" placeholder="P. NO.">
+                                            <span id="show_error_pno" style="font-size:10px; color:red; display:none">&nbsp;&nbsp;P NO. Already exists!</span>
                                         </div>
                                         <div class="col-sm-6 mb-1">
                                             <input type="text" class="form-control form-control-user" name="class" id="class" placeholder="class">
@@ -611,5 +613,54 @@
             $('#add_btn').removeAttr('disabled');
             $('#show_error_new').show();
         }
+    });
+
+    $('#oc_no').on('focusout', function() {
+        var oc_no = $('#oc_no').val();
+        $.ajax({
+            url: '<?= base_url(); ?>D_O/check_duplicate_oc_no',
+            method: 'POST',
+            data: {
+                'oc_no': oc_no
+            },
+            success: function(data) {
+                var result = jQuery.parseJSON(data);
+                if (result != undefined) {
+                    if (result['oc_no'] != '') {
+                        $('#oc_no').addClass('red-border');
+                        $('#show_error_oc_no').show();
+                        $( "#oc_no" ).focus();
+                    }
+                } else {
+                    $('#show_error_oc_no').hide();
+                    $('#oc_no').removeClass("red-border");
+                }
+            },
+            async: true
+        });
+    });
+    $('#pno').on('focusout', function() {
+        var pno = $('#pno').val();
+        $.ajax({
+            url: '<?= base_url(); ?>D_O/check_duplicate_pno',
+            method: 'POST',
+            data: {
+                'pno': pno
+            },
+            success: function(data) {
+                var result = jQuery.parseJSON(data);
+                if (result != undefined) {
+                    if (result['oc_no'] != '') {
+                        $('#pno').addClass('red-border');
+                        $('#show_error_pno').show();
+                        $( "#pno" ).focus();
+                    }
+                } else {
+                    $('#show_error_pno').hide();
+                    $('#pno').removeClass("red-border");
+                }
+            },
+            async: true
+        });
     });
 </script>

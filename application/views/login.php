@@ -66,7 +66,7 @@
                       <option value="exo">EXO - Executive Officer</option>
                       <option value="sqc">SC - Squadron Commander</option>
                       <option value="cao">CAO - Cadet Admin Officer</option>
-                      <option value="cao_sec">CAO SEC - CAO Secretary</option>
+                      <!-- <option value="cao_sec">CAO SEC - CAO Secretary</option> -->
                       <option value="smo">SMO - Senior Medical Officer</option>
                       <option value="dean">DEAN</option>
                       <option value="ctmwt">Captain MWT</option>

@@ -88,7 +88,7 @@
                                                 <input type="text" class="form-control form-control-user" name="mile_time_I" id="mile_time_I" placeholder="mile time">
                                             </div>
                                             <div class="col-sm-4 mb-1">
-                                                <input type="text" class="form-control form-control-user" name="sprint_time_I" id="sprint_time_I"  placeholder="Sprint time">
+                                                <input type="text" class="form-control form-control-user" name="sprint_time_I" id="sprint_time_I"  placeholder="Sprint time"> <!-- Dossier Continue-->
                                             </div>
                                             <div class="col-sm-4 mb-1">
                                                 <input type="text" class="form-control form-control-user" name="Chinups_I" id="Chinups_I" placeholder="Chinups">
@@ -185,7 +185,7 @@
                                                 <input type="text" class="form-control form-control-user" name="mile_time_II" id="mile_time_II" placeholder="mile time">
                                             </div>
                                             <div class="col-sm-4 mb-1">
-                                                <input type="text" class="form-control form-control-user" name="sprint_time_II" id="sprint_time_II" placeholder="Sprint time">
+                                                <input type="text" class="form-control form-control-user" name="sprint_time_II" id="sprint_time_II" placeholder="Sprint time"> <!-- Dossier Continue-->
                                             </div>
                                             <div class="col-sm-4 mb-1">
                                                 <input type="text" class="form-control form-control-user" name="Chinups_II" id="Chinups_II" placeholder="Chinups">
@@ -750,14 +750,14 @@
                         $('#Pushups_I').val(result['pushups']);
                         $('#Rope_I').val(result['rope']);
                         $('#term_pet1').val(result['f_term']);
-                        $('#sprint_time_I').val(result['sprint_time']);
+                        $('#sprint_time_I').val(result['sprint_time']); //Dossier Continue
 
                         $('#mile_time_II').val(result['mile_time_II']);
                         $('#Chinups_II').val(result['chinups_II']);
                         $('#Pushups_II').val(result['pushups_II']);
                         $('#Rope_II').val(result['rope_II']);
                         $('#term_pet2').val(result['f_term']);
-                        $('#sprint_time_II').val(result['sprint_time_II']);
+                        $('#sprint_time_II').val(result['sprint_time_II']); //Dossier Continue
 
                     } else {
                         $('#no_data').show();

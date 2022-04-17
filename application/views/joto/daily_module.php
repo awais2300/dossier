@@ -63,13 +63,13 @@
                     <form class="user" role="form" method="post" id="add_form">
                         <div class="card-body bg-custom3">
                             <div class="form-group row">
-                                <!-- <div class="col-sm-6">
+                                <div class="col-sm-6">
                                     <button type="button" class="btn btn-primary btn-user btn-block" style="height:60px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>JOTO/add_punishment'">
                                         <span><i class="fas fa-radiation-alt" style="font-size:25px;margin:5px"></i></span>
                                         <h4 style="font-weight: bold;display:inline-block">Add Punishment</h4>
                                     </button>
-                                </div> -->
-                                <div class="col-sm-12">
+                                </div>
+                                <div class="col-sm-6">
                                     <button type="button" class="btn btn-primary btn-user btn-block" style="height:60px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>JOTO/view_punishment_list'">
                                         <span><i class="fas fa-exclamation-triangle" style="font-size:25px;margin:5px"></i></span>
                                         <h4 style="font-weight: bold;display:inline-block">View Punishment List</h4>

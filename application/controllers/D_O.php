@@ -1509,9 +1509,9 @@ class D_O extends CI_Controller
             $oc_no = $_POST['oc_no'];
 
             $curr_term = $this->db->select('term')->where('oc_no', $oc_no)->get('pn_form1s')->row_array(); //Dossier Continue
-            $milestone_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term',$curr_term['term'])->get('physical_milestone')->num_rows(); //Dossier Continue
-            $pet1_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term',$curr_term['term'])->get('term_i_details')->num_rows(); //Dossier Continue
-            $pet2_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term',$curr_term['term'])->get('term_ii_details')->num_rows(); //Dossier Continue
+            $milestone_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $curr_term['term'])->get('physical_milestone')->num_rows(); //Dossier Continue
+            $pet1_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $curr_term['term'])->get('term_i_details')->num_rows(); //Dossier Continue
+            $pet2_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $curr_term['term'])->get('term_ii_details')->num_rows(); //Dossier Continue
 
             // echo '$milestone_term_exist';
             // echo $milestone_term_exist;
@@ -3471,7 +3471,7 @@ class D_O extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $p_id = $_POST['id'];
             $term = $_POST['term']; //Dossier Continue
-            $data['term_i_details'] = $this->db->where('p_id', $p_id)->where('term',$term)->get('term_i_details')->row_array();
+            $data['term_i_details'] = $this->db->where('p_id', $p_id)->where('term', $term)->get('term_i_details')->row_array();
             echo json_encode($data['term_i_details']);
         }
     }
@@ -3481,7 +3481,7 @@ class D_O extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $p_id = $_POST['id'];
             $term = $_POST['term']; //Dossier Continue
-            $data['term_ii_details'] = $this->db->where('p_id', $p_id)->where('term',$term)->get('term_ii_details')->row_array();
+            $data['term_ii_details'] = $this->db->where('p_id', $p_id)->where('term', $term)->get('term_ii_details')->row_array();
             echo json_encode($data['term_ii_details']);
         }
     }
@@ -5454,5 +5454,19 @@ class D_O extends CI_Controller
             $query = $this->db->where('p_id', $p_id)->get('seniority_records')->row_array();
             echo json_encode($query);
         }
+    }
+
+    public function check_duplicate_oc_no()
+    {
+        $oc_no = $_POST['oc_no'];
+        $query = $this->db->select('oc_no')->where('oc_no', $oc_no)->get('pn_form1s')->row_array();
+        echo json_encode($query);
+    }
+    
+    public function check_duplicate_pno()
+    {
+        $pno = $_POST['pno'];
+        $query = $this->db->select('p_no')->where('p_no', $pno)->get('pn_form1s')->row_array();
+        echo json_encode($query);
     }
 }
