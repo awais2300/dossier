@@ -127,7 +127,7 @@
                 <div id="collapse_general" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/add_club">Add Club</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/Inspection_record">Inspection Record</a>
+                        <!-- <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/Inspection_record">Inspection Record</a> -->
                         <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/auto_biography">Cadet's Auto-biography</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/psychologist_report">Psychologist's Report</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/view_record_div_officer">Divisional Officer Record</a>

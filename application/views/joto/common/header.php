@@ -110,7 +110,7 @@
                 <div id="collapse_general" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/add_club">Add Club</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/Inspection_record">Inspection Record</a>
+                        <!-- <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/Inspection_record">Inspection Record</a> -->
                         <!-- <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/personal_data">Personal Data</a> -->
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/auto_biography">Cadet's Auto-biography</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/psychologist_report">Psychologist's Report</a>

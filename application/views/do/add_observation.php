@@ -146,6 +146,16 @@
                                     <textarea class="form-control form-control-user" name="observation" id="observation" style="border-radius:10px" placeholder="Add Observation"></textarea>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <h6>&nbsp;Add Recommendations:</h6>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-1">
+                                    <textarea class="form-control form-control-user" name="recommendation" id="recommendation" style="border-radius:10px" placeholder="Add Recommendations"></textarea>
+                                </div>
+                            </div>
 
                             <div class="form-group row justify-content-center">
                                 <div class="col-sm-4">

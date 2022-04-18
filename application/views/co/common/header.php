@@ -111,7 +111,7 @@
                 <div id="collapse_general" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url(); ?>CO/add_club">Add Club</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>CO/Inspection_record">Inspection Record</a>
+                        <!-- <a class="collapse-item" href="<?php echo base_url(); ?>CO/Inspection_record">Inspection Record</a> -->
                         <a class="collapse-item" href="<?php echo base_url(); ?>CO/auto_biography">Cadet's Auto-biography</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CO/psychologist_report">Psychologist's Report</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CO/view_record_div_officer">Divisional Officer Record</a>

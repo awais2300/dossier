@@ -1010,6 +1010,7 @@ class D_O extends CI_Controller
             $id = $postData['id'];
             // $oc_no = $postData['oc_num'];
             $observation = $postData['observation'];
+            $recommendation = $postData['recommendation'];  //Dossier Continue
             $term = $postData['term'];
             $awarded_by = $this->session->userdata('username');
             $awarded_id = $this->session->userdata('user_id');
@@ -1019,6 +1020,7 @@ class D_O extends CI_Controller
                 'p_id' => $id,
                 'date' => date('Y-m-d'),
                 'observation' => $observation,
+                'action_taken' => $recommendation,   //Dossier Continue
                 'do_id' => $awarded_id,
                 'observed_by' => $awarded_by,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -2577,6 +2579,7 @@ class D_O extends CI_Controller
             $this->db->from('observation_records or');
             $this->db->join('pn_form1s f', 'f.p_id = or.p_id');
             // $this->db->where('or.do_id', $this->session->userdata('user_id'));
+            $this->db->where_in('f.term', ['Term-I','Term-II','Term-III','Term-IV']); //Dossier Continue
             $this->db->where('f.divison_name', $this->session->userdata('division'));
             $data['observation_records'] = $this->db->get()->result_array();
             $this->load->view('do/view_observation_list', $data);
@@ -2653,6 +2656,7 @@ class D_O extends CI_Controller
             $this->db->join('pn_form1s f', 'f.p_id = or.p_id');
             // $this->db->where('or.do_id', $this->session->userdata('user_id'));
             $this->db->where('f.divison_name', $this->session->userdata('division'));
+            $this->db->where_in('or.term', ['Term-I','Term-II','Term-III','Term-IV']); //Dossier Continue
             $data['milestone_records'] = $this->db->get()->result_array();
             // print_r( $data['milestone_records']);exit;
             $this->load->view('do/view_milestone_list', $data);

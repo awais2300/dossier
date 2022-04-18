@@ -191,6 +191,7 @@
                                             <th scope="col">Term</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Observation</th>
+                                            <th scope="col">Recommendations</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -204,6 +205,7 @@
                                                 <td scope="row"><?= $data['term']; ?></td>
                                                 <td scope="row"><?= $data['date']; ?></td>
                                                 <td scope="row"><?= $data['observation']; ?></td>
+                                                <td scope="row"><?= $data['action_taken']; ?></td>
                                                 <?php if ($data['status'] == 'Pending') { ?>
                                                     <td scope="row" style="color:orange;font-weight:bold"><?= $data['status']; ?></td>
                                                 <?php } elseif ($data['status'] == 'Approved') { ?>
