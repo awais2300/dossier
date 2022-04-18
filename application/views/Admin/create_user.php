@@ -59,12 +59,12 @@
                                             <option value="co">CO - Commanding Officer</option>
                                             <option value="exo">EXO - Executive Officer</option>
                                             <option value="sqc">SC - Squadron Commander</option>
-                                            <option value="cao">CAO - Cheif Admin Officer</option>
-                                            <option value="cao_sec">CAO SEC - CAO Secretary</option>
+                                            <option value="cao">CAO - Cadet Admin Officer</option>
+                                            <!-- <option value="cao_sec">CAO SEC - CAO Secretary</option> -->
                                             <option value="smo">SMO - Senior Medical Officer</option>
                                             <option value="dean">DEAN</option>
                                             <option value="ctmwt">Captain MWT</option>
-                                            <option value="hougp">HOUGP</option>
+                                            <!-- <option value="hougp">HOUGP</option> -->
 
                                         </select>
                                     </div>
@@ -91,10 +91,9 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-1">
                                         <h6>&nbsp;Unit:</h6>
-                                    </div>
-                                   
-
+                                    </div>                                   
                                 </div>
+
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-1">
                                         <select class="form-control rounded-pill" name="unit" id="unit" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
@@ -139,16 +138,34 @@
         }
     });
 
+    $('#unit').on('focusout', function() {
+        var status = $('#status').val();
+        if (status == "do" || status == "cao") {
+            $('#unit').val('PNS Rahbar (Pakistan Naval Academy)');
+        } 
+    });
+
     $("#status").on('change', function() {
         var account = $(this).val();
-        // alert(account);
 
         if (account == 'do') {
             $('#div_list').show();
             $('#div_list_label').show();
+            $('#unit').val('PNS Rahbar (Pakistan Naval Academy)');
+            $('#unit').attr("readonly", true) 
         } else {
             $('#div_list').hide();
             $('#div_list_label').hide();
+            $('#unit').val('');
+            $('#unit').attr("readonly", false);
+        }
+
+        if (account == 'cao') {
+            $('#unit').val('PNS Rahbar (Pakistan Naval Academy)');
+            $('#unit').attr("readonly", true) 
+        } else {
+            $('#unit').val('');
+            $('#unit').attr("readonly", false);
         }
 
         if (account == 'dean' || account == 'hougp') {
@@ -158,11 +175,9 @@
             $('#branch_list').hide();
             $('#branch_list_label').hide();
         }
-
     });
 
     $('#add_btni').on('click', function() {
-        //alert('javascript working');
         $('#add_btn').attr('disabled', true);
         var validate = 0;
 
