@@ -68,16 +68,13 @@
             <hr class="sidebar-divider">
 
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) {?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(); ?>JOTO/view_dossier_folder" aria-expanded="true">
                     <i class="far fa-newspaper"></i>
                     <span> View Dossiers </span>
-                    <!-- <span>Components</span> -->
                 </a>
-
             </li>
-
             <li class="nav-item">
                 <?php if (($this->session->userdata('unit_id') == '2') || ($this->session->userdata('unit_id') == '3') || ($this->session->userdata('unit_id') == '17')) { ?>
                     <a class="nav-link" href="<?php echo base_url(); ?>JOTO/view_academy_analytics" aria-expanded="true">
@@ -95,50 +92,41 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            
             <!-- Heading -->
             <div class="sidebar-heading">
                 PHASE I (Common Tranings)
             </div>
+            <?php }?>
 
+            <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) {?>
             <li class="nav-item">
                 <a id="general" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_general" aria-expanded="true">
                     <i class="fas fa-file-alt"></i>
                     <span> General</span>
-                    <!-- <span>Components</span> -->
                 </a>
                 <div id="collapse_general" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/add_club">Add Club</a>
-                        <!-- <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/Inspection_record">Inspection Record</a> -->
-                        <!-- <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/personal_data">Personal Data</a> -->
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/auto_biography">Cadet's Auto-biography</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/psychologist_report">Psychologist's Report</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/view_record_div_officer">Divisional Officer Record</a>
                     </div>
                 </div>
             </li>
+            <?php }?>
+
+            <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) {?>
             <li class="nav-item">
-                <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_discipline" aria-expanded="true"> -->
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>JOTO/daily_module" aria-expanded="true">
                     <i class="fas fa-running"></i>
                     <span> Daily Module</span>
-                    <!-- <span>Components</span> -->
                 </a>
-                <!-- <div id="collapse_discipline" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/daily_module">Daily Module</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/add_observation">Observation Record</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/add_punishment">Punishment Record</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/add_observation_slip">Observation Slips</a> 
-                    </div>
-                </div> -->
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_warning" aria-expanded="true">
                     <i class="fas fa-exclamation-circle"></i>
                     <span> Warning</span>
-                    <!-- <span>Components</span> -->
                 </a>
                 <div id="collapse_warning" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -167,6 +155,7 @@
                     </div>
                 </div>
             </li>
+            <?php }?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_assesment" aria-expanded="true">
                     <i class="fas fa-chart-bar"></i>
@@ -175,16 +164,21 @@
                 </a>
                 <div id="collapse_assesment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                    <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) {?>
                         <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_general_remarks">General Remarks</a>
-                        <!-- <a class="collapse-item" href="#">Performance Report</a> -->
                         <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_progress_chart">Progress Chart</a>
                         <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_distinction_records">Distictions</a>
+                        <?php }?>
                         <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_seniority_records">Seniority</a>
+                        <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) {?>
                         <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/add_branch_allocation">Branch Allocation</a>
                         <a class="collapse-item" href="#">Degree Complete</a>
+                        <?php } ?>
                     </div>
                 </div>
             </li>
+
+            <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) {?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(); ?>JOTO/add_officer_qualities" aria-expanded="true">
                     <i class="fas fa-medal"></i>
@@ -198,6 +192,8 @@
                     <span> Promotion/Relegation</span>
                 </a>
             </li>
+
+            <?php } ?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>JOTO/view_activity_log" aria-expanded="true">
                     <i class="far fa-list-alt"></i>

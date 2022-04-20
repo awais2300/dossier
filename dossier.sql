@@ -2786,7 +2786,7 @@ INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS 
 INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS Alamgir','NULL','NULL');
 INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS Moawin','NULL','NULL');
 INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS Nasr','NULL','NULL');
-INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS Taghaul','NULL','NULL');
+INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS Taughril','NULL','NULL');
 INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PN School of logistics','NULL','NULL');
 
 DELETE FROM `navy_units` WHERE `unit_name`='PNSL';

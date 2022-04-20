@@ -1515,13 +1515,6 @@ class D_O extends CI_Controller
             $pet1_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $curr_term['term'])->get('term_i_details')->num_rows(); //Dossier Continue
             $pet2_term_exist = $this->db->select('term')->where('oc_no', $oc_no)->where('term', $curr_term['term'])->get('term_ii_details')->num_rows(); //Dossier Continue
 
-            // echo '$milestone_term_exist';
-            // echo $milestone_term_exist;
-            // echo '$pet1_term_exist';
-            // echo $pet1_term_exist;
-            // echo '$pet2_term_exist';
-            // echo $pet2_term_exist;
-
             $this->db->select('f.oc_no f_oc_no, f.p_id f_p_id, f.term f_term, f.divison_name f_divison_name, f.name f_name, or.*, term_i_details.*,term_ii_details.mile_time as mile_time_II, term_ii_details.pushups as pushups_II, term_ii_details.chinups as chinups_II, term_ii_details.rope as rope_II, term_ii_details.sprint_time as sprint_time_II');
             $this->db->from('pn_form1s f');
             $this->db->join('physical_milestone or', 'f.p_id = or.p_id AND f.term = or.term', 'left');
@@ -1543,6 +1536,28 @@ class D_O extends CI_Controller
             $data['milestone_records'] = $this->db->get()->row_array();
 
             echo json_encode($data['milestone_records']);
+        }
+    }
+
+    public function search_cadet_OLQs() //Dossier Continue
+    {
+        if ($this->input->post()) {
+
+            $oc_no = $_POST['oc_no'];
+
+            $curr_term = $this->db->select('term,p_id')->where('oc_no', $oc_no)->get('pn_form1s')->row_array(); //Dossier Continue
+            $olq_term_exist = $this->db->select('term')->where('p_id', $curr_term['p_id'])->where('term', $curr_term['term'])->get('officer_qualities')->num_rows(); //Dossier Continue
+
+            $this->db->select('f.term as pn_term, f.p_id as pn_p_id,f.*, olq.*');
+            $this->db->from('pn_form1s f');
+            $this->db->join('officer_qualities olq', 'f.p_id = olq.p_id AND f.term = olq.term', 'left');
+            $this->db->where('f.divison_name', $this->session->userdata('division'));
+            $this->db->where('f.oc_no', $oc_no);
+            if ($olq_term_exist > 0) {
+                $this->db->where('olq.term', $curr_term['term']); //Dossier Continue
+            }
+            $data['olq_records'] = $this->db->get()->row_array();
+            echo json_encode($data['olq_records']);
         }
     }
 
@@ -3508,14 +3523,11 @@ class D_O extends CI_Controller
     {
         if ($this->input->post()) {
             $postData = $this->security->xss_clean($this->input->post());
-            // print_r($postData);exit;
-
-            // $oc_no = $postData['oc_num'];
+            
             $p_id = $postData['id'];
             $term = $postData['term'];
 
             $insert_array = array(
-                //'oc_no' => $oc_no,
                 'p_id' => $p_id,
                 'do_id' => $this->session->userdata('user_id'),
                 'term' => $term,
@@ -3561,6 +3573,13 @@ class D_O extends CI_Controller
                 'terminal_marks_date' => $postData['final_exam_date'],
                 'created_at' => date('Y-m-d')
             );
+
+            $if_row_exist = $this->db->select('term')->where('p_id', $p_id)->where('term', $term)->get('officer_qualities')->row_array(); //Dossier Continue
+
+            if ($if_row_exist['term'] == $term) {
+                $this->db->where('p_id', $p_id)->where('p_id', $p_id)->where('term', $term)->delete('officer_qualities');
+            }
+
             $insert = $this->db->insert('officer_qualities', $insert_array);
         }
 

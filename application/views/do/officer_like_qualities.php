@@ -155,15 +155,13 @@
                                                 <?php $count = 0;
                                                 foreach ($quality_list as $data) { ?>
                                                     <tr>
-                                                        <td scope="row" style="padding:25px"><?= $data['id']; ?></td>
+                                                        <td scope="row" style="padding:25px"><?= ++$count; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['quality_name']; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['max_marks']; ?></td>
-                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks" placeholder="Marks"></td>
-                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="final_marks[]" id="final_marks" placeholder="Marks"></td>
-
+                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks<?=$count;?>" placeholder="Marks"></td>
+                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="final_marks[]" id="final_marks<?=$count;?>" placeholder="Marks"></td>
                                                     </tr>
                                                 <?php
-                                                    $count++;
                                                 } ?>
                                                 <tr>
                                                     <td scope="row"><button type="button" class="btn btn-primary btn-user btn-block" id="calculate_btn">Auto Calculate</button></td>
@@ -209,9 +207,6 @@
                                 </div>
                             </div>
 
-
-
-
                             <div class="form-group row justify-content-center">
                                 <div class="col-sm-4">
                                     <button type="submit" class="btn btn-primary btn-user btn-block" id="save_btn">
@@ -225,8 +220,6 @@
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -275,12 +268,8 @@
 
 
     $('#add_btn').on('click', function() {
-        //alert('javascript working');
-        // $('#add_btn').attr('disabled', true);
         var validate = 0;
-
         var oc_no = $('#oc_no').val();
-
 
         if (oc_no == '') {
             validate = 1;
@@ -292,7 +281,7 @@
             $('#show_error_new').hide();
 
             $.ajax({
-                url: '<?= base_url(); ?>D_O/search_cadet',
+                url: '<?= base_url(); ?>D_O/search_cadet_OLQs',
                 method: 'POST',
                 data: {
                     'oc_no': oc_no
@@ -305,10 +294,53 @@
                         $('#no_data').hide();
 
                         $('#name').val(result['name']);
-                        $('#term').val(result['term']);
+                        $('#term').val(result['pn_term']);
                         $('#division').val(result['divison_name']);
                         $('#oc_num').val(result['oc_no']);
-                        $('#id').val(result['p_id']);
+                        $('#id').val(result['pn_p_id']);
+
+                        $('#mid_marks1').val(result['truthfulness_mid']);
+                        $('#final_marks1').val(result['truthfulness_terminal']);
+                        $('#mid_marks2').val(result['integrity_mid']);
+                        $('#final_marks2').val(result['integrity_terminal']);
+                        $('#mid_marks3').val(result['pride_mid']);
+                        $('#final_marks3').val(result['pride_terminal']);
+                        $('#mid_marks4').val(result['courage_mid']);
+                        $('#final_marks4').val(result['courage_terminal']);
+                        $('#mid_marks5').val(result['confidence_mid']);
+                        $('#final_marks5').val(result['confidence_terminal']);
+                        $('#mid_marks6').val(result['initiative_mid']);
+                        $('#final_marks6').val(result['inititative_terminal']);
+                        $('#mid_marks7').val(result['command_mid']);
+                        $('#final_marks7').val(result['command_terminal']);
+                        $('#mid_marks8').val(result['discipline_mid']);
+                        $('#final_marks8').val(result['discipline_terminal']);
+                        $('#mid_marks9').val(result['duty_mid']);
+                        $('#final_marks9').val(result['duty_terminal']);
+                        $('#mid_marks10').val(result['reliability_mid']);
+                        $('#final_marks10').val(result['reliability_terminal']);
+                        $('#mid_marks11').val(result['appearance_mid']);
+                        $('#final_marks11').val(result['appearance_terminal']);
+                        $('#mid_marks12').val(result['fitness_mid']);
+                        $('#final_marks12').val(result['fitness_terminal']);
+                        $('#mid_marks13').val(result['conduct_mid']);
+                        $('#final_marks13').val(result['conduct_terminal']);
+                        $('#mid_marks14').val(result['cs_mid']);
+                        $('#final_marks14').val(result['cs_terminal']);
+                        $('#mid_marks15').val(result['teamwork_mid']);
+                        $('#final_marks15').val(result['teamwork_terminal']);
+                        $('#mid_marks16').val(result['expression_mid']);
+                        $('#final_marks16').val(result['expression_terminal']);
+
+                        $('#total_mid_marks').val(result['total_mid']);
+                        $('#total_final_marks').val(result['total_terminal']);
+                        $('#mid_percentage').val(result['mid_marks']);
+                        $('#final_percentage').val(result['terminal_marks']);
+                        $('#mid_exam_date').val(result['mid_marks_date']);
+                        $('#final_exam_date').val(result['terminal_marks_date']);
+                        
+
+
                     } else {
                         $('#no_data').show();
                         $('#search_cadet').hide();

@@ -84,15 +84,14 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+            <!-- <li class="nav-item">
+                <?php //if ($this->session->userdata('unit_id') == '1') { ?>
                     <a class="nav-link collapsed" href="<?php echo base_url(); ?>CAO/personal_data" aria-expanded="true">
                         <i class="fab fa-wpforms"></i>
                         <span>PN Form I</span>
-                        <!-- <span>Components</span> -->
                     </a>
-                <?php } ?>
-            </li>
+                <?php //} ?>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
