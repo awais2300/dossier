@@ -717,7 +717,13 @@ class CT extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $data['pn_data'] = $this->db->where('divison_name',  'XYZ')->get('pn_form1s')->row_array();
+            //print_r( $data['pn_data']);exit;
             $data['divisions'] = $this->db->get('divisions')->result_array();
+          
+            // $update_array  = ['ct_viewed' =>  'yes' ];
+            // $cond  = ['p_id' =>  $data['pn_data']['p_id'] ];
+            // $this->db->where($cond);
+            // $update = $this->db->update('pn_form1s', $update_array);
 
             $this->load->view('ct/view_dossier_folder', $data);
         }
@@ -739,6 +745,17 @@ class CT extends CI_Controller
                     $data['pn_data'] = $this->db->where('oc_no', $oc_no)->where_not_in('unit_id', $units_list)->get('pn_form1s')->row_array();
                 }
             }
+
+            $update_array = array(
+                'ct_viewed' =>  'yes'
+            );
+          $this->db->where('p_id', $data['pn_data']['p_id']);
+           
+            $this->db->update('pn_form1s',$update_array);
+
+           
+
+
 
             if (!isset($oc_no)) {
                 $data['pn_personal_data'] = $this->db->where('p_id', $data['pn_data']['p_id'])->get('personal_datas')->row_array();

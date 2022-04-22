@@ -2810,6 +2810,9 @@ INSERT INTO `branch_preference_list`( `branch_name`) VALUES ('ME');
 alter table pn_form1s
 add COLUMN branch_id int(11) null;
 
+alter table pn_form1s
+add COLUMN ct_viewed enum('no','yes');
+
 /* Update S/LT in db xisting records */
 UPDATE `pn_form1s` SET `phase`='Sub-Lieutenant' WHERE `phase`='Sub-Leutinent';
 

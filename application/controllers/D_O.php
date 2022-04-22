@@ -97,6 +97,65 @@ class D_O extends CI_Controller
         }
     }
 
+    public function transfer_cadet()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $data['divisions'] = $this->db->get('divisions')->result_array();
+            $this->load->view('do/transfer_cadet', $data);
+        }
+    }
+
+    public function transfer_cadet_update(){
+        if ($this->input->post()) {
+            $postData = $this->security->xss_clean($this->input->post());
+
+
+            $division = $postData['division_name'];
+            $p_id = $postData['id'];
+           
+
+            //uddate previous club_records with same p_id
+            $cond  = ['p_id' => $p_id];
+            $data_update = [
+                'divison_name' =>  $division
+            ];
+
+            $this->db->where($cond);
+            $update = $this->db->update('pn_form1s', $data_update);
+
+            $insert_activity = array(
+                'activity_module' => $this->session->userdata('acct_type'),
+                'activity_action' => 'update',
+                'activity_detail' => "Cadet " . $cadet_name['name'] . " division has tranferred to: " . $division,
+                'activity_by' => $this->session->userdata('username'),
+                'activity_date' => date('Y-m-d H:i:s')
+            );
+
+            $insert_act = $this->db->insert('activity_log', $insert_activity);
+            $last_id = $this->db->insert_id();
+
+            $query = $this->db->where('username !=', $this->session->userdata('username'))->get('security_info')->result_array();
+
+            for ($i = 0; $i < count($query); $i++) {
+                $insert_activity_seen = array(
+                    'activity_id' => $last_id,
+                    'user_id' => $query[$i]['id'],
+                    'seen' => 'no'
+                );
+                $insert_act_seen = $this->db->insert('activity_log_seen', $insert_activity_seen);
+            }
+
+        if (!empty($update)) {
+            $this->session->set_flashdata('success', 'Cadet Division has been updated');
+            redirect('D_O/transfer_cadet');
+        } else {
+            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+            redirect('D_O/transfer_cadet');
+        }
+
+    }
+}
+
     public function update_cadet_club()
     {
         if ($this->input->post()) {
@@ -174,6 +233,7 @@ class D_O extends CI_Controller
             }
         }
     }
+    
 
     public function add_PN_Form()
     {
@@ -201,6 +261,7 @@ class D_O extends CI_Controller
                 'category' => $category,
                 'divison_name' => $div_name,
                 'term' => $term,
+                'ct_viewed'=>'no',
                 'unit_id' => 1 //By default Cadet is in unit PNS Rahbar (PNA)
 
             );
@@ -419,6 +480,7 @@ class D_O extends CI_Controller
                 'term' => $term,
                 'phase' => 'Phase 1',
                 'bahadur' => $country,
+                'ct_viewed'=>'no',
                 'unit_id' => 1 //By default Cadet is in unit PNS Rahbar (PNA)
             );
 
@@ -609,6 +671,7 @@ class D_O extends CI_Controller
                 'do_id' => $this->session->userdata('user_id'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
+               
                 'upload_file' => $files
             );
             $this->db->where('p_id', $officer_id);
@@ -1627,6 +1690,7 @@ class D_O extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $data['pn_data'] = $this->db->where('divison_name',  'XYZ')->get('pn_form1s')->row_array();
+          
             $this->load->view('do/view_dossier_folder', $data);
         }
     }

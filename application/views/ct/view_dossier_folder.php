@@ -45,7 +45,7 @@
             <div class="card-body" style="margin-left:30px; <?php if (!isset($pn_data['name'])) { ?> padding: 0px; height: 40px; <?php } ?>">
                 <h2 style="text-align:center; text-decoration:underline; margin-bottom:20px"><strong>VIEW CADET'S DOSSIER FOLDER</strong></h2>
 
-                <div class="row">
+                <div class="row" id="data" style="display:none">
                     <div class="col-lg-1">
                         <?php if (isset($pn_data['name'])) { ?>
                             <img src='<?= base_url() ?>assets/img/navy_logo-new.png' style="height:130px;">
@@ -55,7 +55,14 @@
                         <div class="col-lg-6 ">
                             <h4><strong><?php if (isset($pn_data['name'])) {
                                             echo $pn_data['name'];
-                                        } ?></strong></h4>
+                                        } ?></strong>
+                                         <?php if($pn_data['ct_viewed']=='yes'){?>
+                                        <img  src="<?= base_url()?>assets/img/accept.png"  width="60" height="60">
+                                    <?php } ?> 
+                                </h4>
+                                       
+
+
                         </div>
 
                         <div class="col-lg-6">
@@ -4728,6 +4735,7 @@
                         newDoc.write(data);
                         newDoc.close();
                         $('#cadet_dossier').show();
+                        $('#data').show();
                     } else {
                         $('#no_data').show();
                         $('#cadet_dossier').hide();

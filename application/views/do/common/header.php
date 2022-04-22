@@ -198,6 +198,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url(); ?>D_O/transfer_cadet" aria-expanded="true">
+                    <i class="far fa-list-alt"></i>
+                    <span> Transfer Cadet </span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>D_O/view_activity_log" aria-expanded="true">
                     <i class="far fa-list-alt"></i>
                     <span> View Activity Log </span>
