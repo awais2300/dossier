@@ -35,6 +35,11 @@
         width: 20px;
         text-align: center;
     }
+        input.largerCheckbox {
+            width: 40px;
+            height: 40px;
+        }
+  
 </style>
 
 <div class="container-fluid my-2">
@@ -44,10 +49,20 @@
         <div class="row my-2">
             <div class="card-body" style="margin-left:30px; <?php if (!isset($pn_data['name'])) { ?> padding: 0px; height: 40px; <?php } ?>">
                 <h2 style="text-align:center; text-decoration:underline; margin-bottom:20px"><strong>VIEW CADET'S DOSSIER FOLDER</strong></h2>
-
+               <?php if (isset($pn_data['ct_viewed'])){?>
+                <?php if($pn_data['ct_viewed']=='yes'){?>
+                <input class="largerCheckbox" type="checkbox" id="verified" name="option1"  value="something" style="margin-left:1170px;display:none" checked >
+                <?php }else{ ?>
+                    <input class="largerCheckbox" type="checkbox" id="verified" name="option1"  value="something" style="margin-left:1170px;display:none"  >
+                    <?php } ?>
+                    <?php } ?>
+                <br>
                 <div class="row" id="data" style="display:none">
+             
                     <div class="col-lg-1">
+                 
                         <?php if (isset($pn_data['name'])) { ?>
+                         
                             <img src='<?= base_url() ?>assets/img/navy_logo-new.png' style="height:130px;">
                         <?php } ?>
                     </div>
@@ -57,13 +72,16 @@
                                             echo $pn_data['name'];
                                         } ?></strong>
                                          <?php if($pn_data['ct_viewed']=='yes'){?>
-                                        <img  src="<?= base_url()?>assets/img/accept.png"  width="60" height="60">
-                                    <?php } ?> 
+                                        <img  src="<?= base_url()?>assets/img/accept.png" id="tick"  width="60" height="60">
+                                    <?php }else{ ?> 
+                                        <img  src="<?= base_url()?>assets/img/delete.png"  id="cross" width="60" height="60">
+                                        <?php } ?>
                                 </h4>
                                        
 
 
                         </div>
+                        <input type="hidden" id="oc" name="oc" />
 
                         <div class="col-lg-6">
                             <h4><?php if (isset($pn_data['phase'])) {
@@ -91,10 +109,15 @@
                                 } ?></h4>
                         </div>
                     </div>
+                   
                     <div class="col-lg-2">
+                           
+                   
+                            
                         <?php if (isset($pn_data['name'])) { ?>
                             <img src='<?= base_url() ?>uploads/documents/<?php echo $pn_personal_data['upload_file'] ?>' style="height:130px; width:100px; border:1px solid black;">
                         <?php } ?>
+                    
                     </div>
                 </div>
             </div>
@@ -4711,9 +4734,53 @@
 
 <?php $this->load->view('common/footer'); ?>
 <script>
+ var oc_no =   "<?php echo $oc_no_entered;  ?>";
+    $('#verified').on('change',function(){
+        var checkBox = document.getElementById("verified");
+       
+        //alert('true '+ oc_no);
+      if(checkBox.checked == true){
+          
+          $.ajax({
+                url: '<?= base_url(); ?>CT/update_dossier_seen',
+                method: 'POST',
+                data: {
+                    'value': 'true',
+                    'oc_no':oc_no
+                },
+                success: function(data) {
+                    $('#tick').show();
+                   $('#cross').hide(); 
+                },
+                async: true
+            });
+      }else{
+        //alert('false');
+        $.ajax({
+                url: '<?= base_url(); ?>CT/update_dossier_seen',
+                method: 'POST',
+                data: {
+                    'value': 'false',
+                    'oc_no':oc_no
+                },
+                success: function(data) {
+                   // location.reload(true);
+                   $('#cross').show();
+                   $('#tick').hide();
+                  
+
+                },
+                async: true
+            });
+      }
+
+    });
+
     $('#search_btn').on('click', function() {
         var validate = 0;
         var oc_no = $('#oc_no').val();
+        $("#oc").val(oc_no);
+        //alert(oc_no + " asfdafdf")
 
         if (oc_no == '') {
             validate = 1;
@@ -4736,8 +4803,10 @@
                         newDoc.close();
                         $('#cadet_dossier').show();
                         $('#data').show();
+                        $('#verified').show();
                     } else {
                         $('#no_data').show();
+                        $('#verified').hide();
                         $('#cadet_dossier').hide();
                     }
                 },

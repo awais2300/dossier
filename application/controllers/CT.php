@@ -728,6 +728,23 @@ class CT extends CI_Controller
             $this->load->view('ct/view_dossier_folder', $data);
         }
     }
+    public function update_dossier_seen(){
+        if ($this->session->has_userdata('user_id')) {
+            $oc_no = $_POST['oc_no'];
+           $value=$_POST['value'];
+           //echo $oc_no;exit;
+           if($value == 'true'){
+            $update_array  = ['ct_viewed' =>  'yes' ];
+           }else{
+            $update_array  = ['ct_viewed' =>  'no' ];
+           }
+            $cond  = ['oc_no' =>  $oc_no ];
+            $this->db->where($cond);
+            $update = $this->db->update('pn_form1s', $update_array);
+            
+
+        }
+    }
 
     public function search_cadet_for_dossier_folder()
     {
@@ -745,18 +762,12 @@ class CT extends CI_Controller
                     $data['pn_data'] = $this->db->where('oc_no', $oc_no)->where_not_in('unit_id', $units_list)->get('pn_form1s')->row_array();
                 }
             }
-
-            $update_array = array(
-                'ct_viewed' =>  'yes'
-            );
-          $this->db->where('p_id', $data['pn_data']['p_id']);
+        //     $update_array = array(
+        //         'ct_viewed' =>  'yes'
+        //     );
+        //   $this->db->where('p_id', $data['pn_data']['p_id']);
            
-            $this->db->update('pn_form1s',$update_array);
-
-           
-
-
-
+        //     $this->db->update('pn_form1s',$update_array);
             if (!isset($oc_no)) {
                 $data['pn_personal_data'] = $this->db->where('p_id', $data['pn_data']['p_id'])->get('personal_datas')->row_array();
             }
