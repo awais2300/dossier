@@ -25,6 +25,14 @@ class Admin extends CI_Controller
         $this->load->view('Admin/create_user', $data);
     }
 
+    public function change_do()
+    {
+        $data['divisions'] = $this->db->get('divisions')->result_array();
+        $data['do'] = $this->db->where('acct_type','do')->get('security_info')->result_array();
+
+        $this->load->view('Admin/change_DO', $data);
+    }
+
     public function show_user_list()
     {
         $data['users_list'] = $this->db->where('is_active', 'yes')->where_not_in('acct_type', 'admin')->get('security_info')->result_array();
