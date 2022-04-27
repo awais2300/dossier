@@ -35,11 +35,11 @@
         width: 20px;
         text-align: center;
     }
-        input.largerCheckbox {
-            width: 40px;
-            height: 40px;
-        }
-  
+
+    input.largerCheckbox {
+        width: 40px;
+        height: 40px;
+    }
 </style>
 
 <div class="container-fluid my-2">
@@ -49,20 +49,14 @@
         <div class="row my-2">
             <div class="card-body" style="margin-left:30px; <?php if (!isset($pn_data['name'])) { ?> padding: 0px; height: 40px; <?php } ?>">
                 <h2 style="text-align:center; text-decoration:underline; margin-bottom:20px"><strong>VIEW CADET'S DOSSIER FOLDER</strong></h2>
-               <?php if (isset($pn_data['ct_viewed'])){?>
-                <?php if($pn_data['ct_viewed']=='yes'){?>
-                <input class="largerCheckbox" type="checkbox" id="verified" name="option1"  value="something" style="margin-left:1170px;display:none" checked >
-                <?php }else{ ?>
-                    <input class="largerCheckbox" type="checkbox" id="verified" name="option1"  value="something" style="margin-left:1170px;display:none"  >
-                    <?php } ?>
-                    <?php } ?>
+
                 <br>
                 <div class="row" id="data" style="display:none">
-             
+
                     <div class="col-lg-1">
-                 
+
                         <?php if (isset($pn_data['name'])) { ?>
-                         
+
                             <img src='<?= base_url() ?>assets/img/navy_logo-new.png' style="height:130px;">
                         <?php } ?>
                     </div>
@@ -71,18 +65,17 @@
                             <h4><strong><?php if (isset($pn_data['name'])) {
                                             echo $pn_data['name'];
                                         } ?></strong>
-                                         <?php  if (isset($pn_data['ct_viewed'])){
-                                         if($pn_data['ct_viewed']=='yes'){?>
-                                        <img  src="<?= base_url()?>assets/img/accept.png" id="tick"  width="60" height="60">
-                                    <?php }else{ ?> 
-                                        <img  src="<?= base_url()?>assets/img/delete.png"  id="cross" width="60" height="60">
-                                        <?php } 
-                                        } ?>
-                                        <img  src="<?= base_url()?>assets/img/accept.png" id="tick"  width="60" height="60" style="display:none">
-                                        <img  src="<?= base_url()?>assets/img/delete.png"  id="cross" width="60" height="60" style="display:none">
-                                </h4>
-                                       
 
+                                <?php if (isset($pn_data['ct_viewed'])) {
+                                    if ($pn_data['ct_viewed'] == 'yes') { ?>
+                                        <img src="<?= base_url() ?>assets/img/accept.png" id="tick" style="height:25px">
+                                    <?php } else { ?>
+                                        <img src="<?= base_url() ?>assets/img/delete.png" id="cross" style="height:25px">
+                                <?php }
+                                } ?>
+                                <img src="<?= base_url() ?>assets/img/accept.png" id="tick"   style="display:none;height:25px">
+                                <img src="<?= base_url() ?>assets/img/delete.png" id="cross"  style="display:none;height:25px">
+                            </h4>
 
                         </div>
                         <input type="hidden" id="oc" name="oc" />
@@ -112,16 +105,30 @@
                                     echo $pn_data['divison_name'];
                                 } ?></h4>
                         </div>
+
                     </div>
-                   
+
                     <div class="col-lg-2">
-                           
-                   
-                            
-                        <?php if (isset($pn_data['name'])) { ?>
-                            <img src='<?= base_url() ?>uploads/documents/<?php echo $pn_personal_data['upload_file'] ?>' style="height:130px; width:100px; border:1px solid black;">
-                        <?php } ?>
-                    
+                        
+
+                        <div class="col-lg-2">
+                            <?php if (isset($pn_data['name'])) { ?>
+                                <img src='<?= base_url() ?>uploads/documents/<?php echo $pn_personal_data['upload_file'] ?>' style="height:130px; width:100px; border:1px solid black;">
+                            <?php } ?>
+                        </div>
+
+                        <div class="col-lg-10">
+                            <?php if (isset($pn_data['ct_viewed'])) { ?>
+                                <?php if ($pn_data['ct_viewed'] == 'yes') { ?>
+                                    <input class="Checkbox" type="checkbox" id="verified" name="option1" value="something" checked> <label style="font-size:small" for="">Mark Verified</label> 
+                                <?php } else { ?>
+                                    <input class="Checkbox" type="checkbox" id="verified" name="option1" value="something"> <label style="font-size:small" for="">Mark Verified</label>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <input class="Checkbox" type="checkbox" id="verified" name="option1" value="something"> <label style="font-size:small" for="">Mark Verified</label>
+                            <?php } ?>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -492,7 +499,7 @@
 
 
     </div>
-    <div class="card-body bg-custom3" id="cadet_list_container" style="display:none" >
+    <div class="card-body bg-custom3" id="cadet_list_container" style="display:none">
         <?php if (!isset($pn_data['name'])) {
         ?>
             <div class="row">
@@ -4738,45 +4745,45 @@
 
 <?php $this->load->view('common/footer'); ?>
 <script>
- var oc_no =   "<?php echo $oc_no_entered;  ?>";
-    $('#verified').on('change',function(){
+    var oc_no = "<?php echo $oc_no_entered;  ?>";
+    $('#verified').on('change', function() {
         var checkBox = document.getElementById("verified");
-       
+
         //alert('true '+ oc_no);
-      if(checkBox.checked == true){
-          
-          $.ajax({
+        if (checkBox.checked == true) {
+
+            $.ajax({
                 url: '<?= base_url(); ?>CT/update_dossier_seen',
                 method: 'POST',
                 data: {
                     'value': 'true',
-                    'oc_no':oc_no
+                    'oc_no': oc_no
                 },
                 success: function(data) {
                     $('#tick').show();
-                   $('#cross').hide(); 
+                    $('#cross').hide();
                 },
                 async: true
             });
-      }else{
-        //alert('false');
-        $.ajax({
+        } else {
+            //alert('false');
+            $.ajax({
                 url: '<?= base_url(); ?>CT/update_dossier_seen',
                 method: 'POST',
                 data: {
                     'value': 'false',
-                    'oc_no':oc_no
+                    'oc_no': oc_no
                 },
                 success: function(data) {
-                   // location.reload(true);
-                   $('#cross').show();
-                   $('#tick').hide();
-                  
+                    // location.reload(true);
+                    $('#cross').show();
+                    $('#tick').hide();
+
 
                 },
                 async: true
             });
-      }
+        }
 
     });
 
@@ -5246,13 +5253,13 @@
         var selectedValuediv = $('#div_select').val();
         // alert(selectedValue);
         // alert(selectedValuediv);
-        
+
         $.ajax({
             url: '<?= base_url(); ?>CT/search_cadet_termwise',
             method: 'POST',
             data: {
                 'term': selectedValue,
-                'div' : selectedValuediv
+                'div': selectedValuediv
             },
             success: function(data) {
                 var result = jQuery.parseJSON(data);
@@ -5341,7 +5348,7 @@
 
 
     function show_cadet(oc_no) {
-        
+
         $.ajax({
             url: '<?= base_url(); ?>CT/search_cadet_for_dossier_folder',
             method: 'POST',
