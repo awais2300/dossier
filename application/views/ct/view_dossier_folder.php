@@ -71,11 +71,15 @@
                             <h4><strong><?php if (isset($pn_data['name'])) {
                                             echo $pn_data['name'];
                                         } ?></strong>
-                                         <?php if($pn_data['ct_viewed']=='yes'){?>
+                                         <?php  if (isset($pn_data['ct_viewed'])){
+                                         if($pn_data['ct_viewed']=='yes'){?>
                                         <img  src="<?= base_url()?>assets/img/accept.png" id="tick"  width="60" height="60">
                                     <?php }else{ ?> 
                                         <img  src="<?= base_url()?>assets/img/delete.png"  id="cross" width="60" height="60">
-                                        <?php } ?>
+                                        <?php } 
+                                        } ?>
+                                        <img  src="<?= base_url()?>assets/img/accept.png" id="tick"  width="60" height="60" style="display:none">
+                                        <img  src="<?= base_url()?>assets/img/delete.png"  id="cross" width="60" height="60" style="display:none">
                                 </h4>
                                        
 
