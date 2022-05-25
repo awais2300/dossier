@@ -2813,6 +2813,9 @@ add COLUMN branch_id int(11) null;
 alter table pn_form1s
 add COLUMN ct_viewed enum('no','yes');
 
+alter table pn_form1s
+add COLUMN old_division varchar(255);
+
 /* Update S/LT in db xisting records */
 UPDATE `pn_form1s` SET `phase`='Sub-Lieutenant' WHERE `phase`='Sub-Leutinent';
 

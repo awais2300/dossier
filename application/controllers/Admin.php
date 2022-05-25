@@ -16,6 +16,58 @@ class Admin extends CI_Controller
             $this->load->view('Admin/login');
         }
     }
+    public function find_old_division(){
+        if ($this->session->has_userdata('user_id')) {
+          $do_name= $_POST['do_name'];
+
+          $data['old_division']=$this->db->where('username',$do_name)->get('security_info')->row_array();
+
+          echo json_encode( $data['old_division']);
+
+
+        }
+
+    }
+
+    public function change_division_process(){
+        $postData = $this->security->xss_clean($this->input->post());
+        $old_div = $postData['old_division'];
+        $new_div = $postData['div'];
+        $do_id = $postData['do_id'];
+        $do_name = $postData['do_name'];
+      
+
+
+        $update_array = array(
+            'division' =>$new_div
+            // 'password' => password_hash($postData['password'], PASSWORD_DEFAULT),
+        );
+        // print_r($update_array);exit;
+        $cond  = ['id' =>$do_id];
+        $this->db->where($cond);
+        $update = $this->db->update('security_info', $update_array);
+
+        //update in cadet data
+        $update_array = array(
+            'divison_name' =>$new_div,
+            'old_division'=> $old_div
+            // 'password' => password_hash($postData['password'], PASSWORD_DEFAULT),
+        );
+        // print_r($update_array);exit;
+        $cond  = ['do_id' =>$do_id];
+        $this->db->where($cond);
+        $update1 = $this->db->update('pn_form1s', $update_array);
+
+        if (!empty($update) && !empty($update1)) {
+            $this->session->set_flashdata('success', 'Updated Successfully');
+            redirect('Admin/change_do');
+        } else {
+            $this->session->set_flashdata('failure', 'Error');
+            redirect('Admin/change_do');
+        }
+
+
+    }
 
     public function add_users()
     {
