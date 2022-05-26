@@ -2813,8 +2813,14 @@ add COLUMN branch_id int(11) null;
 alter table pn_form1s
 add COLUMN ct_viewed enum('no','yes');
 
-alter table pn_form1s
-add COLUMN old_division varchar(255);
+alter table divisional_officer_records
+add COLUMN division_name varchar(255);
+
+ALTER TABLE divisional_officer_records
+DROP COLUMN do_id
+
+
+
 
 /* Update S/LT in db xisting records */
 UPDATE `pn_form1s` SET `phase`='Sub-Lieutenant' WHERE `phase`='Sub-Leutinent';

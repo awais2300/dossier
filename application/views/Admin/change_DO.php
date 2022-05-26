@@ -15,50 +15,51 @@
 
                     <div class="card">
                         <div class="card-header bg-custom1">
-                            <h1 class="h4 text-white">Change Division</h1>
+                            <h1 class="h4 text-white">Change DO of Division</h1>
                         </div>
 
                         <div class="card-body bg-custom3">
-                            <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>Admin/change_division_process">
+                            <form class="user" role="form" method="post" id="add_form" action="<?= base_url(); ?>Admin/change_do_process">
                             <input type="hidden" id="do_id" name="do_id"/>
                             <div class="form-group row">
                                     <div class="col-sm-12 mb-1">
-                                        <h6>&nbsp;DO:</h6>
+                                        <h6>&nbsp;Division:</h6>
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <div class="col-sm-12 mb-1">
-                                    <select class="form-control rounded-pill" name="do_name" id="do_name" data-placeholder="Select DO" style="font-size: 0.8rem; height:50px;">
-                                            <option class="form-control form-control-user" value="">Select DO</option>
-                                            <?php foreach ($do as $data) { ?>
-                                                <option class="form-control form-control-user" value="<?= $data['username'] ?>"><?= $data['username'] ?></option>
+                                    <select class="form-control rounded-pill" name="div" id="div" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
+                                            <option class="form-control form-control-user" value="">Select Division</option>
+                                            <?php foreach ($divisions as $data) { ?>
+                                                <option class="form-control form-control-user" value="<?= $data['division_name'] ?>"><?= $data['division_name'] ?></option>
                                             <?php } ?>
-                                        </select>  
+                                        </select> 
+                                 
                                     
                                     </div>
                                             </div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-1">
-                                        <h6>&nbsp;Previous Division:</h6>
+                                        <h6>&nbsp;Previous DO:</h6>
                                     </div>
                                     <div class="col-sm-6 mb-1">
-                                        <h6>&nbsp;Select Divison:</h6>
+                                        <h6>&nbsp;Select DO:</h6>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-1">
-                                   <input type="text" class="form-control rounded-pill" style="font-size: 0.8rem; height:50px;" id="old_division" name="old_division" readonly/>
+                                   <input type="text" class="form-control rounded-pill" style="font-size: 0.8rem; height:50px;" id="old_do" name="old_do" readonly/>
                                     
                                     </div>
                                     
                                 <div class="col-sm-6 mb-1">
-                                <select class="form-control rounded-pill" name="div" id="div" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
-                                            <option class="form-control form-control-user" value="">Select Division</option>
-                                            <?php foreach ($divisions as $data) { ?>
-                                                <option class="form-control form-control-user" value="<?= $data['division_name'] ?>"><?= $data['division_name'] ?></option>
+                                <select class="form-control rounded-pill" name="do_name" id="do_name" data-placeholder="Select DO" style="font-size: 0.8rem; height:50px;">
+                                            <option class="form-control form-control-user" value="">Select DO</option>
+                                            <?php foreach ($do as $data) { ?>
+                                                <option class="form-control form-control-user" value="<?= $data['username'] ?>"><?= $data['username'] ?></option>
                                             <?php } ?>
-                                        </select> 
+                                        </select>  
                                 </div>
                                             </div>
                                 <hr>
@@ -84,19 +85,20 @@
 </div>
 <?php $this->load->view('common/footer'); ?>
 <script>
-     $('#do_name').on('change', function() {
-            var do_name= $("#do_name").val();
+     $('#div').on('change', function() {
+            var division= $("#div").val();
+            //alert(division);
             $.ajax({
-                url: '<?= base_url(); ?>Admin/find_old_division',
+                url: '<?= base_url(); ?>Admin/find_old_do',
                 method: 'POST',
                 data: {
-                    'do_name': do_name
+                    'div': division
                 },
                 success: function(data) {
                     var result = jQuery.parseJSON(data);
 
                     if (result != undefined) {
-                        $('#old_division').val(result['division']);
+                        $('#old_do').val(result['username']);
                         $('#do_id').val(result['id']);
                     }
 

@@ -16,30 +16,28 @@ class Admin extends CI_Controller
             $this->load->view('Admin/login');
         }
     }
-    public function find_old_division(){
+    public function find_old_do(){
         if ($this->session->has_userdata('user_id')) {
-          $do_name= $_POST['do_name'];
-
-          $data['old_division']=$this->db->where('username',$do_name)->get('security_info')->row_array();
-
-          echo json_encode( $data['old_division']);
+          $division= $_POST['div'];
+          $data['old_do']=$this->db->where('division',$division)->where('acct_type','do')->get('security_info')->row_array();
+          echo json_encode( $data['old_do']);
 
 
         }
 
     }
 
-    public function change_division_process(){
+    public function change_do_process(){
         $postData = $this->security->xss_clean($this->input->post());
-        $old_div = $postData['old_division'];
-        $new_div = $postData['div'];
+        $old_do = $postData['old_do'];
+        $new_do = $postData['do_name'];
         $do_id = $postData['do_id'];
-        $do_name = $postData['do_name'];
+        $div_name = $postData['div'];
       
 
 
         $update_array = array(
-            'division' =>$new_div
+            'username' =>$new_do
             // 'password' => password_hash($postData['password'], PASSWORD_DEFAULT),
         );
         // print_r($update_array);exit;
@@ -47,16 +45,15 @@ class Admin extends CI_Controller
         $this->db->where($cond);
         $update = $this->db->update('security_info', $update_array);
 
-        //update in cadet data
+        //Insert in divisional officer record
+
         $update_array = array(
-            'divison_name' =>$new_div,
-            'old_division'=> $old_div
+            'division_name' =>$div_name ,
+            'officer_name'=>   $new_do,
+            'updated_at'=> date('y-m-d H:i:s')
             // 'password' => password_hash($postData['password'], PASSWORD_DEFAULT),
         );
-        // print_r($update_array);exit;
-        $cond  = ['do_id' =>$do_id];
-        $this->db->where($cond);
-        $update1 = $this->db->update('pn_form1s', $update_array);
+        $update1 = $this->db->insert('divisional_officer_records', $update_array);
 
         if (!empty($update) && !empty($update1)) {
             $this->session->set_flashdata('success', 'Updated Successfully');
@@ -239,6 +236,15 @@ class Admin extends CI_Controller
 
                 //print_r($insert_array);exit;
                 $insert = $this->db->insert('security_info', $insert_array);
+
+                $insert_array = array(
+                    'division_name' =>  $division,
+                    'officer_name' => $username,
+                    'updated_at' => date('Y-m-d H:i:s')
+                    
+                );
+                $insert = $this->db->insert('divisional_officer_records', $insert_array);
+
 
                 if (!empty($insert)) {
                     $this->session->set_flashdata('success', 'User Created successfully');
