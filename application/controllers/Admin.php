@@ -16,11 +16,11 @@ class Admin extends CI_Controller
             $this->load->view('Admin/login');
         }
     }
-    public function find_old_do(){
+    public function find_old_division(){
         if ($this->session->has_userdata('user_id')) {
-          $division= $_POST['div'];
-          $data['old_do']=$this->db->where('division',$division)->where('acct_type','do')->get('security_info')->row_array();
-          echo json_encode( $data['old_do']);
+          $do= $_POST['do_name'];
+          $data['old_division']=$this->db->where('username',$do)->where('acct_type','do')->get('security_info')->row_array();
+          echo json_encode( $data['old_division']);
 
 
         }
@@ -29,15 +29,15 @@ class Admin extends CI_Controller
 
     public function change_do_process(){
         $postData = $this->security->xss_clean($this->input->post());
-        $old_do = $postData['old_do'];
-        $new_do = $postData['do_name'];
+        $do_name = $postData['do_name'];
+        $old_div = $postData['old_div'];
         $do_id = $postData['do_id'];
-        $div_name = $postData['div'];
+        $div_name = $postData['div_name'];
       
 
 
         $update_array = array(
-            'username' =>$new_do
+            'division' =>$div_name
             // 'password' => password_hash($postData['password'], PASSWORD_DEFAULT),
         );
         // print_r($update_array);exit;
@@ -49,7 +49,8 @@ class Admin extends CI_Controller
 
         $update_array = array(
             'division_name' =>$div_name ,
-            'officer_name'=>   $new_do,
+            'do_id'=>$do_id,
+            'officer_name'=>   $do_name,
             'updated_at'=> date('y-m-d H:i:s')
             // 'password' => password_hash($postData['password'], PASSWORD_DEFAULT),
         );
@@ -236,12 +237,12 @@ class Admin extends CI_Controller
 
                 //print_r($insert_array);exit;
                 $insert = $this->db->insert('security_info', $insert_array);
-
+                $recent_id= $this->db->insert_id();
                 $insert_array = array(
                     'division_name' =>  $division,
+                    'do_id'=>$recent_id,
                     'officer_name' => $username,
                     'updated_at' => date('Y-m-d H:i:s')
-                    
                 );
                 $insert = $this->db->insert('divisional_officer_records', $insert_array);
 

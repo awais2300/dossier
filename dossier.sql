@@ -2816,8 +2816,6 @@ add COLUMN ct_viewed enum('no','yes');
 alter table divisional_officer_records
 add COLUMN division_name varchar(255);
 
-ALTER TABLE divisional_officer_records
-DROP COLUMN do_id
 
 
 

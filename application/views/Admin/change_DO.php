@@ -15,7 +15,7 @@
 
                     <div class="card">
                         <div class="card-header bg-custom1">
-                            <h1 class="h4 text-white">Change DO of Division</h1>
+                            <h1 class="h4 text-white">Change Division</h1>
                         </div>
 
                         <div class="card-body bg-custom3">
@@ -23,43 +23,42 @@
                             <input type="hidden" id="do_id" name="do_id"/>
                             <div class="form-group row">
                                     <div class="col-sm-12 mb-1">
-                                        <h6>&nbsp;Division:</h6>
+                                        <h6>&nbsp;DO:</h6>
                                     </div>
                             </div>
                             <div class="form-group row">
                                     <div class="col-sm-12 mb-1">
-                                    <select class="form-control rounded-pill" name="div" id="div" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
-                                            <option class="form-control form-control-user" value="">Select Division</option>
-                                            <?php foreach ($divisions as $data) { ?>
-                                                <option class="form-control form-control-user" value="<?= $data['division_name'] ?>"><?= $data['division_name'] ?></option>
-                                            <?php } ?>
-                                        </select> 
-                                 
-                                    
-                                    </div>
-                                            </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-1">
-                                        <h6>&nbsp;Previous DO:</h6>
-                                    </div>
-                                    <div class="col-sm-6 mb-1">
-                                        <h6>&nbsp;Select DO:</h6>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-1">
-                                   <input type="text" class="form-control rounded-pill" style="font-size: 0.8rem; height:50px;" id="old_do" name="old_do" readonly/>
-                                    
-                                    </div>
-                                    
-                                <div class="col-sm-6 mb-1">
                                 <select class="form-control rounded-pill" name="do_name" id="do_name" data-placeholder="Select DO" style="font-size: 0.8rem; height:50px;">
                                             <option class="form-control form-control-user" value="">Select DO</option>
                                             <?php foreach ($do as $data) { ?>
                                                 <option class="form-control form-control-user" value="<?= $data['username'] ?>"><?= $data['username'] ?></option>
                                             <?php } ?>
                                         </select>  
+                                    </div>
+                                            </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-1">
+                                        <h6>&nbsp;Previous Division:</h6>
+                                    </div>
+                                    <div class="col-sm-6 mb-1">
+                                        <h6>&nbsp;Select Division:</h6>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-1">
+                                   <input type="text" class="form-control rounded-pill" style="font-size: 0.8rem; height:50px;" id="old_div" name="old_div" readonly/>
+                                    
+                                    </div>
+                                    
+                                <div class="col-sm-6 mb-1">
+                                <select class="form-control rounded-pill" name="div_name" id="div_name" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
+                                            <option class="form-control form-control-user" value="">Select Division</option>
+                                            <?php foreach ($divisions as $data) { ?>
+                                                <option class="form-control form-control-user" value="<?= $data['division_name'] ?>"><?= $data['division_name'] ?></option>
+                                            <?php } ?>
+                                        </select> 
+                               
                                 </div>
                                             </div>
                                 <hr>
@@ -85,20 +84,20 @@
 </div>
 <?php $this->load->view('common/footer'); ?>
 <script>
-     $('#div').on('change', function() {
-            var division= $("#div").val();
+     $('#do_name').on('change', function() {
+            var do_name = $("#do_name").val();
             //alert(division);
             $.ajax({
-                url: '<?= base_url(); ?>Admin/find_old_do',
+                url: '<?= base_url(); ?>Admin/find_old_division',
                 method: 'POST',
                 data: {
-                    'div': division
+                    'do_name': do_name
                 },
                 success: function(data) {
                     var result = jQuery.parseJSON(data);
 
                     if (result != undefined) {
-                        $('#old_do').val(result['username']);
+                        $('#old_div').val(result['division']);
                         $('#do_id').val(result['id']);
                     }
 
