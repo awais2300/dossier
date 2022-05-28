@@ -2816,6 +2816,8 @@ add COLUMN ct_viewed enum('no','yes');
 alter table divisional_officer_records
 add COLUMN division_name varchar(255);
 
+alter table semester_results
+add COLUMN division_name varchar(255);
 
 
 

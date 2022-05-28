@@ -4325,6 +4325,7 @@ class CT extends CI_Controller
                     'gpa_t8' => $gpa_t8,
                     'cgpa' => $cgpa,
                     'phase' => $phase,
+                    'division_name'=>$this->session->userdata('division'),
                     'created_at' => date('Y-m-d H:i:s')
                 );
                 $insert = $this->db->insert('semester_results', $insert_array);

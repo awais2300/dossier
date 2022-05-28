@@ -8,6 +8,15 @@
 <?php !isset($gpa['gpa_t7']) ? $gpa['gpa_t7'] = 0 : $gpa['gpa_t7']; ?>
 <?php !isset($gpa['gpa_t8']) ? $gpa['gpa_t8'] = 0 : $gpa['gpa_t8']; ?>
 
+<?php !isset($gpa_term1) ? $gpa_term1 = 0 : $gpa_term1; ?>
+<?php !isset($gpa_term2) ? $gpa_term2 = 0 : $gpa_term2; ?>
+<?php !isset($gpa_term3) ? $gpa_term3 = 0 : $gpa_term3; ?>
+<?php !isset($gpa_term4) ? $gpa_term4 = 0 : $gpa_term4; ?>
+<?php !isset($gpa_term5) ? $gpa_term5 = 0 : $gpa_term5; ?>
+<?php !isset($gpa_term6) ? $gpa_term6 = 0 : $gpa_term6; ?>
+<?php !isset($gpa_term7) ? $gpa_term7 = 0 : $gpa_term7; ?>
+<?php !isset($gpa_term8) ? $gpa_term8 = 0 : $gpa_term8; ?>
+
 
 <style>
     .red-border {
@@ -46,10 +55,10 @@
 
     <div class="card-body bg-custom3">
         <!-- Nested Row within Card Body -->
-        <div class="row">
+        <div class="row" style="display:none" id="search">
             <div class="col-lg-12">
 
-                <div class="card" style="display:none">
+                <div class="card" >
                     <div class="card-header bg-custom1">
                         <h1 class="h4">Search Cadet</h1>
                     </div>
@@ -82,7 +91,9 @@
 
             </div>
 
-    <div class="row" id="buttons">
+        </div>
+
+        <div class="row" id="buttons">
         <div class="col-sm-3 mb-1">
             <a id="cadet_academic" href="#" class="btn btn-md btn-primary shadow-md rounded-pill" style="border-radius:20px;width:100%; height:100%"><i class="fas fa-globe fa-md text-white-60"></i> Cadet Academic Graph </a>
         </div>
@@ -90,8 +101,6 @@
             <a id="aggregated_academic" href="#" class="btn btn-md btn-primary shadow-md rounded-pill" style="border-radius:20px;width:100%;height:100%"><i class="fas fa-align-justify fa-md text-white-60"></i> Aggregated Academic Record</a>
         </div>
     </div>
-
-        </div>
 
         <div id="search_cadet" class="row my-2" style="display:none">
             <div class="col-lg-12">
@@ -164,6 +173,14 @@
         </div>
     </div>
 
+    <div class="card-body bg-custom3" id="aggregated_graph" style="display:none">
+        <div class="form-group row" style="margin-top:50px;">
+            <div class="col-sm-12">
+                <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+
     <?php
 
     $dataPoints1 = array(
@@ -175,6 +192,17 @@
         array("label" => "Term-VI", "y" => ($gpa['gpa_t6'])),
         array("label" => "Term-VII", "y" => ($gpa['gpa_t7'])),
         array("label" => "Term-VIII", "y" => ($gpa['gpa_t8'])),
+    );
+
+    $dataPoints2 = array(
+        array("label" => "Term-I", "y" => ($gpa_term1)),
+        array("label" => "Term-II", "y" => ($gpa_term2)),
+        array("label" => "Term-III", "y" => ($gpa_term3)),
+        array("label" => "Term-IV", "y" => ($gpa_term4)),
+        array("label" => "Term-V", "y" => ($gpa_term5)),
+        array("label" => "Term-VI", "y" => ($gpa_term6)),
+        array("label" => "Term-VII", "y" => ($gpa_term7)),
+        array("label" => "Term-VIII", "y" => ($gpa_term8)),
     );
     ?>
 
@@ -219,10 +247,67 @@
             }]
         });
         chart1.render();
+
+
+        //aggregated
+        setTimeout(function() {
+        var chart2 = new CanvasJS.Chart("chartContainer3", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            colorSet: "blueShades",
+            title: {
+                text: "Aggregated Result of all Cadets " ,
+                fontColor: 'rgb(0, 1, 84)',
+                horizontalAlign: "center"
+
+            },
+            subtitles: [{
+                text: "GPA Termwise"
+            }],
+            axisY: {
+                title: "GPA",
+                maximum: 4,
+                color:'blue'
+            },
+            data: [{
+                type: "area",
+                showInLegend: true,
+                legendMarkerColor: "black",
+                legendText: "Terms",
+                dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart2.render();
+    },2000);
         // $('#overall_graph').show();
     }
 
+    $('#cadet_academic').on('click', function() {
 
+$('#search').show();
+$('#buttons').hide();
+});
+
+$('#aggregated_academic').on('click', function() {
+
+$.ajax({
+    url: '<?= base_url(); ?>D_O/get_aggregated_academic',
+    method: 'POST',
+    data: {
+        'p_id': $('#id').val()
+    },
+    success: function(data) {
+        var newDoc = document.open("text/html", "replace");
+        newDoc.write(data);
+        newDoc.close();
+    },
+    async: false,
+
+});
+
+$('#aggregated_graph').show();
+$('#overall_graph').hide();
+});
     function seen(data) {
         // alert('in');
         // alert(data);
@@ -277,6 +362,9 @@
                     if (result != undefined) {
                         $('#search_cadet').show();
                         $('#no_data').hide();
+                         $('#no_data').hide();
+                      
+
 
                         $('#officer_name').val(result['name']);
                         $('#term').val(result['term']);
@@ -312,6 +400,7 @@
                 });
 
                 $('#overall_graph').show();
+                
             }
 
         } else {

@@ -1728,11 +1728,48 @@ class D_O extends CI_Controller
             $p_id = $_POST['p_id'];
             $data['gpa'] = $this->db->where('p_id', $p_id)->get('semester_results')->row_array();
             $data['cadet_data'] = $this->db->where('p_id', $p_id)->get('pn_form1s')->row_array();
-            $view_page = $this->load->view('ct/view_academic_graph', $data, false);
+            $view_page = $this->load->view('do/view_academic_graph', $data, false);
             // echo $view_page;
             json_encode($view_page);
         }
     }
+
+    public function get_aggregated_academic()
+    {
+        if ($this->input->post()) {
+           // $p_id = $_POST['p_id'];
+            $data['aggregated_gpa'] = $this->db->where('division_name', $this->session->userdata('division'))->get('semester_results')->result_array();
+           $gpa_term1=0;$gpa_term2=0;$gpa_term3=0;$gpa_term4=0;$gpa_term5=0;$gpa_term6=0;$gpa_term7=0;$gpa_term8=0;
+         // print_r( $data['aggregated_gpa']);
+         $count=0;
+            foreach( $data['aggregated_gpa'] as $data){
+              $count++;
+                   $gpa_term1+=$data['gpa_t1'];
+                   $gpa_term2+=$data['gpa_t2'];
+                   $gpa_term3+=$data['gpa_t3'];
+                   $gpa_term4+=$data['gpa_t4'];
+                   $gpa_term5+=$data['gpa_t5'];
+                   $gpa_term6+=$data['gpa_t6'];
+                   $gpa_term7+=$data['gpa_t7'];
+                   $gpa_term8+=$data['gpa_t8']; 
+            }
+            $data['gpa_term1']=$gpa_term1/$count;
+            $data['gpa_term2']=$gpa_term2/$count;
+            $data['gpa_term3']=$gpa_term3/$count;
+            $data['gpa_term4']=$gpa_term4/$count;
+            $data['gpa_term5']=$gpa_term5/$count;
+            $data['gpa_term6']=$gpa_term6/$count;
+            $data['gpa_term7']=$gpa_term7/$count;
+            $data['gpa_term8']=$gpa_term8/$count;
+            print_r($data['gpa_term1']);
+            //echo  $data['gpa_term2'];
+
+            $view_page = $this->load->view('do/view_academic_graph', $data, false);
+            // echo $view_page;
+            json_encode($view_page);
+        }
+    }
+
     public function get_olq_graph()
     {
         if ($this->input->post()) {
@@ -5424,6 +5461,7 @@ class D_O extends CI_Controller
                     'gpa_t8' => $gpa_t8,
                     'cgpa' => $cgpa,
                     'phase' => $phase,
+                    'division_name'=>$this->session->userdata('division'),
                     'created_at' => date('Y-m-d H:i:s')
                 );
                 $insert = $this->db->insert('semester_results', $insert_array);
