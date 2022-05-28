@@ -77,7 +77,12 @@
                 </a>
 
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url(); ?>D_O/view_academy_analytics" aria-expanded="true">
+                    <i class="fas fa-th-list"></i>
+                    <span> Academy Analytics </span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(); ?>D_O/view_dossier" aria-expanded="true">
                     <i class="fas fa-th-list"></i>
