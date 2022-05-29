@@ -80,13 +80,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(); ?>D_O/view_academy_analytics" aria-expanded="true">
                     <i class="fas fa-th-list"></i>
-                    <span> Academy Analytics </span>
+                    <span> Divisonal Analytics </span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url(); ?>D_O/view_dossier" aria-expanded="true">
                     <i class="fas fa-th-list"></i>
-                    <span> Division Analytics </span>
+                    <span> Divisional Records </span>
                     <!-- <span>Components</span> -->
                 </a>
 

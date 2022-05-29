@@ -1737,11 +1737,9 @@ class D_O extends CI_Controller
     public function get_aggregated_academic()
     {
         if ($this->input->post()) {
-           // $p_id = $_POST['p_id'];
-            $data['aggregated_gpa'] = $this->db->where('division_name', $this->session->userdata('division'))->get('semester_results')->result_array();
+           $data['aggregated_gpa'] = $this->db->where('division_name', $this->session->userdata('division'))->get('semester_results')->result_array();
            $gpa_term1=0;$gpa_term2=0;$gpa_term3=0;$gpa_term4=0;$gpa_term5=0;$gpa_term6=0;$gpa_term7=0;$gpa_term8=0;
-         // print_r( $data['aggregated_gpa']);
-         $count=0;
+           $count=0;
             foreach( $data['aggregated_gpa'] as $data){
               $count++;
                    $gpa_term1+=$data['gpa_t1'];
@@ -1753,6 +1751,7 @@ class D_O extends CI_Controller
                    $gpa_term7+=$data['gpa_t7'];
                    $gpa_term8+=$data['gpa_t8']; 
             }
+
             $data['gpa_term1']=$gpa_term1/$count;
             $data['gpa_term2']=$gpa_term2/$count;
             $data['gpa_term3']=$gpa_term3/$count;
@@ -1761,11 +1760,8 @@ class D_O extends CI_Controller
             $data['gpa_term6']=$gpa_term6/$count;
             $data['gpa_term7']=$gpa_term7/$count;
             $data['gpa_term8']=$gpa_term8/$count;
-            print_r($data['gpa_term1']);
-            //echo  $data['gpa_term2'];
 
             $view_page = $this->load->view('do/view_academic_graph', $data, false);
-            // echo $view_page;
             json_encode($view_page);
         }
     }
@@ -1783,7 +1779,7 @@ class D_O extends CI_Controller
             $data['olq_t7'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VII')->get('officer_qualities')->row_array();
             $data['olq_t8'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VIII')->get('officer_qualities')->row_array();
             $data['cadet_data'] = $this->db->where('p_id', $p_id)->get('pn_form1s')->row_array();
-            $view_page = $this->load->view('ct/view_olq_graph', $data, false);
+            $view_page = $this->load->view('do/view_olq_graph', $data, false);
             // echo $view_page;
             json_encode($view_page);
         }
@@ -1811,7 +1807,7 @@ class D_O extends CI_Controller
         $data['divisions'] = $this->db->get('divisions')->result_array();
         $data['division_set'] = $selected_div;
 
-        echo $data = $this->load->view('ct/academy_analytics', $data, TRUE);
+        echo $data = $this->load->view('do/academy_analytics', $data, TRUE);
     }
 
     public function get_graph_overall()
@@ -1833,7 +1829,7 @@ class D_O extends CI_Controller
 
         $data['Total_cadet'] = $this->db->select('count(*) as count')->get('physical_milestone')->row_array();
 
-        echo $data = $this->load->view('ct/academy_analytics', $data, TRUE);
+        echo $data = $this->load->view('do/academy_analytics', $data, TRUE);
     }
 
 
@@ -1889,7 +1885,7 @@ class D_O extends CI_Controller
         $data['Total_cadet_t2'] = $this->db->select('count(*) as count')->where('term', 'Term-II')->get('physical_milestone')->row_array();
         $data['Total_cadet_t3'] = $this->db->select('count(*) as count')->where('term', 'Term-III')->get('physical_milestone')->row_array();
 
-        echo $data = $this->load->view('ct/academy_analytics', $data, TRUE);
+        echo $data = $this->load->view('do/academy_analytics', $data, TRUE);
     }
 
     public function add_club()

@@ -1,4 +1,4 @@
-<?php $this->load->view('ct/common/header'); ?>
+<?php $this->load->view('do/common/header'); ?>
 <?php !isset($PST_result['count']) ? $PST_result['count'] = 0 : $PST_result['count']; ?>
 <?php !isset($SST_result['count']) ? $SST_result['count'] = 0 : $SST_result['count']; ?>
 <?php !isset($PET_I_result['count']) ? $PET_I_result['count'] = 0 : $PET_I_result['count']; ?>
@@ -353,7 +353,7 @@
     $('#overall').on('click', function() {
 
         $.ajax({
-            url: '<?= base_url(); ?>CT/get_graph_overall',
+            url: '<?= base_url(); ?>D_O/get_graph_overall',
             method: 'POST',
             data: {
                 'type': 'overall'
@@ -402,7 +402,7 @@
         var selectedValue = $(this).val();
         // alert(selectedValue);
         $.ajax({
-            url: '<?= base_url(); ?>CT/get_graph_divisionwise',
+            url: '<?= base_url(); ?>D_O/get_graph_divisionwise',
             method: 'POST',
             data: {
                 'selected_division': selectedValue
