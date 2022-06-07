@@ -126,7 +126,7 @@ class D_O extends CI_Controller
             $insert_activity = array(
                 'activity_module' => $this->session->userdata('acct_type'),
                 'activity_action' => 'update',
-                'activity_detail' => "Cadet " . $cadet_name['name'] . " division has tranferred to: " . $division,
+                'activity_detail' => "Cadet division has tranferred to: " . $division,
                 'activity_by' => $this->session->userdata('username'),
                 'activity_date' => date('Y-m-d H:i:s')
             );
@@ -5447,8 +5447,8 @@ class D_O extends CI_Controller
                     'p_id' => $p_id,
                     'user_id' => $this->session->userdata('user_id'),
                     'unit_id' => $unit_id,
-                    'gpa_t2' => $gpa_t1,
-                    'gpa_t1' => $gpa_t2,
+                    'gpa_t1' => $gpa_t1,
+                    'gpa_t2' => $gpa_t2,
                     'gpa_t3' => $gpa_t3,
                     'gpa_t4' => $gpa_t4,
                     'gpa_t5' => $gpa_t5,
@@ -5465,8 +5465,8 @@ class D_O extends CI_Controller
                 $update_array = array(
                     'user_id' => $this->session->userdata('user_id'),
                     'unit_id' => $unit_id,
-                    'gpa_t2' => $gpa_t1,
-                    'gpa_t1' => $gpa_t2,
+                    'gpa_t1' => $gpa_t1,
+                    'gpa_t2' => $gpa_t2,
                     'gpa_t3' => $gpa_t3,
                     'gpa_t4' => $gpa_t4,
                     'gpa_t5' => $gpa_t5,

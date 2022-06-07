@@ -459,9 +459,9 @@
     </div>
 
 
-     <div class="card-body bg-custom3" id="cadet_list_container" style="display:none">
+    <div class="card-body bg-custom3" id="cadet_list_container" style="display:none">
         <?php if (!isset($pn_data['name'])) {
-       ?>
+        ?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -1657,14 +1657,30 @@
                                             <tr>
                                                 <td scope="" style="height:80px"><?= ++$count; ?></td>
                                                 <td scope="">100M SPRINT TIME</td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['sprint_time'])) {
+                                                                                echo $pn_pet1_data_tp['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['sprint_time'])) {
+                                                                                echo $pn_pet2_data_tp['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['sprint_time'])) {
+                                                                                echo $pn_pet1_data_t1['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['sprint_time'])) {
+                                                                                echo $pn_pet2_data_t1['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['sprint_time'])) {
+                                                                                echo $pn_pet1_data_t2['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['sprint_time'])) {
+                                                                                echo $pn_pet2_data_t2['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['sprint_time'])) {
+                                                                                echo $pn_pet1_data_t3['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['sprint_time'])) {
+                                                                                                                    echo $pn_pet2_data_t3['sprint_time'];
+                                                                                                                } ?></td>
                                             </tr>
                                         <?php } ?>
                                         <tr>
@@ -5171,7 +5187,7 @@
             method: 'POST',
             data: {
                 'term': selectedValue,
-                'div' : selectedValuediv
+                'div': selectedValuediv
             },
             success: function(data) {
                 var result = jQuery.parseJSON(data);
@@ -5181,7 +5197,7 @@
                 if (len > 0) {
                     for (var i = 0; i < len; i++) {
 
-                    $("#list_of_cadets").append(`<tr>
+                        $("#list_of_cadets").append(`<tr>
                                                         <td style="border:none !important">${i+1}</td>
                                                         <td style="border:none !important">${result[i]['name']}</td>
                                                         <td style="border:none !important">${result[i]['oc_no']}</td>
@@ -5206,31 +5222,31 @@
         $('#cadet_list_container').show();
     });
 
-        $('#div_select').on('change', function() {
+    $('#div_select').on('change', function() {
         var selectedValueterm = $('#term_select').val();
-        var selectedValuediv= $(this).val();
-         //alert(selectedValueterm);
-         //alert(selectedValuediv);
+        var selectedValuediv = $(this).val();
+        //alert(selectedValueterm);
+        //alert(selectedValuediv);
 
         $.ajax({
             url: '<?= base_url(); ?>CO/search_cadet_divisionwise',
             method: 'POST',
             data: {
                 'term': selectedValueterm,
-                'division':selectedValuediv
+                'division': selectedValuediv
             },
             success: function(data) {
-               // alert("Successss")
+                // alert("Successss")
                 var result = jQuery.parseJSON(data);
                 var len = result.length;
-               // alert(len);
+                // alert(len);
 
                 $("#list_of_cadets").empty();
                 if (len > 0) {
                     //alert("data exist");
                     for (var i = 0; i < len; i++) {
 
-                    $("#list_of_cadets").append(`<tr>
+                        $("#list_of_cadets").append(`<tr>
                                                         <td style="border:none !important">${i+1}</td>
                                                         <td style="border:none !important">${result[i]['name']}</td>
                                                         <td style="border:none !important">${result[i]['oc_no']}</td>
@@ -5240,7 +5256,7 @@
                                                     </tr>`);
                     }
                 } else {
-                     //alert("data not exist");
+                    //alert("data not exist");
                     $("#list_of_cadets").append(`<tr>
                                                     <td style="border:none !important">No Data Found</td>
                                                     <td style="border:none !important"></td>
@@ -5257,7 +5273,7 @@
     });
 
     function show_cadet(oc_no) {
-        
+
         $.ajax({
             url: '<?= base_url(); ?>CO/search_cadet_for_dossier_folder',
             method: 'POST',
@@ -5278,5 +5294,4 @@
             async: true
         });
     }
-
 </script>

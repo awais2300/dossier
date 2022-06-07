@@ -21,7 +21,7 @@
     <!-- Page Heading -->
     <div class="card-body" style="padding:10px">
         <img src='<?= base_url() ?>assets/img/navy_logo-new.png' style="height: 130px; width:100px;">
-        <div class="card-body" style="margin-bottom:20px;float:right; padding:30px; margin-right:500px">
+        <div class="card-body" style="margin-bottom:20px;float:right; padding:30px; margin-right:450px">
             <h1 style="text-align:center"><strong>DAILY MODULE</strong></h1>
         </div>
     </div>
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row" style="margin-top:50px;">
+                            <!-- <div class="form-group row" style="margin-top:50px;">
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-primary btn-user btn-block" style="height:60px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>CAO/add_excuse'">
                                         <span><i class="fas fa-hand-paper" style="font-size:25px;margin:5px"></i></span>
@@ -66,7 +66,7 @@
                                         <h4 style="font-weight: bold;display:inline-block">View Excuse List</h4>
                                     </button>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group row" style="margin-top:50px;">
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-primary btn-user btn-block" style="height:60px;  box-shadow: 5px 10px #888888;" id="btn_inventory" onclick="location.href='<?php echo base_url(); ?>CAO/add_observation'">

@@ -2388,14 +2388,30 @@
                                             <tr>
                                                 <td scope="" style="height:80px"><?= ++$count; ?></td>
                                                 <td scope="">100M SPRINT TIME</td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['sprint_time'])) {
+                                                                                echo $pn_pet1_data_tp['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['sprint_time'])) {
+                                                                                echo $pn_pet2_data_tp['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['sprint_time'])) {
+                                                                                echo $pn_pet1_data_t1['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['sprint_time'])) {
+                                                                                echo $pn_pet2_data_t1['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['sprint_time'])) {
+                                                                                echo $pn_pet1_data_t2['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['sprint_time'])) {
+                                                                                echo $pn_pet2_data_t2['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['sprint_time'])) {
+                                                                                echo $pn_pet1_data_t3['sprint_time'];
+                                                                            } ?></td>
+                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['sprint_time'])) {
+                                                                                                                    echo $pn_pet2_data_t3['sprint_time'];
+                                                                                                                } ?></td>
                                             </tr>
                                         <?php } ?>
                                         <tr>
