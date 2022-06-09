@@ -497,6 +497,7 @@ class CT extends CI_Controller
             echo json_encode($query);
         }
     }
+
     public function update_observation_status()
     {
         if ($this->input->post()) {
@@ -1952,7 +1953,8 @@ class CT extends CI_Controller
 
     public function view_general_remarks()
     {
-        $this->load->view('ct/add_general_remarks');
+        // $this->load->view('ct/add_general_remarks');
+        $this->load->view('ct/view_general_remarks_list');
     }
     public function view_progress_chart()
     {
@@ -4420,5 +4422,43 @@ class CT extends CI_Controller
         }
 
         echo json_encode($semster_list);
+    }
+
+    public function view_general_remarks_list()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $this->db->select('or.*, f.*');
+            $this->db->from('general_remarks or');
+            $this->db->join('pn_form1s f', 'f.p_id = or.p_id');
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            // $this->db->where('or.status !=', 'Rejected');
+            $data['general_remarks_records'] = $this->db->get()->result_array();
+            $this->load->view('ct/view_general_remarks_list', $data);
+        }
+    }
+
+    public function update_general_remarks_status()
+    {
+        if ($this->input->post()) {
+            $id = $_POST['id'];
+            $status = $_POST['status'];
+
+            $cond  = ['id' => $id];
+            $data_update = [
+                'status' => $status
+            ];
+
+            $this->db->where($cond);
+            $update = $this->db->update('general_remarks', $data_update);
+
+            $this->db->select('or.*, f.*');
+            $this->db->from('general_remarks or');
+            $this->db->join('pn_form1s f', 'f.p_id = or.p_id');
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            $data['general_remarks_records'] = $this->db->get()->result_array();
+            $view_page = $this->load->view('ct/view_general_remarks_list', $data, TRUE);
+            echo $view_page;
+            json_encode($view_page);
+        }
     }
 }

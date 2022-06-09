@@ -5221,7 +5221,8 @@ class D_O extends CI_Controller
                 'assessment' => $asses_type,
                 'term' => $term,
                 'remarks' => $remarks,
-                'created_at' => date('Y-m-d H:i:s')
+                'created_at' => date('Y-m-d H:i:s'),
+                'status' => 'Pending'
             );
 
             $insert = $this->db->insert('general_remarks', $insert_array);

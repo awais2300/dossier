@@ -168,7 +168,7 @@
                 </a>
                 <div id="collapse_assesment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url(); ?>CT/view_general_remarks">General Remarks</a>
+                        <a class="collapse-item" href="<?= base_url(); ?>CT/view_general_remarks_list">General Remarks</a>
                         <a class="collapse-item" href="<?= base_url(); ?>CT/view_progress_chart">Progress Chart</a>
                         <a class="collapse-item" href="<?= base_url(); ?>CT/view_distinction_records">Distictions</a>
                         <a class="collapse-item" href="<?= base_url(); ?>CT/view_seniority_records">Seniority</a>

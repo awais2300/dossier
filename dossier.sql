@@ -2819,7 +2819,8 @@ add COLUMN division_name varchar(255);
 alter table semester_results
 add COLUMN division_name varchar(255);
 
-
+alter table general_remarks
+add COLUMN status varchar(255);
 
 
 /* Update S/LT in db xisting records */
