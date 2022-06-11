@@ -64,6 +64,12 @@
                                             <option value="smo">SMO - Senior Medical Officer</option>
                                             <option value="dean">DEAN</option>
                                             <option value="ctmwt">Captain MWT</option>
+                                            <option value="dirnavy">DIRECTOR NAVY TRAINING</option>
+                                            <option value="dntops">DNT OPERATIONS</option>
+                                            <option value="dntme">DNT MECHANICAL</option>
+                                            <option value="dntwe">DNT WEAPON</option>
+                                            <option value="dnts">DNT SUPPLY</option>
+                                            <option value="ctmwt">Captain MWT</option>
                                             <!-- <option value="hougp">HOUGP</option> -->
 
                                         </select>
@@ -91,7 +97,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-1">
                                         <h6>&nbsp;Unit:</h6>
-                                    </div>                                   
+                                    </div>
                                 </div>
 
                                 <div class="form-group row">
@@ -103,7 +109,7 @@
                                             <?php } ?>
                                         </select>
                                     </div>
-                                   
+
                                 </div>
                                 <hr>
                                 <div class="form-group row justify-content-center">
@@ -142,7 +148,7 @@
         var status = $('#status').val();
         if (status == "do" || status == "cao") {
             $('#unit').val('PNS Rahbar (Pakistan Naval Academy)');
-        } 
+        }
     });
 
     $("#status").on('change', function() {
@@ -152,7 +158,7 @@
             $('#div_list').show();
             $('#div_list_label').show();
             $('#unit').val('PNS Rahbar (Pakistan Naval Academy)');
-            $('#unit').attr("readonly", true) 
+            $('#unit').attr("readonly", true)
         } else {
             $('#div_list').hide();
             $('#div_list_label').hide();
@@ -162,7 +168,7 @@
 
         if (account == 'cao') {
             $('#unit').val('PNS Rahbar (Pakistan Naval Academy)');
-            $('#unit').attr("readonly", true) 
+            $('#unit').attr("readonly", true)
         } else {
             $('#unit').val('');
             $('#unit').attr("readonly", false);
@@ -200,7 +206,7 @@
             validate = 1;
             $('#status').addClass('red-border');
         }
-          if (unit == '') {
+        if (unit == '') {
             validate = 1;
             $('#unit').addClass('red-border');
         }
@@ -212,7 +218,7 @@
             validate = 1;
             $('#branch').addClass('red-border');
         }
-       if (branch == '' && status == 'dean') {
+        if (branch == '' && status == 'dean') {
             validate = 1;
             $('#branch').addClass('red-border');
         }

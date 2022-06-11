@@ -2632,6 +2632,10 @@ class CAO extends CI_Controller
                 'teamwork_terminal' => $postData['final_marks'][14],
                 'expression_mid' => $postData['mid_marks'][15],
                 'expression_terminal' => $postData['final_marks'][15],
+                'cooperation_mid' => $postData['mid_marks'][16],
+                'cooperation_terminal' => $postData['final_marks'][16],
+                'empathy_mid' => $postData['mid_marks'][17],
+                'empathy_terminal' => $postData['final_marks'][17],
                 'total_mid' => $postData['total_mid_marks'],
                 'total_terminal' => $postData['total_final_marks'],
                 'mid_marks' => $postData['mid_percentage'],
@@ -3960,5 +3964,27 @@ class CAO extends CI_Controller
         }
 
         echo json_encode($semster_list);
+    }
+
+    public function search_cadet_OLQs() //Dossier Continue
+    {
+        if ($this->input->post()) {
+
+            $oc_no = $_POST['oc_no'];
+
+            $curr_term = $this->db->select('term,p_id')->where('oc_no', $oc_no)->get('pn_form1s')->row_array(); //Dossier Continue
+            $olq_term_exist = $this->db->select('term')->where('p_id', $curr_term['p_id'])->where('term', $curr_term['term'])->get('officer_qualities')->num_rows(); //Dossier Continue
+
+            $this->db->select('f.term as pn_term, f.p_id as pn_p_id,f.*, olq.*');
+            $this->db->from('pn_form1s f');
+            $this->db->join('officer_qualities olq', 'f.p_id = olq.p_id AND f.term = olq.term', 'left');
+            $this->db->where('f.divison_name', $this->session->userdata('division'));
+            $this->db->where('f.oc_no', $oc_no);
+            if ($olq_term_exist > 0) {
+                $this->db->where('olq.term', $curr_term['term']); //Dossier Continue
+            }
+            $data['olq_records'] = $this->db->get()->row_array();
+            echo json_encode($data['olq_records']);
+        }
     }
 }

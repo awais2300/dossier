@@ -143,7 +143,7 @@
                                                 <tr>
                                                     <td scope="row" style="padding:25px"></td>
                                                     <td scope="row" style="padding:25px; text-align:right"><strong>Grand Total</strong></td>
-                                                    <td scope="row" style="padding:25px"><strong>200</strong></td>
+                                                    <td scope="row" style="padding:25px"><strong>215</strong></td>
                                                     <td scope="row"><input type="text" class="form-control form-control-user" name="total_mid_marks" id="total_mid_marks" placeholder="Total Marks"></td>
                                                     <td scope="row"><input type="text" class="form-control form-control-user" name="total_final_marks" id="total_final_marks" placeholder="Total Marks"></td>
 

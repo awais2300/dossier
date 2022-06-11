@@ -973,6 +973,10 @@ CREATE TABLE `officer_qualities` (
   `teamwork_terminal` int(11) DEFAULT NULL,
   `expression_mid` int(11) NOT NULL,
   `expression_terminal` int(11) DEFAULT NULL,
+  `cooperation_mid` int(11) NOT NULL,
+  `cooperation_terminal` int(11) DEFAULT NULL,
+  `empathy_mid` int(11) NOT NULL,
+  `empathy_terminal` int(11) DEFAULT NULL,
   `total_mid` int(11) NOT NULL,
   `total_terminal` int(11) DEFAULT NULL,
   `mid_marks` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1863,23 +1867,43 @@ CREATE TABLE `quality_list` (
 -- Dumping data for table `quality_list`
 --
 
+-- INSERT INTO `quality_list` (`id`, `quality_name`, `max_marks`) VALUES
+-- (1, 'Truthfulness', 20),
+-- (2, 'Integrity', 25),
+-- (3, 'Sense of Pride', 10),
+-- (4, 'Moral Courage', 15),
+-- (5, 'Confidence and Behviour Under Stress', 15),
+-- (6, 'Initiative', 10),
+-- (7, 'Ability to command,control and Assert', 10),
+-- (8, 'Self and General Discipline', 10),
+-- (9, 'Sense of Duty', 10),
+-- (10, 'Reliability', 10),
+-- (11, 'General Appearance and Bearing', 10),
+-- (12, 'Physical Fitness', 10),
+-- (13, 'Manners and Social Conduct', 10),
+-- (14, 'Intelligence and Common sense', 10),
+-- (15, 'Cooperation Adaptability and Team work', 10),
+-- (16, 'Power of Expression (Written & Oral)', 15);
+
 INSERT INTO `quality_list` (`id`, `quality_name`, `max_marks`) VALUES
-(1, 'Truthfulness', 20),
-(2, 'Integrity', 25),
-(3, 'Sense of Pride', 10),
-(4, 'Moral Courage', 15),
-(5, 'Confidence and Behviour Under Stress', 15),
-(6, 'Initiative', 10),
-(7, 'Ability to command,control and Assert', 10),
-(8, 'Self and General Discipline', 10),
-(9, 'Sense of Duty', 10),
-(10, 'Reliability', 10),
-(11, 'General Appearance and Bearing', 10),
-(12, 'Physical Fitness', 10),
-(13, 'Manners and Social Conduct', 10),
-(14, 'Intelligence and Common sense', 10),
-(15, 'Cooperation Adaptability and Team work', 10),
-(16, 'Power of Expression (Written & Oral)', 15);
+(1, 'Integrity', 15),
+(2, 'Courage', 15),
+(3, 'Self-Discipline', 15),
+(4, 'Persistence', 10),
+(5, 'Independence', 10),
+(6, 'Self-Control', 10),
+(7, 'Adaptability', 15),
+(8, 'Clarity', 10),
+(9, 'Proactivity', 10),
+(10, 'Physical Endurance', 15),
+(11, 'Military Bearing', 10),
+(12, 'Practical Ability', 15),
+(13, 'Decisiveness', 15),
+(14, 'Creativity', 10),
+(15, 'Management', 10),
+(16, 'Communication', 10),
+(17, 'Cooperation', 10),
+(18, 'Empathy', 10);
 
 --
 -- Table structure for table `club_records`
@@ -2517,7 +2541,7 @@ ALTER TABLE `observation_slips`
 -- AUTO_INCREMENT for table `officer_qualities`
 --
 ALTER TABLE `officer_qualities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `overall_seniority_records`
@@ -2793,6 +2817,7 @@ INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS 
 INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS Nasr','NULL','NULL');
 INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PNS Taughril','NULL','NULL');
 INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('PN School of logistics','NULL','NULL');
+INSERT INTO `navy_units`( `unit_name`, `created_at`, `updated_at`) VALUES ('NHQ','NULL','NULL');
 
 DELETE FROM `navy_units` WHERE `unit_name`='PNSL';
 DELETE FROM `navy_units` WHERE `unit_name`='PN Fleet';

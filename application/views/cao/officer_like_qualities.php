@@ -141,9 +141,9 @@
                                                 <?php
                                                 $count++; } ?>
                                                 <tr>
-                                                    <td scope="row" style="padding:25px"></td>
+                                                <td scope="row"><button type="button" class="btn btn-primary btn-user btn-block" id="calculate_btn">Auto Calculate</button></td>
                                                     <td scope="row" style="padding:25px; text-align:right"><strong>Grand Total</strong></td>
-                                                    <td scope="row" style="padding:25px"><strong>200</strong></td>
+                                                    <td scope="row" style="padding:25px"><strong>215</strong></td>
                                                     <td scope="row"><input type="text" class="form-control form-control-user" name="total_mid_marks" id="total_mid_marks" placeholder="Total Marks"></td>
                                                     <td scope="row"><input type="text" class="form-control form-control-user" name="total_final_marks" id="total_final_marks" placeholder="Total Marks"></td>
 
@@ -267,7 +267,7 @@
             $('#show_error_new').hide();
 
             $.ajax({
-                url: '<?= base_url(); ?>CAO/search_cadet',
+                url: '<?= base_url(); ?>CAO/search_cadet_OLQs',
                 method: 'POST',
                 data: {
                     'oc_no': oc_no
@@ -284,6 +284,51 @@
                         $('#division').val(result['divison_name']);
                         $('#oc_num').val(result['oc_no']);
                         $('#id').val(result['p_id']);
+
+                        $('#mid_marks1').val(result['truthfulness_mid']);
+                        $('#final_marks1').val(result['truthfulness_terminal']);
+                        $('#mid_marks2').val(result['integrity_mid']);
+                        $('#final_marks2').val(result['integrity_terminal']);
+                        $('#mid_marks3').val(result['pride_mid']);
+                        $('#final_marks3').val(result['pride_terminal']);
+                        $('#mid_marks4').val(result['courage_mid']);
+                        $('#final_marks4').val(result['courage_terminal']);
+                        $('#mid_marks5').val(result['confidence_mid']);
+                        $('#final_marks5').val(result['confidence_terminal']);
+                        $('#mid_marks6').val(result['initiative_mid']);
+                        $('#final_marks6').val(result['inititative_terminal']);
+                        $('#mid_marks7').val(result['command_mid']);
+                        $('#final_marks7').val(result['command_terminal']);
+                        $('#mid_marks8').val(result['discipline_mid']);
+                        $('#final_marks8').val(result['discipline_terminal']);
+                        $('#mid_marks9').val(result['duty_mid']);
+                        $('#final_marks9').val(result['duty_terminal']);
+                        $('#mid_marks10').val(result['reliability_mid']);
+                        $('#final_marks10').val(result['reliability_terminal']);
+                        $('#mid_marks11').val(result['appearance_mid']);
+                        $('#final_marks11').val(result['appearance_terminal']);
+                        $('#mid_marks12').val(result['fitness_mid']);
+                        $('#final_marks12').val(result['fitness_terminal']);
+                        $('#mid_marks13').val(result['conduct_mid']);
+                        $('#final_marks13').val(result['conduct_terminal']);
+                        $('#mid_marks14').val(result['cs_mid']);
+                        $('#final_marks14').val(result['cs_terminal']);
+                        $('#mid_marks15').val(result['teamwork_mid']);
+                        $('#final_marks15').val(result['teamwork_terminal']);
+                        $('#mid_marks16').val(result['expression_mid']);
+                        $('#final_marks16').val(result['expression_terminal']);
+                        $('#mid_marks17').val(result['cooperation_mid']);
+                        $('#final_marks17').val(result['cooperation_terminal']);
+                        $('#mid_marks18').val(result['empathy_mid']);
+                        $('#final_marks18').val(result['empathy_terminal']);
+
+                        $('#total_mid_marks').val(result['total_mid']);
+                        $('#total_final_marks').val(result['total_terminal']);
+                        $('#mid_percentage').val(result['mid_marks']);
+                        $('#final_percentage').val(result['terminal_marks']);
+                        $('#mid_exam_date').val(result['mid_marks_date']);
+                        $('#final_exam_date').val(result['terminal_marks_date']);
+
                     } else {
                         $('#no_data').show();
                         $('#search_cadet').hide();
@@ -370,5 +415,31 @@
       //alert(sum);
       $('#total_mid_marks').val(sum);
       // alert(a);
+    });
+
+    $('#calculate_btn').on('click', function() {
+        var mid_sum = 0;
+        var final_sum = 0;
+
+        var mid_marks = document.getElementsByName('mid_marks[]');
+        var final_marks = document.getElementsByName('final_marks[]');
+
+        for (var i = 0; i < mid_marks.length; i++) {
+            if (mid_marks[i].value != '') {
+                mid_sum = mid_sum + parseInt(mid_marks[i].value);
+            }
+        }
+
+        for (var i = 0; i < final_marks.length; i++) {
+            if (final_marks[i].value != '') {
+                final_sum = final_sum + parseInt(final_marks[i].value);
+            }
+        }
+        $('#total_mid_marks').val(mid_sum);
+        $('#total_final_marks').val(final_sum);
+
+        $('#mid_percentage').val((mid_sum/215)*100);
+        $('#final_percentage').val((final_sum/215)*100);
+
     });
 </script>

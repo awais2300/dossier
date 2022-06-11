@@ -166,7 +166,7 @@
                                                 <tr>
                                                     <td scope="row"><button type="button" class="btn btn-primary btn-user btn-block" id="calculate_btn">Auto Calculate</button></td>
                                                     <td scope="row" style="padding:25px; text-align:right"><strong>Grand Total</strong></td>
-                                                    <td scope="row" style="padding:25px"><strong>200</strong></td>
+                                                    <td scope="row" style="padding:25px"><strong>215</strong></td>
                                                     <td scope="row"><input type="text" class="form-control form-control-user" name="total_mid_marks" id="total_mid_marks" placeholder="Total Marks"></td>
                                                     <td scope="row"><input type="text" class="form-control form-control-user" name="total_final_marks" id="total_final_marks" placeholder="Total Marks"></td>
 
@@ -331,6 +331,10 @@
                         $('#final_marks15').val(result['teamwork_terminal']);
                         $('#mid_marks16').val(result['expression_mid']);
                         $('#final_marks16').val(result['expression_terminal']);
+                        $('#mid_marks17').val(result['cooperation_mid']);
+                        $('#final_marks17').val(result['cooperation_terminal']);
+                        $('#mid_marks18').val(result['empathy_mid']);
+                        $('#final_marks18').val(result['empathy_terminal']);
 
                         $('#total_mid_marks').val(result['total_mid']);
                         $('#total_final_marks').val(result['total_terminal']);
@@ -438,8 +442,8 @@
         $('#total_mid_marks').val(mid_sum);
         $('#total_final_marks').val(final_sum);
 
-        $('#mid_percentage').val((mid_sum/200)*100);
-        $('#final_percentage').val((final_sum/200)*100);
+        $('#mid_percentage').val((mid_sum/215)*100);
+        $('#final_percentage').val((final_sum/215)*100);
 
     });
 

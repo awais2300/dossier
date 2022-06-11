@@ -28,12 +28,20 @@
     <!-- <div class="row" style="background:<?= base_url(); ?>assets/img/img3.jpg"> -->
     <div class="row">
         <div class="col-lg-4">
+            <!-- <div id="ac-wrapper" style='display:none'>
+                <div id="popup">
+                    <center>
+                        <h2>Popup Content Here</h2>
+                        <input type="submit" name="submit" value="Submit" onClick="PopUp('hide')" />
+                    </center>
+                </div>
+            </div> -->
             <h1 class="h3 mb-0 text-black-800"><strong>Welcome Division Officer</strong></h1>
         </div>
         <div class="col-lg-4">
             <?php if ($this->session->userdata('unit_id') == 1) { ?>
                 <h1 class="h3 mb-0 text-black-800" style="text-align:center;text-decoration:underline"><strong>PHASE-I</strong></h1>
-            <?php } else if ($this->session->userdata('unit_id') == 2) { ?> 
+            <?php } else if ($this->session->userdata('unit_id') == 2) { ?>
                 <h1 class="h3 mb-0 text-black-800" style="text-align:center;text-decoration:underline"><strong>PHASE-IV</strong></h1>
             <?php } else if (($this->session->userdata('unit_id') == 3) || ($this->session->userdata('unit_id') == 17)) { ?>
                 <h1 class="h3 mb-0 text-black-800" style="text-align:center;text-decoration:underline"><strong>PHASE-III</strong></h1>
@@ -73,11 +81,23 @@
             <img src="<?= base_url(); ?>assets/img/compak2.jpg" alt="Mountains" style="width:100%;height:100%">
         </div>
     </div> -->
+
+
 </div>
 </div>
 
 <?php $this->load->view('common/footer'); ?>
-<script>
+<script type="text/javascript">
+    // function PopUp(hideOrshow) {
+    //     if (hideOrshow == 'hide') document.getElementById('ac-wrapper').style.display = "none";
+    //     else document.getElementById('ac-wrapper').removeAttribute('style');
+    // }
+    // window.onload = function() {
+    //     setTimeout(function() {
+    //         PopUp('show');
+    //     }, 3000);
+    // }
+
     function seen(data) {
         $.ajax({
             url: '<?= base_url(); ?>ChatController/seen',
