@@ -1444,7 +1444,7 @@ CREATE TABLE `security_info` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `reg_data` timestamp NOT NULL DEFAULT current_timestamp(),
-  `acct_type` enum('do','joto','ct','co','exo','sqc','cao','cao_sec','smo','admin','dean','ctmwt','hougp') NOT NULL,
+  `acct_type` enum('do','joto','ct','co','exo','sqc','cao','cao_sec','smo','admin','dean','ctmwt','hougp','dirnavy','dntops','dntwe','dntme','dnts') NOT NULL,
   `status` enum('offline','online') NOT NULL,
   `is_active` enum('yes','no') NOT NULL,
   `division` varchar(50) NULL,
@@ -1465,7 +1465,12 @@ INSERT INTO `security_info` (`id`, `username`, `password`, `reg_data`, `acct_typ
 (4, 'cao', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'cao', 'offline','yes', NULL),
 (5, 'smo', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'smo', 'offline','yes', NULL),
 (6, 'cao_sec', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'cao_sec', 'offline','yes', NULL),
-(7, 'ct', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'ct', 'offline','yes', NULL);
+(7, 'ct', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'ct', 'offline','yes', NULL),
+(8, 'dirnavy', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'dirnavy', 'offline','yes', NULL),
+(9, 'dntops', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'dntops', 'offline','yes', NULL),
+(10, 'dntwe', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'dntwe', 'offline','yes', NULL),
+(11, 'dntme', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'dntme', 'offline','yes', NULL),
+(12, 'dnts', '$2y$10$7ht2URnlOaTf4Phga9oWaOd9t5LdtChLLMUVgkzUFhmeRCbZS9Rpe', '2021-06-29 04:10:11', 'dnts', 'offline','yes', NULL);
 
 -- --------------------------------------------------------
 

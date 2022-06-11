@@ -38,6 +38,16 @@ class User_Login extends CI_Controller
 				redirect('HOUGP');
 			} elseif ($acct_type == "ctmwt") {
 				redirect('CTMWT');
+			} elseif ($acct_type == "dirnavy") {
+				redirect('DIR_NAVY');
+			} elseif ($acct_type == "dntops") {
+				redirect('DNT_OPS');
+			} elseif ($acct_type == "dntwe") {
+				redirect('DNT_WE');
+			} elseif ($acct_type == "dntme") {
+				redirect('DNT_ME');
+			} elseif ($acct_type == "dnts") {
+				redirect('DNT_S');
 			} elseif ($acct_type == "admin") {
 				redirect('Admin');
 			} else {
