@@ -105,14 +105,15 @@ class D_O extends CI_Controller
         }
     }
 
-    public function transfer_cadet_update(){
+    public function transfer_cadet_update()
+    {
         if ($this->input->post()) {
             $postData = $this->security->xss_clean($this->input->post());
 
 
             $division = $postData['division_name'];
             $p_id = $postData['id'];
-           
+
 
             //uddate previous club_records with same p_id
             $cond  = ['p_id' => $p_id];
@@ -145,16 +146,15 @@ class D_O extends CI_Controller
                 $insert_act_seen = $this->db->insert('activity_log_seen', $insert_activity_seen);
             }
 
-        if (!empty($update)) {
-            $this->session->set_flashdata('success', 'Cadet Division has been updated');
-            redirect('D_O/transfer_cadet');
-        } else {
-            $this->session->set_flashdata('failure', 'Something went wrong, try again.');
-            redirect('D_O/transfer_cadet');
+            if (!empty($update)) {
+                $this->session->set_flashdata('success', 'Cadet Division has been updated');
+                redirect('D_O/transfer_cadet');
+            } else {
+                $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+                redirect('D_O/transfer_cadet');
+            }
         }
-
     }
-}
 
     public function update_cadet_club()
     {
@@ -233,7 +233,7 @@ class D_O extends CI_Controller
             }
         }
     }
-    
+
 
     public function add_PN_Form()
     {
@@ -261,7 +261,7 @@ class D_O extends CI_Controller
                 'category' => $category,
                 'divison_name' => $div_name,
                 'term' => $term,
-                'ct_viewed'=>'no',
+                'ct_viewed' => 'no',
                 'unit_id' => 1 //By default Cadet is in unit PNS Rahbar (PNA)
 
             );
@@ -480,7 +480,7 @@ class D_O extends CI_Controller
                 'term' => $term,
                 'phase' => 'Phase 1',
                 'bahadur' => $country,
-                'ct_viewed'=>'no',
+                'ct_viewed' => 'no',
                 'unit_id' => 1 //By default Cadet is in unit PNS Rahbar (PNA)
             );
 
@@ -671,7 +671,7 @@ class D_O extends CI_Controller
                 'do_id' => $this->session->userdata('user_id'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-               
+
                 'upload_file' => $files
             );
             $this->db->where('p_id', $officer_id);
@@ -1690,7 +1690,7 @@ class D_O extends CI_Controller
     {
         if ($this->session->has_userdata('user_id')) {
             $data['pn_data'] = $this->db->where('divison_name',  'XYZ')->get('pn_form1s')->row_array();
-          
+
             $this->load->view('do/view_dossier_folder', $data);
         }
     }
@@ -1737,29 +1737,36 @@ class D_O extends CI_Controller
     public function get_aggregated_academic()
     {
         if ($this->input->post()) {
-           $data['aggregated_gpa'] = $this->db->where('division_name', $this->session->userdata('division'))->get('semester_results')->result_array();
-           $gpa_term1=0;$gpa_term2=0;$gpa_term3=0;$gpa_term4=0;$gpa_term5=0;$gpa_term6=0;$gpa_term7=0;$gpa_term8=0;
-           $count=0;
-            foreach( $data['aggregated_gpa'] as $data){
-              $count++;
-                   $gpa_term1+=$data['gpa_t1'];
-                   $gpa_term2+=$data['gpa_t2'];
-                   $gpa_term3+=$data['gpa_t3'];
-                   $gpa_term4+=$data['gpa_t4'];
-                   $gpa_term5+=$data['gpa_t5'];
-                   $gpa_term6+=$data['gpa_t6'];
-                   $gpa_term7+=$data['gpa_t7'];
-                   $gpa_term8+=$data['gpa_t8']; 
+            $data['aggregated_gpa'] = $this->db->where('division_name', $this->session->userdata('division'))->get('semester_results')->result_array();
+            $gpa_term1 = 0;
+            $gpa_term2 = 0;
+            $gpa_term3 = 0;
+            $gpa_term4 = 0;
+            $gpa_term5 = 0;
+            $gpa_term6 = 0;
+            $gpa_term7 = 0;
+            $gpa_term8 = 0;
+            $count = 0;
+            foreach ($data['aggregated_gpa'] as $data) {
+                $count++;
+                $gpa_term1 += $data['gpa_t1'];
+                $gpa_term2 += $data['gpa_t2'];
+                $gpa_term3 += $data['gpa_t3'];
+                $gpa_term4 += $data['gpa_t4'];
+                $gpa_term5 += $data['gpa_t5'];
+                $gpa_term6 += $data['gpa_t6'];
+                $gpa_term7 += $data['gpa_t7'];
+                $gpa_term8 += $data['gpa_t8'];
             }
 
-            $data['gpa_term1']=$gpa_term1/$count;
-            $data['gpa_term2']=$gpa_term2/$count;
-            $data['gpa_term3']=$gpa_term3/$count;
-            $data['gpa_term4']=$gpa_term4/$count;
-            $data['gpa_term5']=$gpa_term5/$count;
-            $data['gpa_term6']=$gpa_term6/$count;
-            $data['gpa_term7']=$gpa_term7/$count;
-            $data['gpa_term8']=$gpa_term8/$count;
+            $data['gpa_term1'] = $gpa_term1 / $count;
+            $data['gpa_term2'] = $gpa_term2 / $count;
+            $data['gpa_term3'] = $gpa_term3 / $count;
+            $data['gpa_term4'] = $gpa_term4 / $count;
+            $data['gpa_term5'] = $gpa_term5 / $count;
+            $data['gpa_term6'] = $gpa_term6 / $count;
+            $data['gpa_term7'] = $gpa_term7 / $count;
+            $data['gpa_term8'] = $gpa_term8 / $count;
 
             $view_page = $this->load->view('do/view_academic_graph', $data, false);
             json_encode($view_page);
@@ -1970,6 +1977,7 @@ class D_O extends CI_Controller
             $prefer_3 = $postData['prefer_3'];
             $recommended_branch = $postData['recommended_branch'];
             $allocated_branch = $postData['allocated_branch'];
+            $letter_no = $postData['letter_no']; //new2
 
 
             $insert_array = array(
@@ -1982,7 +1990,8 @@ class D_O extends CI_Controller
                 'branch_allocated' => $allocated_branch,
                 'do_id' => $this->session->userdata('user_id'),
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
+                'updated_at' => date('Y-m-d H:i:s'),
+                'letter_no' => $letter_no //new2
 
             );
 
@@ -2851,7 +2860,7 @@ class D_O extends CI_Controller
             $this->db->from('observation_records or');
             $this->db->join('pn_form1s f', 'f.p_id = or.p_id');
             // $this->db->where('or.do_id', $this->session->userdata('user_id'));
-            $this->db->where_in('f.term', ['Term-I','Term-II','Term-III','Term-IV']); //Dossier Continue
+            $this->db->where_in('f.term', ['Term-I', 'Term-II', 'Term-III', 'Term-IV']); //Dossier Continue
             $this->db->where('f.divison_name', $this->session->userdata('division'));
             $data['observation_records'] = $this->db->get()->result_array();
             $this->load->view('do/view_observation_list', $data);
@@ -2928,7 +2937,7 @@ class D_O extends CI_Controller
             $this->db->join('pn_form1s f', 'f.p_id = or.p_id');
             // $this->db->where('or.do_id', $this->session->userdata('user_id'));
             $this->db->where('f.divison_name', $this->session->userdata('division'));
-            $this->db->where_in('or.term', ['Term-I','Term-II','Term-III','Term-IV']); //Dossier Continue
+            $this->db->where_in('or.term', ['Term-I', 'Term-II', 'Term-III', 'Term-IV']); //Dossier Continue
             $data['milestone_records'] = $this->db->get()->result_array();
             // print_r( $data['milestone_records']);exit;
             $this->load->view('do/view_milestone_list', $data);
@@ -3099,6 +3108,14 @@ class D_O extends CI_Controller
             $this->db->where('f.oc_no', $oc_no);
             // $this->db->where('pr.term', 'Term-I');
             $data['pn_physical_tests_data'] = $this->db->get()->result_array();
+
+            //new
+            $this->db->select('pr.*, f.*');
+            $this->db->from('games_proficiencies pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.divison_name', $this->session->userdata('division'));
+            $this->db->where('f.oc_no', $oc_no);
+            $data['pn_proficiency_games_data'] = $this->db->get()->result_array();
 
             //Term-P
             $this->db->select('pr.*, f.*');
@@ -3780,7 +3797,7 @@ class D_O extends CI_Controller
     {
         if ($this->input->post()) {
             $postData = $this->security->xss_clean($this->input->post());
-            
+
             $p_id = $postData['id'];
             $term = $postData['term'];
 
@@ -5462,7 +5479,7 @@ class D_O extends CI_Controller
                     'gpa_t8' => $gpa_t8,
                     'cgpa' => $cgpa,
                     'phase' => $phase,
-                    'division_name'=>$this->session->userdata('division'),
+                    'division_name' => $this->session->userdata('division'),
                     'created_at' => date('Y-m-d H:i:s')
                 );
                 $insert = $this->db->insert('semester_results', $insert_array);
@@ -5748,11 +5765,119 @@ class D_O extends CI_Controller
         $query = $this->db->select('oc_no')->where('oc_no', $oc_no)->get('pn_form1s')->row_array();
         echo json_encode($query);
     }
-    
+
     public function check_duplicate_pno()
     {
         $pno = $_POST['pno'];
         $query = $this->db->select('p_no')->where('p_no', $pno)->get('pn_form1s')->row_array();
         echo json_encode($query);
+    }
+
+    public function view_proficieny_games()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('do/add_proficieny_games');
+        }
+    }
+
+    public function save_proficiency_games()
+    {
+        if ($this->input->post()) {
+            $postData = $this->security->xss_clean($this->input->post());
+
+            $id = $postData['id'];
+            $oc_no = $postData['oc_num'];
+            $proficiency = $postData['proficiency'];
+            $game = $postData['game'];  //Dossier Continue
+            $do_name = $postData['do_name'];  //Dossier Continue
+            $term = $postData['term'];
+            $awarded_by = $this->session->userdata('username');
+            $awarded_id = $this->session->userdata('user_id');
+
+            $insert_array = array(
+                'oc_no' => $oc_no,
+                'p_id' => $id,
+                'game' => $game,
+                'proficiency' => $proficiency,   //Dossier Continue
+                'do_id' => $awarded_id,
+                'do_name' => $do_name,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'term' => $term,
+                'phase' => 'Phase 1'
+            );
+
+            $insert = $this->db->insert('games_proficiencies', $insert_array);
+
+            if (!empty($insert)) {
+
+                $cadet_name = $this->db->select('name')->where('p_id', $id)->get('pn_form1s')->row_array();
+
+                $insert_activity = array(
+                    'activity_module' => $this->session->userdata('acct_type'),
+                    'activity_action' => 'add',
+                    'activity_detail' => "Game Proficiency added for Cadet " . $cadet_name['name'],
+                    'activity_by' => $this->session->userdata('username'),
+                    'activity_date' => date('Y-m-d H:i:s')
+                );
+
+                $insert_act = $this->db->insert('activity_log', $insert_activity);
+                $last_id = $this->db->insert_id();
+
+                $query = $this->db->where('username !=', $this->session->userdata('username'))->get('security_info')->result_array();
+
+                for ($i = 0; $i < count($query); $i++) {
+                    $insert_activity_seen = array(
+                        'activity_id' => $last_id,
+                        'user_id' => $query[$i]['id'],
+                        'seen' => 'no'
+                    );
+                    $insert_act_seen = $this->db->insert('activity_log_seen', $insert_activity_seen);
+                }
+            }
+
+            if (!empty($insert)) {
+                $this->session->set_flashdata('success', 'Game Proficiency added successfully');
+                redirect('D_O/view_proficieny_games');
+            } else {
+                $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+                redirect('D_O/view_proficieny_games');
+            }
+        }
+    }
+
+    public function proficiency_games_records_report($oc_no = NULL)
+    {
+        if ($this->session->has_userdata('user_id')) {
+            require_once APPPATH . 'third_party/dompdf/vendor/autoload.php';
+            $options = new Options();
+            $options->set('isRemoteEnabled', TRUE);
+            $options->set('enable_html5_parser', TRUE);
+            $options->set('tempDir', $_SERVER['DOCUMENT_ROOT'] . '/pdf-export/tmp');
+            $dompdf = new Dompdf($options);
+            $dompdf->set_base_path($_SERVER['DOCUMENT_ROOT'] . '');
+            $id = $this->session->userdata('user_id');
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('games_proficiencies pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.divison_name', $this->session->userdata('division'));
+            $this->db->where('f.oc_no', $oc_no);
+
+            $data['test_records'] = $this->db->get()->result_array();
+            $html = $this->load->view('do/proficiency_games_report', $data, TRUE); //$graph, TRUE);
+
+            $dompdf->loadHtml($html);
+            // $dompdf->set_paper('A4', 'landscape');
+            $dompdf->render();
+
+            $output = $dompdf->output();
+            $doc_name = 'Saluting Swimming Report.pdf';
+            file_put_contents($doc_name, $output);
+            redirect($doc_name);
+            //exit;
+        } else {
+            $this->load->view('userpanel/login');
+        }
     }
 }

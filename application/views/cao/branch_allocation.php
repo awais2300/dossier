@@ -161,26 +161,27 @@
 
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-sm-12">
+                            <div class="form-group row"> <!-- new2 -->
+                                <div class="col-sm-4">
                                     <h6>&nbsp;Branch Recommended:</h6>
                                 </div>
+                                <div class="col-sm-4">
+                                    <h6>&nbsp;Branch Allocated:</h6>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6>&nbsp;Letter No:</h6>
+                                </div>
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-12 mb-1">
+                                <div class="col-sm-4 mb-1">
                                     <input type="text" class="form-control form-control-user" name="recommended_branch" id="recommended_branch" placeholder="Recommended Branch">
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <h6>&nbsp;Branch Allocation:</h6>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-12 mb-1">
+                                <div class="col-sm-4 mb-1">
                                     <input type="text" class="form-control form-control-user" name="allocated_branch" id="allocated_branch" placeholder="Branch Allocated">
+                                </div>
+                                <div class="col-sm-4 mb-1">
+                                    <input type="text" class="form-control form-control-user" name="letter_no" id="letter_no" placeholder="Letter No.">
                                 </div>
                             </div>
 

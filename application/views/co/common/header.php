@@ -115,6 +115,7 @@
                         <a class="collapse-item" href="<?php echo base_url(); ?>CO/auto_biography">Cadet's Auto-biography</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CO/psychologist_report">Psychologist's Report</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CO/view_record_div_officer">Divisional Officer Record</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>CO/view_proficieny_games">Proficiency in Games</a>
                     </div>
                 </div>
             </li>

@@ -103,6 +103,7 @@
                             <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/auto_biography">Cadet's Auto-biography</a>
                             <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/psychologist_report">Psychologist's Report</a>
                             <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/view_record_div_officer">Divisional Officer Record</a>
+                            <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/view_proficieny_games">Proficiency in Games</a>
                         </div>
                     </div>
                 </li>

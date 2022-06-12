@@ -131,6 +131,7 @@
                         <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/auto_biography">Cadet's Auto-biography</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/psychologist_report">Psychologist's Report</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/view_record_div_officer">Divisional Officer Record</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>CTMWT/view_proficieny_games">Proficiency in Games</a>
                     </div>
                 </div>
             </li>

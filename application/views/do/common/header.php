@@ -123,6 +123,7 @@
                         <a class="collapse-item" href="<?php echo base_url(); ?>D_O/auto_biography">Cadet's Auto-biography</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>D_O/psychologist_report">Psychologist's Report</a>
                         <a class="collapse-item" href="<?php echo base_url(); ?>D_O/view_record_div_officer">Divisional Officer Record</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>D_O/view_proficieny_games">Proficiency in Games</a>
                     </div>
                 </div>
             </li>

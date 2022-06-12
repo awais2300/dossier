@@ -70,10 +70,10 @@
                       <option value="smo">SMO - Senior Medical Officer</option>
                       <option value="dean">DEAN</option>
                       <option value="dirnavy">DIRECTOR NAVY TRAINING</option>
-                      <option value="dntops">DNT OPERATIONS</option>
-                      <option value="dntme">DNT MECHANICAL</option>
-                      <option value="dntwe">DNT WEAPON</option>
-                      <option value="dnts">DNT SUPPLY</option>
+                      <option value="dntops">DDNT OPERATIONS</option>
+                      <option value="dntme">DDNT MECHANICAL</option>
+                      <option value="dntwe">DDNT WEAPON</option>
+                      <option value="dnts">DDNT SUPPLY</option>
                       <option value="ctmwt">Captain MWT</option>
                       <!-- <option value="hougp">HOUGP</option> -->
 

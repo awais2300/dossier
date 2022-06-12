@@ -48,8 +48,9 @@
             <img src='<?= base_url() ?>assets/img/navy_logo-new.png' style="height: 130px; width:100px;">
         </div>
         <div class="col-lg-11">
-            <h1 style="text-align:center; padding:40px"><strong>BRANCH ALLOCATION</strong></h1>
+            <h1 style="text-align:center; padding:40px"><strong>ADD PROFICIENCY IN GAMES</strong></h1>
         </div>
+
     </div>
 
     <div class="card-body bg-custom3">
@@ -96,11 +97,11 @@
 
                 <div class="card">
                     <div class="card-header bg-custom1">
-                        <h1 class="h4">Allocate Branch</h1>
+                        <h1 class="h4">Cadet's Information</h1>
                     </div>
 
                     <div class="card-body bg-custom3">
-                        <form class="user" role="form" method="post" id="save_form" action="<?= base_url(); ?>D_O/save_branches_allocation">
+                        <form class="user" role="form" method="post" id="save_form" action="<?= base_url(); ?>JOTO/save_proficiency_games">
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                     <h6>&nbsp;Name:</h6>
@@ -115,8 +116,8 @@
                                 </div>
 
                             </div>
+                            <div class="form-group row">
 
-                            <div class="form-group row"> 
                                 <div class="col-sm-4 mb-1" style="display:none">
                                     <input type="text" class="" name="oc_num" id="oc_num">
                                 </div>
@@ -135,81 +136,29 @@
                                 </div>
 
                             </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <h5 style="text-decoration:underline">Preference Order by Cadet</h5>
-                                </div>
-                            </div>
-
                             <div class="form-group row">
                                 <div class="col-sm-4">
-                                    <h6>&nbsp;Preference 1:</h6>
+                                    <h6>&nbsp;Game:</h6>
                                 </div>
-
                                 <div class="col-sm-4">
-                                    <h6>&nbsp;Preference 2:</h6>
+                                    <h6>&nbsp;Proficiency:</h6>
                                 </div>
-
                                 <div class="col-sm-4">
-                                    <h6>&nbsp;Preference 3:</h6>
+                                    <h6>&nbsp;DO Name:</h6>
                                 </div>
-
                             </div>
                             <div class="form-group row">
-
                                 <div class="col-sm-4 mb-1">
-                                    <select class="form-control rounded-pill" name="prefer_1" id="prefer_1" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
-                                        <option class="form-control form-control-user" value="">Select 1st Preference</option>
-                                        <?php foreach ($branch_list as $data) { ?>
-                                            <option class="form-control form-control-user" value="<?= $data['branch_name'] ?>"><?= $data['branch_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
+                                    <input class="form-control form-control-user" name="game" id="game"  placeholder="Add Game"></textarea>
                                 </div>
                                 <div class="col-sm-4 mb-1">
-                                    <select class="form-control rounded-pill" name="prefer_2" id="prefer_2" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
-                                        <option class="form-control form-control-user" value="">Select 2nd Preference</option>
-                                        <?php foreach ($branch_list as $data) { ?>
-                                            <option class="form-control form-control-user" value="<?= $data['branch_name'] ?>"><?= $data['branch_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
+                                    <input class="form-control form-control-user" name="proficiency" id="proficiency"  placeholder="Add proficiency"></textarea>
                                 </div>
                                 <div class="col-sm-4 mb-1">
-                                    <select class="form-control rounded-pill" name="prefer_3" id="prefer_3" data-placeholder="Select ship" style="font-size: 0.8rem; height:50px;">
-                                        <option class="form-control form-control-user" value="">Select 3rd Preference</option>
-                                        <?php foreach ($branch_list as $data) { ?>
-                                            <option class="form-control form-control-user" value="<?= $data['branch_name'] ?>"><?= $data['branch_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="form-group row"> <!-- new2 -->
-                                <div class="col-sm-4">
-                                    <h6>&nbsp;Branch Recommended:</h6>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6>&nbsp;Branch Allocated:</h6>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6>&nbsp;Letter No:</h6>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-4 mb-1">
-                                    <input type="text" class="form-control form-control-user" name="recommended_branch" id="recommended_branch" placeholder="Recommended Branch">
-                                </div>
-                                <div class="col-sm-4 mb-1">
-                                    <input type="text" class="form-control form-control-user" name="allocated_branch" id="allocated_branch" placeholder="Branch Allocated">
-                                </div>
-                                <div class="col-sm-4 mb-1">
-                                    <input type="text" class="form-control form-control-user" name="letter_no" id="letter_no" placeholder="Letter No.">
+                                    <input class="form-control form-control-user" name="do_name" id="do_name"  placeholder="DO Name"></textarea>
                                 </div>
                             </div>
                             
-
                             <div class="form-group row justify-content-center">
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-primary btn-user btn-block" id="save_btn">
@@ -290,7 +239,7 @@
             $('#show_error_new').hide();
 
             $.ajax({
-                url: '<?= base_url(); ?>D_O/search_cadet',
+                url: '<?= base_url(); ?>JOTO/search_cadet', 
                 method: 'POST',
                 data: {
                     'oc_no': oc_no
@@ -317,8 +266,6 @@
                 async: true
             });
 
-
-
         } else {
             $('#add_btn').removeAttr('disabled');
             $('#show_error_new').show();
@@ -327,48 +274,27 @@
 
     });
 
-    $('#end_date').on('focusout', function() {
-        var start_date = new Date($('#start_date').val());
-        var end_date = new Date($('#end_date').val());
-        var validate = 0;
-
-        if (end_date < start_date) {
-            $('#error_end_date').show();
-            $('#end_date').addClass('red-border');
-            $('#end_date').focus();
-            $('#save_btn').attr('disabled', true);
-        } else {
-            $('#error_end_date').hide();
-            $('#save_btn').removeAttr('disabled');
-            $('#end_date').removeClass('red-border');
-
-        }
-
-        $('#days').val(Math.abs(end_date - start_date) / 1000 / 60 / 60 / 24);
-    });
-
 
     $('#save_btn').on('click', function() {
         $('#save_btn').attr('disabled', true);
         var validate = 0;
-        var allocated_branch = $('#allocated_branch').val();
-        var recommended_branch = $('#offense').val();
-        var allocated_branch=$('#allocated_branch').val();
-        
+        var proficiency = $('#proficiency').val();
+        var game = $('#game').val();
+        var do_name = $('#do_name').val();
 
-        if (prefer_1 == '') {
+        
+        if (proficiency == '') {
             validate = 1;
-            $('#prefer_1').addClass('red-border');
+            $('#proficiency').addClass('red-border');
         }
-        if (allocated_branch == '') {
+        if (game == '') {
             validate = 1;
-            $('#allocated_branch').addClass('red-border');
+            $('#game').addClass('red-border');
         }
-        if ( recommended_branch == '') {
+        if (do_name == '') {
             validate = 1;
-            $('#recommended_branch').addClass('red-border');
+            $('#do_name').addClass('red-border');
         }
-      
 
         if (validate == 0) {
             $('#save_form')[0].submit();

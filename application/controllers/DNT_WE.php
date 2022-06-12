@@ -803,6 +803,13 @@ class DNT_WE extends CI_Controller
             // $this->db->where('pr.term', 'Term-I');
             $data['pn_physical_tests_data'] = $this->db->get()->result_array();
 
+             //new
+             $this->db->select('pr.*, f.*');
+             $this->db->from('games_proficiencies pr');
+             $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+             $this->db->where('f.oc_no', $oc_no);
+             $data['pn_proficiency_games_data'] = $this->db->get()->result_array();
+
             //Term-P
             $this->db->select('pr.*, f.*');
             $this->db->from('physical_milestone pr');
@@ -4577,4 +4584,112 @@ class DNT_WE extends CI_Controller
 
         echo json_encode($semster_list);
     }
+    public function view_proficieny_games()
+    {
+        if ($this->session->has_userdata('user_id')) {
+            $this->load->view('dnt_we/add_proficieny_games');
+        }
+    }
+
+    public function save_proficiency_games()
+    {
+        if ($this->input->post()) {
+            $postData = $this->security->xss_clean($this->input->post());
+
+            $id = $postData['id'];
+            $oc_no = $postData['oc_num'];
+            $proficiency = $postData['proficiency'];
+            $game = $postData['game'];  //Dossier Continue
+            $do_name = $postData['do_name'];  //Dossier Continue
+            $term = $postData['term'];
+            $awarded_by = $this->session->userdata('username');
+            $awarded_id = $this->session->userdata('user_id');
+
+            $insert_array = array(
+                'oc_no' => $oc_no,
+                'p_id' => $id,
+                'game' => $game,
+                'proficiency' => $proficiency,   //Dossier Continue
+                'do_id' => $awarded_id,
+                'do_name' => $do_name,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'term' => $term,
+                'phase' => 'Phase 1'
+            );
+
+            $insert = $this->db->insert('games_proficiencies', $insert_array);
+
+            if (!empty($insert)) {
+
+                $cadet_name = $this->db->select('name')->where('p_id', $id)->get('pn_form1s')->row_array();
+
+                $insert_activity = array(
+                    'activity_module' => $this->session->userdata('acct_type'),
+                    'activity_action' => 'add',
+                    'activity_detail' => "Game Proficiency added for Cadet " . $cadet_name['name'],
+                    'activity_by' => $this->session->userdata('username'),
+                    'activity_date' => date('Y-m-d H:i:s')
+                );
+
+                $insert_act = $this->db->insert('activity_log', $insert_activity);
+                $last_id = $this->db->insert_id();
+
+                $query = $this->db->where('username !=', $this->session->userdata('username'))->get('security_info')->result_array();
+
+                for ($i = 0; $i < count($query); $i++) {
+                    $insert_activity_seen = array(
+                        'activity_id' => $last_id,
+                        'user_id' => $query[$i]['id'],
+                        'seen' => 'no'
+                    );
+                    $insert_act_seen = $this->db->insert('activity_log_seen', $insert_activity_seen);
+                }
+            }
+
+            if (!empty($insert)) {
+                $this->session->set_flashdata('success', 'Game Proficiency added successfully');
+                redirect('DNT_WE/view_proficieny_games');
+            } else {
+                $this->session->set_flashdata('failure', 'Something went wrong, try again.');
+                redirect('DNT_WE/view_proficieny_games');
+            }
+        }
+    }
+
+    public function proficiency_games_records_report($oc_no = NULL)
+    {
+        if ($this->session->has_userdata('user_id')) {
+            require_once APPPATH . 'third_party/dompdf/vendor/autoload.php';
+            $options = new Options();
+            $options->set('isRemoteEnabled', TRUE);
+            $options->set('enable_html5_parser', TRUE);
+            $options->set('tempDir', $_SERVER['DOCUMENT_ROOT'] . '/pdf-export/tmp');
+            $dompdf = new Dompdf($options);
+            $dompdf->set_base_path($_SERVER['DOCUMENT_ROOT'] . '');
+            $id = $this->session->userdata('user_id');
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('games_proficiencies pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.divison_name', $this->session->userdata('division'));
+            $this->db->where('f.oc_no', $oc_no);
+
+            $data['test_records'] = $this->db->get()->result_array();
+            $html = $this->load->view('dnt_we/proficiency_games_report', $data, TRUE); //$graph, TRUE);
+
+            $dompdf->loadHtml($html);
+            // $dompdf->set_paper('A4', 'landscape');
+            $dompdf->render();
+
+            $output = $dompdf->output();
+            $doc_name = 'Saluting Swimming Report.pdf';
+            file_put_contents($doc_name, $output);
+            redirect($doc_name);
+            //exit;
+        } else {
+            $this->load->view('userpanel/login');
+        }
+    }
+
 }

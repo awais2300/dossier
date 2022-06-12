@@ -2852,6 +2852,9 @@ add COLUMN division_name varchar(255);
 alter table general_remarks
 add COLUMN status varchar(255);
 
+alter table branch_allocations
+add COLUMN letter_no varchar(255);
+
 
 /* Update S/LT in db xisting records */
 UPDATE `pn_form1s` SET `phase`='Sub-Lieutenant' WHERE `phase`='Sub-Leutinent';
