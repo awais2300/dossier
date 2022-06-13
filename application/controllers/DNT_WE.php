@@ -133,7 +133,7 @@ class DNT_WE extends CI_Controller
             $data['olq_t1'] = $this->db->where('p_id', $p_id)->where('term', 'Term-I')->get('officer_qualities')->row_array();
             $data['olq_t2'] = $this->db->where('p_id', $p_id)->where('term', 'Term-II')->get('officer_qualities')->row_array();
             $data['olq_t3'] = $this->db->where('p_id', $p_id)->where('term', 'Term-III')->get('officer_qualities')->row_array();
-            $data['olq_t4'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VI')->get('officer_qualities')->row_array();
+            $data['olq_t4'] = $this->db->where('p_id', $p_id)->where('term', 'Term-IV')->get('officer_qualities')->row_array();
             $data['olq_t5'] = $this->db->where('p_id', $p_id)->where('term', 'Term-V')->get('officer_qualities')->row_array();
             $data['olq_t6'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VI')->get('officer_qualities')->row_array();
             $data['olq_t7'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VII')->get('officer_qualities')->row_array();
@@ -479,7 +479,7 @@ class DNT_WE extends CI_Controller
         if ($this->input->post()) {
             $oc_no = $_POST['oc_no'];
             
-            $query = $this->db->where('oc_no', $oc_no)->get('pn_form1s')->row_array();
+            $query = $this->db->where('oc_no', $oc_no)->where('branch_id','2')->get('pn_form1s')->row_array();
             echo json_encode($query);
         }
     }
@@ -603,7 +603,7 @@ class DNT_WE extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $oc_no = $_POST['oc_no'];
             
-            $data['pn_data'] = $this->db->where('oc_no', $oc_no)->get('pn_form1s')->result_array();
+            $data['pn_data'] = $this->db->where('oc_no', $oc_no)->where('branch_id','2')->get('pn_form1s')->result_array();
 
             $data['oc_no_entered'] = $oc_no;
 
@@ -703,7 +703,7 @@ class DNT_WE extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $oc_no = $_POST['oc_no'];
 
-            $data['pn_data'] = $this->db->where('oc_no', $oc_no)->get('pn_form1s')->row_array();
+            $data['pn_data'] = $this->db->where('oc_no', $oc_no)->where('branch_id','2')->get('pn_form1s')->row_array();
 
             if (!isset($oc_no)) {
                 $data['pn_personal_data'] = $this->db->where('p_id', $data['pn_data']['p_id'])->get('personal_datas')->row_array();
@@ -4064,12 +4064,14 @@ class DNT_WE extends CI_Controller
                 $this->db->from('personal_datas pr');
                 $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
                 $this->db->where('f.term', $term);
+                $this->db->where('branch_id','2');
             } else {
                 $this->db->select('pr.*, f.*');
                 $this->db->from('personal_datas pr');
                 $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
                 $this->db->where('f.term', $term);
                 $this->db->where('f.divison_name', $division);
+                $this->db->where('branch_id','2');
             }
 
             $data['cadets'] = $this->db->get()->result_array();
@@ -4088,12 +4090,14 @@ class DNT_WE extends CI_Controller
                 $this->db->from('personal_datas pr');
                 $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
                 $this->db->where('f.divison_name', $division);
+                $this->db->where('branch_id','2');
             } else {
                 $this->db->select('pr.*, f.*');
                 $this->db->from('personal_datas pr');
                 $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
                 $this->db->where('f.term', $term);
                 $this->db->where('f.divison_name', $division);
+                $this->db->where('branch_id','2');
             }
 
             $data['cadets-div'] = $this->db->get()->result_array();

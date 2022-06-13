@@ -158,8 +158,8 @@
                                                         <td scope="row" style="padding:25px"><?= ++$count; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['quality_name']; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['max_marks']; ?></td>
-                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks<?=$count;?>" placeholder="Marks"></td>
-                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="final_marks[]" id="final_marks<?=$count;?>" placeholder="Marks"></td>
+                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks<?= $count;?>" placeholder="Marks"></td>
+                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="final_marks[]" id="final_marks<?= $count;?>" placeholder="Marks"></td>
                                                     </tr>
                                                 <?php
                                                 } ?>

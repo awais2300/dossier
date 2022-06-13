@@ -280,10 +280,10 @@
                         $('#no_data').hide();
 
                         $('#name').val(result['name']);
-                        $('#term').val(result['term']);
+                        $('#term').val(result['pn_term']);
                         $('#division').val(result['divison_name']);
                         $('#oc_num').val(result['oc_no']);
-                        $('#id').val(result['p_id']);
+                        $('#id').val(result['pn_p_id']);
 
                         $('#mid_marks1').val(result['truthfulness_mid']);
                         $('#final_marks1').val(result['truthfulness_terminal']);

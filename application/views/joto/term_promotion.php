@@ -132,12 +132,8 @@
                                 <div id="show_semesters" class="col-sm-2 mb-1" style="display:none">
                                     <select class="form-control rounded-pill" name="show_semester_list" id="show_semester_list" data-placeholder="Select Contractor" style="font-size: 0.8rem; height:50px;">
                                         <option class="form-control form-control-user" value="">Select Semester</option>
-
                                     </select>
                                 </div>
-
-                                
-
                             </div>
 
                             <div class="form-group row">
@@ -467,6 +463,10 @@
         var curr_term = $('#term').val();
         var unit_id;
 
+        alert(curr_term);
+        alert(p_id);
+        
+
         if (curr_term == 'Term-III') {
             unit_id = $('#ship_ind').val();
         } else if (curr_term == 'Term-IV') {
@@ -503,6 +503,7 @@
             } else {
                 pass_branch = branch_in;
             }
+            alert(pass_branch);
             $('#show_error_select_unit_all').hide();
             $.ajax({
                 url: '<?= base_url(); ?>JOTO/update_cadet_term',

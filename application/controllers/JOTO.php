@@ -1981,12 +1981,12 @@ class JOTO extends CI_Controller
             if ($all == 'no') {
                 $cond  = [
                     'p_id' => $p_id,
-                    'unit_id' => $this->session->userdata('unit_id'),
+                    // 'unit_id' => $this->session->userdata('unit_id'),
                     'term' => $curr_term
                 ];
             } else if ($all == 'yes') {
                 $cond  = [
-                    'unit_id' => $this->session->userdata('unit_id'),
+                    // 'unit_id' => $this->session->userdata('unit_id'),
                     'term' => $curr_term
                 ];
             }
@@ -3601,6 +3601,7 @@ class JOTO extends CI_Controller
             // $oc_no = $postData['oc_num'];
             $p_id = $postData['id'];
             $term = $postData['term'];
+           
 
             $insert_array = array(
                 //'oc_no' => $oc_no,
@@ -5643,12 +5644,13 @@ class JOTO extends CI_Controller
             $data['olq_t1'] = $this->db->where('p_id', $p_id)->where('term', 'Term-I')->get('officer_qualities')->row_array();
             $data['olq_t2'] = $this->db->where('p_id', $p_id)->where('term', 'Term-II')->get('officer_qualities')->row_array();
             $data['olq_t3'] = $this->db->where('p_id', $p_id)->where('term', 'Term-III')->get('officer_qualities')->row_array();
-            $data['olq_t4'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VI')->get('officer_qualities')->row_array();
+            $data['olq_t4'] = $this->db->where('p_id', $p_id)->where('term', 'Term-IV')->get('officer_qualities')->row_array();
             $data['olq_t5'] = $this->db->where('p_id', $p_id)->where('term', 'Term-V')->get('officer_qualities')->row_array();
             $data['olq_t6'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VI')->get('officer_qualities')->row_array();
             $data['olq_t7'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VII')->get('officer_qualities')->row_array();
             $data['olq_t8'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VIII')->get('officer_qualities')->row_array();
             $data['cadet_data'] = $this->db->where('p_id', $p_id)->get('pn_form1s')->row_array();
+
             $view_page = $this->load->view('joto/view_olq_graph', $data, false);
             // echo $view_page;
             json_encode($view_page);

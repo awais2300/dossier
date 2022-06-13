@@ -155,16 +155,14 @@
                                                 <?php $count = 0;
                                                 foreach ($quality_list as $data) { ?>
                                                     <tr>
-                                                        <td scope="row" style="padding:25px"><?= $data['id']; ?></td>
+                                                        <td scope="row" style="padding:25px"><?= ++$count; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['quality_name']; ?></td>
                                                         <td scope="row" style="padding:25px"><?= $data['max_marks']; ?></td>
-                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks[]" placeholder="Marks"></td>
-                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="final_marks[]" id="final_marks" placeholder="Marks"></td>
+                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="mid_marks[]" id="mid_marks<?=$count;?>" placeholder="Marks"></td>
+                                                        <td scope="row"><input type="text" class="form-control form-control-user" name="final_marks[]" id="final_marks<?=$count;?>" placeholder="Marks"></td>
 
                                                     </tr>
-                                                <?php
-                                                    $count++;
-                                                } ?>
+                                                <?php } ?>
                                                 <tr>
                                                     <td scope="row"><button type="button" class="btn btn-primary btn-user btn-block" id="calculate_btn">Auto Calculate</button></td>
                                                     <td scope="row" style="padding:25px; text-align:right"><strong>Grand Total</strong></td>
@@ -302,13 +300,13 @@
 
                     if (result != undefined) {
                         $('#search_cadet').show();
-                        $('#no_data').hide();
+                        $('#no_data').hide(); 
 
                         $('#name').val(result['name']);
-                        $('#term').val(result['term']);
+                        $('#term').val(result['pn_term']);
                         $('#division').val(result['divison_name']);
                         $('#oc_num').val(result['oc_no']);
-                        $('#id').val(result['p_id']);
+                        $('#id').val(result['pn_p_id']);
 
                         $('#mid_marks1').val(result['truthfulness_mid']);
                         $('#final_marks1').val(result['truthfulness_terminal']);

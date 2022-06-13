@@ -68,7 +68,7 @@
             <hr class="sidebar-divider">
 
 
-            <!-- <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
+            <!-- <?php //if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url(); ?>JOTO/view_dossier_folder" aria-expanded="true">
                         <i class="far fa-newspaper"></i>
@@ -89,9 +89,9 @@
                 <div class="sidebar-heading">
                     PHASE I (Common Tranings)
                 </div>
-            <?php } ?>
+            <?php //} ?>
 
-            <!-- <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
+            <!-- <?php // if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
                 <li class="nav-item">
                     <a id="general" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_general" aria-expanded="true">
                         <i class="fas fa-file-alt"></i>
@@ -107,9 +107,9 @@
                         </div>
                     </div>
                 </li>
-            <!-- <?php } ?> -->
+            <!-- <?php //} ?> -->
 
-            <!-- <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
+            <!-- <?php //if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="<?php echo base_url(); ?>JOTO/daily_module" aria-expanded="true">
                         <i class="fas fa-running"></i>
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </li>
-            <!-- <?php } ?> -->
+            <!-- <?php //} ?> -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_assesment" aria-expanded="true">
@@ -158,21 +158,21 @@
                 </a>
                 <div id="collapse_assesment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
+                        <!-- <?php //if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
                             <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_general_remarks">General Remarks</a>
                             <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_progress_chart">Progress Chart</a>
                             <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_distinction_records">Distictions</a>
-                        <!-- <?php } ?> -->
+                        <!-- <?php //} ?> -->
                         <a class="collapse-item" href="<?= base_url(); ?>JOTO/view_seniority_records">Seniority</a>
-                        <!-- <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
+                        <!-- <?php //if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
                             <a class="collapse-item" href="<?php echo base_url(); ?>JOTO/add_branch_allocation">Branch Allocation</a>
                             <a class="collapse-item" href="#">Degree Complete</a>
-                        <!-- <?php } ?> -->
+                        <!-- <?php //} ?> -->
                     </div>
                 </div>
             </li>
 
-            <!-- <?php if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
+            <!-- <?php //if (($this->session->userdata('acct_type') == 'joto') && ($this->session->userdata('unit_id') != '2') && ($this->session->userdata('unit_id') != '3')) { ?> -->
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url(); ?>JOTO/add_officer_qualities" aria-expanded="true">
                         <i class="fas fa-medal"></i>
@@ -187,7 +187,7 @@
                     </a>
                 </li>
 
-            <!-- <?php } ?> -->
+            <!-- <?php //} ?> -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url(); ?>JOTO/view_activity_log" aria-expanded="true">
