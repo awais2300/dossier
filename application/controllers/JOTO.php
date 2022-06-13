@@ -5802,7 +5802,7 @@ class JOTO extends CI_Controller
             $this->db->select('f.term as pn_term, f.p_id as pn_p_id,f.*, olq.*');
             $this->db->from('pn_form1s f');
             $this->db->join('officer_qualities olq', 'f.p_id = olq.p_id AND f.term = olq.term', 'left');
-            $this->db->where('f.divison_name', $this->session->userdata('division'));
+            // $this->db->where('f.divison_name', $this->session->userdata('division'));
             $this->db->where('f.oc_no', $oc_no);
             if ($olq_term_exist > 0) {
                 $this->db->where('olq.term', $curr_term['term']); //Dossier Continue
