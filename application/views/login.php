@@ -74,7 +74,7 @@
                       <option value="dntme">DDNT MECHANICAL</option>
                       <option value="dntwe">DDNT WEAPON</option>
                       <option value="dnts">DDNT SUPPLY</option>
-                      <option value="ctmwt">Captain MWT</option>
+                      <!-- <option value="ctmwt">Captain MWT</option> -->
                       <!-- <option value="hougp">HOUGP</option> -->
 
                     </select>
