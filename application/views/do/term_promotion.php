@@ -190,9 +190,6 @@
                                             <option class="form-control form-control-user" value="<?= $data['id'] ?>"><?= $data['unit_name'] ?></option>
                                         <?php } ?>
                                     </select>
-
-
-
                                     <span id="show_error_select_unit_all" style="font-size:10px; color:red; display:none">&nbsp;&nbsp;Please select unit to Proceed*</span>
                                 </div>
                                 <div class="col-sm-2 mb-1" id="branch_list" style="display: none">
@@ -414,6 +411,9 @@
                             $('#branch_list_label').show();
                             $('#ship_list_seperate').hide();
                             $('#ship_list_label').hide();
+                        } else { //new3
+                            $('#branch_list_label').show();
+                            $('#branch_list').show();
                         }
 
                     } else {

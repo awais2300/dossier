@@ -2108,8 +2108,9 @@ class D_O extends CI_Controller
             $curr_term = $_POST['curr_term'];
             $action = $_POST['action'];
             $all = $_POST['all'];
-
-            $branch_id = '';
+            $branch_id = $_POST['branch_id']; //new3
+            
+            // $branch_id = ''; //new3
             $next_term = '';
             $unit_id = $this->session->userdata('unit_id');
 
@@ -2127,7 +2128,7 @@ class D_O extends CI_Controller
                     $next_term = 'Term-IV';
                     $phase = 'Midshipman'; //Added by Awais Dated: 13 Dec 21
                     $unit_id = $_POST['unit_id'];
-                    $branch_id = $_POST['branch_id']; //Added by Awais Dated: 13 Dec 21
+                    //$branch_id = $_POST['branch_id']; //Added by Awais Dated: 13 Dec 21 //new3
                 } else {
                     $phase = 'Sub-Lieutenant';
 
@@ -2223,7 +2224,8 @@ class D_O extends CI_Controller
                     );
                 } else {
                     $update_array = array(
-                        'term' => $next_term
+                        'term' => $next_term,
+                        'branch_id' => $branch_id //new3
                     );
                 }
             }

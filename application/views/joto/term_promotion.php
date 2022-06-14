@@ -463,10 +463,6 @@
         var curr_term = $('#term').val();
         var unit_id;
 
-        alert(curr_term);
-        alert(p_id);
-        
-
         if (curr_term == 'Term-III') {
             unit_id = $('#ship_ind').val();
         } else if (curr_term == 'Term-IV') {
@@ -503,7 +499,7 @@
             } else {
                 pass_branch = branch_in;
             }
-            alert(pass_branch);
+ 
             $('#show_error_select_unit_all').hide();
             $.ajax({
                 url: '<?= base_url(); ?>JOTO/update_cadet_term',

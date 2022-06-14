@@ -133,11 +133,11 @@ class DNT_WE extends CI_Controller
             $data['olq_t1'] = $this->db->where('p_id', $p_id)->where('term', 'Term-I')->get('officer_qualities')->row_array();
             $data['olq_t2'] = $this->db->where('p_id', $p_id)->where('term', 'Term-II')->get('officer_qualities')->row_array();
             $data['olq_t3'] = $this->db->where('p_id', $p_id)->where('term', 'Term-III')->get('officer_qualities')->row_array();
-            $data['olq_t4'] = $this->db->where('p_id', $p_id)->where('term', 'Term-IV')->get('officer_qualities')->row_array();
-            $data['olq_t5'] = $this->db->where('p_id', $p_id)->where('term', 'Term-V')->get('officer_qualities')->row_array();
-            $data['olq_t6'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VI')->get('officer_qualities')->row_array();
-            $data['olq_t7'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VII')->get('officer_qualities')->row_array();
-            $data['olq_t8'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VIII')->get('officer_qualities')->row_array();
+            $data['olq_t4'] = $this->db->where('p_id', $p_id)->where('term', 'Term-IV')->or_like('term','4')->get('officer_qualities')->row_array();
+            $data['olq_t5'] = $this->db->where('p_id', $p_id)->where('term', 'Term-V')->or_like('term','5')->get('officer_qualities')->row_array();
+            $data['olq_t6'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VI')->or_like('term','6')->get('officer_qualities')->row_array();
+            $data['olq_t7'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VII')->or_like('term','7')->get('officer_qualities')->row_array();
+            $data['olq_t8'] = $this->db->where('p_id', $p_id)->where('term', 'Term-VIII')->or_like('term','8')->get('officer_qualities')->row_array();
             $data['cadet_data'] = $this->db->where('p_id', $p_id)->get('pn_form1s')->row_array();
             $view_page = $this->load->view('dnt_we/view_olq_graph', $data, false);
             // echo $view_page;
