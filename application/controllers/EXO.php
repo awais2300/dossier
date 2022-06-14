@@ -2249,7 +2249,7 @@ class EXO extends CI_Controller
             $data['units'] = $this->db->where('id', '2')->or_where('id', '3')->or_where('id', '4')->or_where('id', '17')->get('navy_units')->result_array();
             $data['ships'] = $this->db->where('id', '6')->or_where('id', '7')->or_where('id', '8')->or_where('id', '9')->or_where('id', '10')->or_where('id', '11')->or_where('id', '12')->or_where('id', '13')->or_where('id', '14')->or_where('id', '15')->or_where('id', '16')->get('navy_units')->result_array();
             $data['branches'] = $this->db->get('branch_preference_list')->result_array();
-            $view_page = $this->load->view('joto/term_promotion', $data, TRUE);
+            $view_page = $this->load->view('exo/term_promotion', $data, TRUE);
             echo $view_page;
             json_encode($view_page);
         }
@@ -2664,7 +2664,6 @@ class EXO extends CI_Controller
         if ($this->session->has_userdata('user_id')) {
             $oc_no = $_POST['oc_no'];
             $units_list = array('2', '3', '17');
-
             if (($this->session->userdata('unit_id')) != 1) {
                 $data['pn_data'] = $this->db->where('oc_no', $oc_no)->where('unit_id', $this->session->userdata('unit_id'))->get('pn_form1s')->row_array();
             } else {
@@ -2713,6 +2712,61 @@ class EXO extends CI_Controller
             $data['pn_punish_data_term3'] = $this->db->get()->result_array();
 
             $this->db->select('pr.*, f.*');
+            $this->db->from('punishment_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.oc_no = pr.oc_no');
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '4');
+            $this->db->where('pr.status', 'Approved');
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $data['pn_punish_data_term4'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('punishment_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.oc_no = pr.oc_no');
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '5');
+            $this->db->where('pr.status', 'Approved');
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $data['pn_punish_data_term5'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('punishment_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.oc_no = pr.oc_no');
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '6');
+            $this->db->where('pr.status', 'Approved');
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $data['pn_punish_data_term6'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('punishment_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.oc_no = pr.oc_no');
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '7');
+            $this->db->where('pr.status', 'Approved');
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $data['pn_punish_data_term7'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('punishment_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            $this->db->where('f.oc_no = pr.oc_no');
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '8');
+            $this->db->where('pr.status', 'Approved');
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $data['pn_punish_data_term8'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
             $this->db->from('observation_records pr');
             $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
             // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
@@ -2741,6 +2795,56 @@ class EXO extends CI_Controller
             $this->db->where('pr.term', 'Term-III');
             $this->db->where('pr.status', 'Approved');
             $data['pn_obs_data_term3'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('observation_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '4');
+            $this->db->where('pr.status', 'Approved');
+            $data['pn_obs_data_term4'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('observation_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '5');
+            $this->db->where('pr.status', 'Approved');
+            $data['pn_obs_data_term5'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('observation_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '6');
+            $this->db->where('pr.status', 'Approved');
+            $data['pn_obs_data_term6'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('observation_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '7');
+            $this->db->where('pr.status', 'Approved');
+            $data['pn_obs_data_term7'] = $this->db->get()->result_array();
+
+            $this->db->select('pr.*, f.*');
+            $this->db->from('observation_records pr');
+            $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+            // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
+            $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
+            $this->db->where('f.oc_no', $oc_no);
+            $this->db->like('pr.term', '8');
+            $this->db->where('pr.status', 'Approved');
+            $data['pn_obs_data_term8'] = $this->db->get()->result_array();
 
             $this->db->select('pr.*, f.*');
             $this->db->from('warning_records pr');
@@ -2773,6 +2877,13 @@ class EXO extends CI_Controller
             // $this->db->where('pr.term', 'Term-I');
             $data['pn_physical_tests_data'] = $this->db->get()->result_array();
 
+             //new
+             $this->db->select('pr.*, f.*');
+             $this->db->from('games_proficiencies pr');
+             $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
+             $this->db->where('f.oc_no', $oc_no);
+             $data['pn_proficiency_games_data'] = $this->db->get()->result_array();
+
             //Term-P
             $this->db->select('pr.*, f.*');
             $this->db->from('physical_milestone pr');
@@ -2781,6 +2892,7 @@ class EXO extends CI_Controller
             $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
             $this->db->where('f.oc_no', $oc_no);
             $this->db->where('pr.term', 'Term-P');
+            // $this->db->where('pr.term', $data['pn_data']['term']); //kk9
             $data['pn_physical_tests_data_tp'] = $this->db->get()->row_array();
 
             $this->db->select('pr.*, f.*');
@@ -2790,6 +2902,7 @@ class EXO extends CI_Controller
             $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
             $this->db->where('f.oc_no', $oc_no);
             $this->db->where('pr.term', 'Term-P');
+            // $this->db->where('pr.term', $data['pn_data']['term']); //kk9
             $data['pn_pet1_data_tp'] = $this->db->get()->row_array();
 
             $this->db->select('pr.*, f.*');
@@ -2799,6 +2912,7 @@ class EXO extends CI_Controller
             $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
             $this->db->where('f.oc_no', $oc_no);
             $this->db->where('pr.term', 'Term-P');
+            // $this->db->where('pr.term', $data['pn_data']['term']); //kk9
             $data['pn_pet2_data_tp'] = $this->db->get()->row_array();
 
             //Term-I
@@ -2890,7 +3004,13 @@ class EXO extends CI_Controller
             $this->db->from('academic_records pr');
             $this->db->join('pn_form1s f', 'f.p_id = pr.p_id');
             $this->db->where('f.oc_no', $oc_no);
-            $this->db->where('pr.term', 'Term-I');
+            if ($this->session->userdata('unit_id') == '1') {
+                $this->db->where('pr.term', 'Term-I');
+            } else {
+                if (isset($data['pn_data'])) {
+                    $this->db->like('pr.term', $data['pn_data']['term']);
+                }
+            }
             $this->db->where('pr.doc_type', 'Result');
             $data['pn_result_record_t1'] = $this->db->get()->result_array();
             //Result Term-II
@@ -2924,7 +3044,13 @@ class EXO extends CI_Controller
             // $this->db->where('pr.do_id', $this->session->userdata('user_id'));
             $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
             $this->db->where('f.oc_no', $oc_no);
-            $this->db->where('pr.term', 'Term-I');
+            if ($this->session->userdata('unit_id') == '1') {
+                $this->db->where('pr.term', 'Term-I');
+            } else {
+                if (isset($data['pn_data'])) {
+                    $this->db->like('pr.term', $data['pn_data']['term']);
+                }
+            }
             $data['pn_officer_qualities_data_t1'] = $this->db->get()->row_array();
 
             $this->db->select('pr.*, f.*');
@@ -2994,7 +3120,13 @@ class EXO extends CI_Controller
             $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
             $this->db->where('f.oc_no', $oc_no);
             $this->db->where('pr.assessment', 'Mid Term Assessment');
-            $this->db->where('pr.term', 'Term-I');
+            if ($this->session->userdata('unit_id') == '1') {
+                $this->db->where('pr.term', 'Term-I');
+            } else {
+                if (isset($data['pn_data'])) {
+                    $this->db->like('pr.term', $data['pn_data']['term']);
+                }
+            }
             $data['pn_general_remarks_term1_mid'] = $this->db->get()->result_array();
 
             $this->db->select('pr.*, f.*');
@@ -3004,7 +3136,13 @@ class EXO extends CI_Controller
             $this->db->where('f.unit_id', $this->session->userdata('unit_id'));
             $this->db->where('f.oc_no', $oc_no);
             $this->db->where('pr.assessment', 'Terminal Assessment');
-            $this->db->where('pr.term', 'Term-I');
+            if ($this->session->userdata('unit_id') == '1') {
+                $this->db->where('pr.term', 'Term-I');
+            } else {
+                if (isset($data['pn_data'])) {
+                    $this->db->like('pr.term', $data['pn_data']['term']);
+                }
+            }
             $data['pn_general_remarks_term1_final'] = $this->db->get()->result_array();
             //Term 2
             $this->db->select('pr.*, f.*');
@@ -3076,8 +3214,10 @@ class EXO extends CI_Controller
             } else {
                 $ispress = 'No';
             }
+
             if ($data['pn_data'] != null) {
                 $data['oc_no_entered'] = $oc_no;
+                // $data['term_entered'] = $data['pn_data']['term'];
                 $view_page = $this->load->view('exo/view_dossier_folder', $data, TRUE);
             } else {
                 if ($ispress == 'Yes') {

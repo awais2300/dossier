@@ -24,6 +24,7 @@
     $this->load->view('hougp/common/header');
 } ?>
 <?php !isset($oc_no_entered) ? $oc_no_entered = '' : $oc_no_entered; ?>
+
 <style>
     .red-border {
         border: 1px solid red !important;
@@ -235,10 +236,26 @@
                                         <a href="#" style="color:black" id="btn_punish_term3">
                                             <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
                                         </a>
+                                        <a href="#" style="color:black" id="btn_punish_term4">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-IV</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term5">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-V</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term6">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VI</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term7">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VII</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term8">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VIII</li>
+                                        </a>
                                     </ul>
                                 </div>
                                 <div id="terms_list_obs" class="col-lg-2" style="text-align:left;font-weight: bold;display:none">
                                     <ul class="list-group">
+
                                         <a href="#" style="color:black" id="btn_obs_term1">
                                             <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
                                         </a>
@@ -248,6 +265,22 @@
                                         <a href="#" style="color:black" id="btn_obs_term3">
                                             <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
                                         </a>
+                                        <a href="#" style="color:black" id="btn_obs_term4">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-IV</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term5">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-V</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term6">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VI</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term7">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VII</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term8">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VIII</li>
+                                        </a>
+
                                     </ul>
                                 </div>
                             </div>
@@ -274,7 +307,7 @@
                                         <a href="#" style="color:black" id="btn_physical_record">
                                             <li class="list-group-item bg-custom3 custom_list">RECORD PHYSICAL EFFICIENCY</li>
                                         </a>
-                                        <a href="#" style="color:black">
+                                        <a href="#" style="color:black" id="btn_proficiency_games"> <!-- new -->
                                             <li class="list-group-item bg-custom3 custom_list">PROFICIENCY IN GAMES</li>
                                         </a>
                                         <a href="#" style="color:black" id="btn_medical_record">
@@ -287,18 +320,27 @@
                             <div id="acad_list" class="row" style="display:none ;">
                                 <div class="col-lg-4" style="text-align:left;font-weight: bold;">
                                     <ul class="list-group">
-                                        <a href="#" style="color:black" id="btn_result_t1">
-                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-I)</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_sea_training_report">
-                                            <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_result_t2">
-                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-II)</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_result_t3">
-                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM III)</li>
-                                        </a>
+                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                            <a href="#" style="color:black" id="btn_result_t1">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-I)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_sea_training_report">
+                                                <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_result_t2">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-II)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_result_t3">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM III)</li>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="#" style="color:black" id="btn_result_t1">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (<?php echo $pn_data['term'] ?>)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_sea_training_report">
+                                                <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
+                                            </a>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -314,15 +356,21 @@
                                 </div>
                                 <div id="terms_olq_record" class="col-lg-2" style="text-align:left;font-weight: bold;display:none">
                                     <ul class="list-group">
-                                        <a href="#" style="color:black" id="btn_olq_term1">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_olq_term2">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_olq_term3">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
-                                        </a>
+                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                            <a href="#" style="color:black" id="btn_olq_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_olq_term2">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_olq_term3">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="#" style="color:black" id="btn_olq_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-<?php echo $pn_data['term']; ?></li>
+                                            </a>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -360,15 +408,21 @@
                                 </div>
                                 <div id="terms_general_remarks_record" class="col-lg-2" style="text-align:left;font-weight: bold">
                                     <ul class="list-group">
-                                        <a href="#" style="color:black" id="btn_general_remarks_term1">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_general_remarks_term2">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_general_remarks_term3">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
-                                        </a>
+                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term2">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term3">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-<?php echo $pn_data['term']; ?></li>
+                                            </a>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                                 <div id="general_remarks_mid_final_term1" class="col-lg-3" style="text-align:left;font-weight: bold;display:none">
@@ -472,7 +526,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--   <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -549,7 +603,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?= base_url() ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -624,7 +678,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -698,13 +752,408 @@
         </div>
 
     </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term4">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/4'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-IV</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term4) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term4 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term4">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term5">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/5'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-V</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term5) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term5 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term5">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term6">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/6'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VI</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term6) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term6 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term6">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term7">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/7'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term7) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term7 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term7">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term8">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/punishment_records_report/<?= $pn_data['oc_no'] ?>/8'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VIII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term8) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term8 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term8">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
 
     <div class="card-body bg-custom3" style="display:none" id="obs_term1">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -776,7 +1225,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -848,7 +1297,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -915,13 +1364,373 @@
         </form>
 
     </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term4">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/4'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-IV</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term4) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term4 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term4">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term5">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/5'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-V</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term5) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term5 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term5">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term6">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/6'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VI</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term6) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term6 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term6">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term7">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/7'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term7) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term7 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term7">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term8">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>EXO/observation_records_report/<?= $pn_data['oc_no'] ?>/8'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VIII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term8) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term8 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>EXO/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term8">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
 
     <div class="card-body bg-custom3" style="display:none" id="warning_record">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_warning/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/warning_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/warning_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -997,7 +1806,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_warning/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/warning_record_insert_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/warning_record_insert_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1066,7 +1875,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/inspection_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/inspection_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1077,7 +1886,6 @@
                                 <h4 style="text-decoration:underline"><strong>INSPECTION RECORD</strong></h4>
                             </div>
                         </div>
-
                         <div id="table_div" style=" padding:20px !important">
                             <?php if (count($pn_inspection_data) > 0) { ?>
                                 <table style="color:black; width:100% !important;">
@@ -1097,7 +1905,7 @@
                                                 <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
                                                 <td scope="" style="height:80px;text-align: center;"><?= $data['remarks']; ?></td>
                                                 <td scope="" style="border-right:1px solid black; text-align: center;"><?= $data['inspecting_officer_name']; ?></td>
-                                                <td scope="" style="border-right:1px solid black;width:100px !important;text-align: center;"><a style="color: black;" href="<?php echo base_url() ?>EXO/view_edit_inspection/<?= $data['id']; ?>"><i class="fa fa-edit"></i></a></td>>
+                                                <td scope="" style="border-right:1px solid black;width:100px !important;text-align: center;"><a style="color: black;" href="<?php echo base_url() ?>EXO/view_edit_inspection/<?= $data['id']; ?>"><i class="fa fa-edit"></i></a></td>
                                             </tr>
                                         <?php
                                             $count++;
@@ -1135,7 +1943,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/medical_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/medical_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1215,7 +2023,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/saluting_swimming_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/saluting_swimming_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1311,7 +2119,7 @@
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
 
                 <a onclick="location.href='<?= base_url(); ?>EXO/add_physical_milestone/<?php echo "view_dossier_folder" ?>'" style="margin-left: 65%" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/physical_efficiency_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/physical_efficiency_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1327,135 +2135,115 @@
                             <?php if (count($pn_physical_tests_data) > 0) { ?>
                                 <table style="color:black; width:100% !important;">
 
-                                    <?php $count = 0;
-                                    foreach ($pn_physical_tests_data as $data) { ?>
-                                        <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                    <?php $count = 0; ?>
+                                    <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                            ?> -->
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" Style="width:50px">S NO</td>
+                                            <td scope="" Style="width:180px">EVENT</td>
+                                            <td scope="" colspan="4">TERM-P</td>
+                                            <td scope="" colspan="4">TERM-I</td>
+                                            <td scope="" colspan="4">TERM-II</td>
+                                            <td scope="" style="border-right:1px solid black;" colspan="4">TERM-III</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">MILE TIME</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['mile_time'])) {
+                                                                            echo $pn_pet1_data_tp['mile_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['mile_time'])) {
+                                                                            echo $pn_pet2_data_tp['mile_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['mile_time'])) {
+                                                                            echo $pn_pet1_data_t1['mile_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['mile_time'])) {
+                                                                            echo $pn_pet1_data_t1['mile_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['mile_time'])) {
+                                                                            echo $pn_pet1_data_t2['mile_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['mile_time'])) {
+                                                                            echo $pn_pet2_data_t2['mile_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['mile_time'])) {
+                                                                            echo $pn_pet1_data_t3['mile_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet1_data_t3['mile_time'])) {
+                                                                                                                echo $pn_pet2_data_t3['mile_time'];
+                                                                                                            } ?></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
+                                        </tr>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <thead style="font-weight:bold;padding:5px; text-align:center">
                                             <tr>
-                                                <td scope="" Style="width:50px">S NO</td>
-                                                <td scope="" Style="width:180px">EVENT</td>
-                                                <td scope="" colspan="4">TERM-P</td>
-                                                <td scope="" colspan="4">TERM-I</td>
-                                                <td scope="" colspan="4">TERM-II</td>
-                                                <td scope="" style="border-right:1px solid black;" colspan="4">TERM-III</td>
+                                                <th scope=""></th>
+                                                <th scope=""></th>
+                                                <th scope="" colspan="2"></th>
+                                                <th scope="" colspan="2"></th>
+                                                <th scope="" colspan="2"></th>
+                                                <th scope="" colspan="2"></th>
+                                                <th scope="" colspan="2"></th>
+                                                <th scope="" colspan="2"></th>
+                                                <th scope="" style="border-right:1px solid black;" colspan="2"></th>
                                             </tr>
                                         </thead>
-                                        <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">MILE TIME</td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_tp['mile_time'])) {
-                                                                    echo $pn_pet1_data_tp['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_tp['mile_time'])) {
-                                                                    echo $pn_pet1_data_tp['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_tp['mile_time'])) {
-                                                                    echo $pn_pet2_data_tp['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_tp['mile_time'])) {
-                                                                    echo $pn_pet2_data_tp['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t1['mile_time'])) {
-                                                                    echo $pn_pet1_data_t1['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t1['mile_time'])) {
-                                                                    echo $pn_pet1_data_t1['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t1['mile_time'])) {
-                                                                    echo $pn_pet1_data_t1['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t1['mile_time'])) {
-                                                                    echo $pn_pet2_data_t1['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t2['mile_time'])) {
-                                                                    echo $pn_pet1_data_t2['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t2['mile_time'])) {
-                                                                    echo $pn_pet1_data_t2['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t2['mile_time'])) {
-                                                                    echo $pn_pet2_data_t2['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t2['mile_time'])) {
-                                                                    echo $pn_pet2_data_t2['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t3['mile_time'])) {
-                                                                    echo $pn_pet1_data_t4['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t3['mile_time'])) {
-                                                                    echo $pn_pet1_data_t4['mile_time'];
-                                                                } ?></td>
-                                                <td scope=""><?php if (isset($pn_pet1_data_t3['mile_time'])) {
-                                                                    echo $pn_pet2_data_t4['mile_time'];
-                                                                } ?></td>
-                                                <td scope="" style="border-right:1px solid black;"><?php if (isset($pn_pet1_data_t3['mile_time'])) {
-                                                                                                        echo $pn_pet2_data_t3['mile_time'];
-                                                                                                    } ?></td>
-                                            </tr>
-                                        <?php } ?>
                                         <tr>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black;"></td>
-                                            <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">ROPE CLASS</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['rope'])) {
+                                                                            echo $pn_pet1_data_tp['rope'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['rope'])) {
+                                                                            echo $pn_pet2_data_tp['rope'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['rope'])) {
+                                                                            echo $pn_pet1_data_t1['rope'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['rope'])) {
+                                                                            echo $pn_pet2_data_t1['rope'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['rope'])) {
+                                                                            echo $pn_pet1_data_t2['rope'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['rope'])) {
+                                                                            echo $pn_pet2_data_t2['rope'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['rope'])) {
+                                                                            echo $pn_pet1_data_t3['rope'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['rope'])) {
+                                                                                                                echo $pn_pet2_data_t3['rope'];
+                                                                                                            } ?></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <thead style="font-weight:bold;padding:5px; text-align:center">
-                                                <tr>
-                                                    <th scope=""></th>
-                                                    <th scope=""></th>
-                                                    <th scope="" colspan="2"></th>
-                                                    <th scope="" colspan="2"></th>
-                                                    <th scope="" colspan="2"></th>
-                                                    <th scope="" colspan="2"></th>
-                                                    <th scope="" colspan="2"></th>
-                                                    <th scope="" colspan="2"></th>
-                                                    <th scope="" style="border-right:1px solid black;" colspan="2"></th>
-                                                </tr>
-                                            </thead>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">ROPE CLASS</td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['rope'])) {
-                                                                                echo $pn_pet1_data_tp['rope'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['rope'])) {
-                                                                                echo $pn_pet2_data_tp['rope'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['rope'])) {
-                                                                                echo $pn_pet1_data_t1['rope'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['rope'])) {
-                                                                                echo $pn_pet2_data_t1['rope'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['rope'])) {
-                                                                                echo $pn_pet1_data_t2['rope'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['rope'])) {
-                                                                                echo $pn_pet2_data_t2['rope'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['rope'])) {
-                                                                                echo $pn_pet1_data_t3['rope'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['rope'])) {
-                                                                                                                    echo $pn_pet2_data_t3['rope'];
-                                                                                                                } ?></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
@@ -1476,36 +2264,38 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">BEAM WORK</td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['chinups'])) {
-                                                                                echo $pn_pet1_data_tp['chinups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['chinups'])) {
-                                                                                echo $pn_pet2_data_tp['chinups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['chinups'])) {
-                                                                                echo $pn_pet1_data_t1['chinups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['chinups'])) {
-                                                                                echo $pn_pet2_data_t1['chinups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['chinups'])) {
-                                                                                echo $pn_pet1_data_t2['chinups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['chinups'])) {
-                                                                                echo $pn_pet2_data_t2['chinups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['chinups'])) {
-                                                                                echo $pn_pet1_data_t3['chinups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['chinups'])) {
-                                                                                                                    echo $pn_pet2_data_t3['chinups'];
-                                                                                                                } ?></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">BEAM WORK</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['chinups'])) {
+                                                                            echo $pn_pet1_data_tp['chinups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['chinups'])) {
+                                                                            echo $pn_pet2_data_tp['chinups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['chinups'])) {
+                                                                            echo $pn_pet1_data_t1['chinups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['chinups'])) {
+                                                                            echo $pn_pet2_data_t1['chinups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['chinups'])) {
+                                                                            echo $pn_pet1_data_t2['chinups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['chinups'])) {
+                                                                            echo $pn_pet2_data_t2['chinups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['chinups'])) {
+                                                                            echo $pn_pet1_data_t3['chinups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['chinups'])) {
+                                                                                                                echo $pn_pet2_data_t3['chinups'];
+                                                                                                            } ?></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
@@ -1526,36 +2316,38 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">PUSH UPS</td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['pushups'])) {
-                                                                                echo $pn_pet1_data_tp['pushups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['pushups'])) {
-                                                                                echo $pn_pet2_data_tp['pushups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['pushups'])) {
-                                                                                echo $pn_pet1_data_t1['pushups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['pushups'])) {
-                                                                                echo $pn_pet2_data_t1['pushups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['pushups'])) {
-                                                                                echo $pn_pet1_data_t2['pushups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['pushups'])) {
-                                                                                echo $pn_pet2_data_t2['pushups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['pushups'])) {
-                                                                                echo $pn_pet1_data_t3['pushups'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['pushups'])) {
-                                                                                                                    echo $pn_pet2_data_t3['pushups'];
-                                                                                                                } ?></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">PUSH UPS</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['pushups'])) {
+                                                                            echo $pn_pet1_data_tp['pushups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['pushups'])) {
+                                                                            echo $pn_pet2_data_tp['pushups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['pushups'])) {
+                                                                            echo $pn_pet1_data_t1['pushups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['pushups'])) {
+                                                                            echo $pn_pet2_data_t1['pushups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['pushups'])) {
+                                                                            echo $pn_pet1_data_t2['pushups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['pushups'])) {
+                                                                            echo $pn_pet2_data_t2['pushups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['pushups'])) {
+                                                                            echo $pn_pet1_data_t3['pushups'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['pushups'])) {
+                                                                                                                echo $pn_pet2_data_t3['pushups'];
+                                                                                                            } ?></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
@@ -1576,20 +2368,38 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">100M SPRINT TIME</td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">100M SPRINT TIME</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_tp['sprint_time'])) {
+                                                                            echo $pn_pet1_data_tp['sprint_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_tp['sprint_time'])) {
+                                                                            echo $pn_pet2_data_tp['sprint_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t1['sprint_time'])) {
+                                                                            echo $pn_pet1_data_t1['sprint_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t1['sprint_time'])) {
+                                                                            echo $pn_pet2_data_t1['sprint_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t2['sprint_time'])) {
+                                                                            echo $pn_pet1_data_t2['sprint_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet2_data_t2['sprint_time'])) {
+                                                                            echo $pn_pet2_data_t2['sprint_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_pet1_data_t3['sprint_time'])) {
+                                                                            echo $pn_pet1_data_t3['sprint_time'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_pet2_data_t3['sprint_time'])) {
+                                                                                                                echo $pn_pet2_data_t3['sprint_time'];
+                                                                                                            } ?></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
@@ -1610,20 +2420,22 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">TOTAL PET SCORE</td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2"></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">TOTAL PET SCORE</td>
+                                            <td scope="" colspan="2"></td>
+                                            <td scope="" colspan="2"></td>
+                                            <td scope="" colspan="2"></td>
+                                            <td scope="" colspan="2"></td>
+                                            <td scope="" colspan="2"></td>
+                                            <td scope="" colspan="2"></td>
+                                            <td scope="" colspan="2"></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
@@ -1644,36 +2456,38 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">MINI CROSS COUNTRY ____ KM</td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['mini_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_tp['mini_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['mini_cross_card_number'])) {
-                                                                                echo $pn_physical_tests_data_tp['mini_cross_card_number'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['mini_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_t1['mini_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['mini_cross_card_number'])) {
-                                                                                echo $pn_physical_tests_data_t1['mini_cross_card_number'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['mini_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_t2['mini_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['mini_cross_card_number'])) {
-                                                                                echo $pn_physical_tests_data_t2['mini_cross_card_number'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t3['mini_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_t3['mini_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_physical_tests_data_t3['mini_cross_card_number'])) {
-                                                                                                                    echo $pn_physical_tests_data_t3['mini_cross_card_number'];
-                                                                                                                } ?></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">MINI CROSS COUNTRY ____ KM</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['mini_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_tp['mini_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['mini_cross_card_number'])) {
+                                                                            echo $pn_physical_tests_data_tp['mini_cross_card_number'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['mini_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_t1['mini_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['mini_cross_card_number'])) {
+                                                                            echo $pn_physical_tests_data_t1['mini_cross_card_number'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['mini_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_t2['mini_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['mini_cross_card_number'])) {
+                                                                            echo $pn_physical_tests_data_t2['mini_cross_card_number'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t3['mini_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_t3['mini_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_physical_tests_data_t3['mini_cross_card_number'])) {
+                                                                                                                echo $pn_physical_tests_data_t3['mini_cross_card_number'];
+                                                                                                            } ?></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
@@ -1694,36 +2508,38 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">CROSS COUNTRY _______KM</td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['long_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_tp['long_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['long_cross_card_number'])) {
-                                                                                echo $pn_physical_tests_data_tp['long_cross_card_number'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['long_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_t1['long_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['long_cross_card_number'])) {
-                                                                                echo $pn_physical_tests_data_t1['long_cross_card_number'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['long_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_t2['long_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['long_cross_card_number'])) {
-                                                                                echo $pn_physical_tests_data_t2['long_cross_card_number'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t3['long_cross_result'])) {
-                                                                                echo $pn_physical_tests_data_t3['long_cross_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_physical_tests_data_t3['long_cross_card_number'])) {
-                                                                                                                    echo $pn_physical_tests_data_t3['long_cross_card_number'];
-                                                                                                                } ?></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">CROSS COUNTRY _______KM</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['long_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_tp['long_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['long_cross_card_number'])) {
+                                                                            echo $pn_physical_tests_data_tp['long_cross_card_number'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['long_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_t1['long_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['long_cross_card_number'])) {
+                                                                            echo $pn_physical_tests_data_t1['long_cross_card_number'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['long_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_t2['long_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['long_cross_card_number'])) {
+                                                                            echo $pn_physical_tests_data_t2['long_cross_card_number'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t3['long_cross_result'])) {
+                                                                            echo $pn_physical_tests_data_t3['long_cross_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_physical_tests_data_t3['long_cross_card_number'])) {
+                                                                                                                echo $pn_physical_tests_data_t3['long_cross_card_number'];
+                                                                                                            } ?></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
@@ -1744,36 +2560,38 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        <?php foreach ($pn_physical_tests_data as $data) { ?>
-                                            <tr>
-                                                <td scope="" style="height:80px"><?= ++$count; ?></td>
-                                                <td scope="">ASSAULT COURSES TIME</td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['assault_result'])) {
-                                                                                echo $pn_physical_tests_data_tp['assault_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['assault_attempt'])) {
-                                                                                echo $pn_physical_tests_data_tp['assault_attempt'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['assault_result'])) {
-                                                                                echo $pn_physical_tests_data_t1['assault_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['assault_attempt'])) {
-                                                                                echo $pn_physical_tests_data_t1['assault_attempt'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['assault_result'])) {
-                                                                                echo $pn_physical_tests_data_t2['assault_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['assault_attempt'])) {
-                                                                                echo $pn_physical_tests_data_t2['assault_attempt'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t3['assault_result'])) {
-                                                                                echo $pn_physical_tests_data_t3['assault_result'];
-                                                                            } ?></td>
-                                                <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_physical_tests_data_t3['assault_attempt'])) {
-                                                                                                                    echo $pn_physical_tests_data_t3['assault_attempt'];
-                                                                                                                } ?></td>
-                                            </tr>
-                                        <?php } ?>
+                                        <!-- <?php //foreach ($pn_physical_tests_data as $data) { 
+                                                ?> -->
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">ASSAULT COURSES TIME</td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['assault_result'])) {
+                                                                            echo $pn_physical_tests_data_tp['assault_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_tp['assault_attempt'])) {
+                                                                            echo $pn_physical_tests_data_tp['assault_attempt'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['assault_result'])) {
+                                                                            echo $pn_physical_tests_data_t1['assault_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t1['assault_attempt'])) {
+                                                                            echo $pn_physical_tests_data_t1['assault_attempt'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['assault_result'])) {
+                                                                            echo $pn_physical_tests_data_t2['assault_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t2['assault_attempt'])) {
+                                                                            echo $pn_physical_tests_data_t2['assault_attempt'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2"><?php if (isset($pn_physical_tests_data_t3['assault_result'])) {
+                                                                            echo $pn_physical_tests_data_t3['assault_result'];
+                                                                        } ?></td>
+                                            <td scope="" colspan="2" style="border-right:1px solid black;"><?php if (isset($pn_physical_tests_data_t3['assault_attempt'])) {
+                                                                                                                echo $pn_physical_tests_data_t3['assault_attempt'];
+                                                                                                            } ?></td>
+                                        </tr>
+                                        <!-- <?php //} 
+                                                ?> -->
                                         <tr>
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black;border-left:1px !important;"></td>
@@ -1794,7 +2612,7 @@
                                             <td scope="" style="border-bottom:1px solid black;"></td>
                                             <td scope="" style="border-bottom:1px solid black; border-left:1px; border-right:1px solid black;"></td>
                                         </tr>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             <?php } else { ?>
                                 <a> No Data Available yet </a>
@@ -1817,12 +2635,79 @@
 
     </div>
 
+    <div class="card-body bg-custom3" style="display:none" id="proficiency_games_record"> <!-- new -->
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/proficiency_games_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>PROFICIENCY IN GAMES</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_proficiency_games_data) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:10px">TERM</td>
+                                            <td scope="" style="width:70px">GAME</td>
+                                            <td scope="" style="width:70px">PROFICIENCY</td>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">DO SIGNATURE</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_proficiency_games_data as $data) { ?>
+                                            <tr>
+                                                <td scope=""><?= $data['term']; ?></td>
+                                                <td scope="" style="white-space:nowrap"><?= $data['game']; ?></td>
+                                                <td scope="" style="white-space:nowrap"><?= $data['proficiency']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"></td>
+                                            </tr>
+                                        <?php  } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_proficiency_games">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
     <div class="card-body bg-custom3" style="display:none" id="officer_qualities_record_term1">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_qualities/<?= $pn_data['p_id'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 65%"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1831,7 +2716,11 @@
                         <div class="container my-3">
                             <div style="text-align:center">
                                 <h4 style="text-decoration:underline"><strong>OFFICER LIKE QUALITIES</strong></h4>
-                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -2179,7 +3068,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_qualities/<?= $pn_data['p_id'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 65%"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -2536,7 +3425,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_qualities/<?= $pn_data['p_id'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 65%"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -2893,7 +3782,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_personal_record/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/personal_data_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/personal_data_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <?php if (isset($pn_personal_data['p_no'])) { ?>
                 <div class="row">
@@ -3344,7 +4233,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/divisional_officer_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/divisional_officer_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3426,7 +4315,7 @@
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_biography/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>
 
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/autobiography_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/autobiography_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3493,7 +4382,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_psychologist_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/psychology_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/psychology_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3562,7 +4451,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_result_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-I/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-I/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3570,7 +4459,11 @@
 
                         <div class="container my-3">
                             <div style="text-align:center">
-                                <h4 style="text-decoration:underline"><strong>RESULT REPORT (TERM-I)</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>RESULT REPORT (TERM-I)</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>RESULT REPORT (<?php echo $pn_data['term'] ?>)</strong></h4>
+                                <?php } ?>
                             </div>
                             <div style="text-align:center">
                                 <h5>(TO BE PASTED HERE)</h5>
@@ -3630,7 +4523,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_result_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3698,7 +4591,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_ressult_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-III/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-III/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3766,7 +4659,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>EXO/view_edit_sea_training_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/SeaTraining'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/SeaTraining'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3834,7 +4727,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3844,7 +4737,11 @@
                                 <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
                             </div>
                             <div style="text-align:center">
-                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -3898,7 +4795,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3908,7 +4805,11 @@
                                 <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
                             </div>
                             <div style="text-align:center">
-                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -3964,7 +4865,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4028,7 +4929,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4095,7 +4996,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4159,7 +5060,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4226,7 +5127,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/progress_chart_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/progress_chart_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4305,7 +5206,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/distinction_achieved_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/distinction_achieved_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4369,7 +5270,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/seniority_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/seniority_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4506,7 +5407,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/EXO/branch_allocation_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>EXO/branch_allocation_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4595,8 +5496,8 @@
                                             <td scope="" style="border:none;width:60%"></td>
                                             <td scope="" style="border: none;width: 40%;height: 400px;text-align: center;font-weight: bold;">
                                                 <p><strong>NAVAL HEADQUARTERS</strong></p>
-                                                <p><strong>LETTER NO…………………………</strong></p>
-                                                <p><strong>DATED………………………………</strong></p>
+                                                <p><strong>LETTER NO: <?= $pn_branch_allocations['letter_no'];?></strong></p> <!-- new2 -->
+                                                <p><strong>DATED: <?= $pn_branch_allocations['created_at'];?></strong></p> <!-- new2 -->
                                             </td>
                                         </tr>
 
@@ -4790,6 +5691,76 @@
         $('#back_btn_punish').show();
     });
 
+    $('#btn_punish_term4').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term4').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term5').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term5').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term6').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term6').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term7').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term7').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term8').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term8').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#back_btn_punish').show();
+    });
+
     $('#btn_obs_term1').on('click', function() {
         $('#main-container').hide();
         $('#container-2').hide();
@@ -4814,17 +5785,81 @@
         $('#obs_term2').hide();
         $('#back_btn_punish').show();
     });
+    $('#btn_obs_term4').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term4').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term5').hide();
+        $('#obs_term6').hide();
+        $('#obs_term7').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term5').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term5').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#obs_term6').hide();
+        $('#obs_term7').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term6').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term6').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#obs_term7').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term7').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term7').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term8').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term8').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#back_btn_punish').show();
+    });
 
-    $('#back_btn_punish_term1, #back_btn_punish_term2, #back_btn_punish_term3').on('click', function() {
+    $('#back_btn_punish_term1, #back_btn_punish_term2, #back_btn_punish_term3, #back_btn_punish_term4, #back_btn_punish_term5, #back_btn_punish_term6, #back_btn_punish_term7, #back_btn_punish_term8').on('click', function() {
         $('#main-container').show();
         $('#punish_term1').hide();
         $('#punish_term2').hide();
         $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
         $('#terms_list_punish').hide();
         $('#terms_list_obs').hide();
     });
 
-    $('#back_btn_obs_term1, #back_btn_obs_term2, #back_btn_obs_term3, #back_btn_warning, #back_btn_inspection, #back_btn_medical, #back_btn_saluting_swimming, #back_btn_physical_efficiency, #back_btn_olq_term1, #back_btn_olq_term2, #back_btn_olq_term3, #back_btn_personal_record, #back_btn_divisional_officer, #back_btn_autobiography, #back_btn_psychologhy, #back_btn_general_remarks_term1_mid, #back_btn_general_remarks_term1_final, #back_btn_general_remarks_term2_mid, #back_btn_general_remarks_term2_final, #back_btn_general_remarks_term3_mid, #back_btn_general_remarks_term3_final, #back_btn_distinction_achieved, #back_btn_progress_chart, #back_btn_seniority_record, #back_btn_branch_allocation, #back_btn_warning_insert, #back_btn_result_t1, #back_btn_result_t2, #back_btn_result_t3, #back_btn_sea_training').on('click', function() {
+    $('#back_btn_obs_term1, #back_btn_obs_term2, #back_btn_obs_term3, #back_btn_warning, #back_btn_inspection, #back_btn_medical, #back_btn_saluting_swimming, #back_btn_physical_efficiency, #back_btn_olq_term1, #back_btn_olq_term2, #back_btn_olq_term3, #back_btn_personal_record, #back_btn_divisional_officer, #back_btn_autobiography, #back_btn_psychologhy, #back_btn_general_remarks_term1_mid, #back_btn_general_remarks_term1_final, #back_btn_general_remarks_term2_mid, #back_btn_general_remarks_term2_final, #back_btn_general_remarks_term3_mid, #back_btn_general_remarks_term3_final, #back_btn_distinction_achieved, #back_btn_progress_chart, #back_btn_seniority_record, #back_btn_branch_allocation, #back_btn_warning_insert, #back_btn_result_t1, #back_btn_result_t2, #back_btn_result_t3, #back_btn_sea_training, #back_btn_proficiency_games').on('click', function() { //new
         $('#main-container').show();
         $('#obs_term1').hide();
         $('#obs_term2').hide();
@@ -4861,6 +5896,7 @@
         $('#result_record_t2').hide();
         $('#result_record_t3').hide();
         $('#sea_training_record').hide();
+        $('#proficiency_games_record').hide(); //new
 
     });
 
@@ -4903,6 +5939,12 @@
 
     $('#btn_physical_record').on('click', function() {
         $('#physical_efficiency_record').show();
+        $('#main-container').hide();
+        $('#container-2').hide();
+    });
+
+    $('#btn_proficiency_games').on('click', function() { //new
+        $('#proficiency_games_record').show();
         $('#main-container').hide();
         $('#container-2').hide();
     });

@@ -640,6 +640,57 @@ $route['Admin/edit_user_profile/check-notification'] = 'ChatController/check_not
 $route['Admin/edit_user_profile/check-activity'] = 'ChatController/check_activity';
 
 
+//DIR_NAVY
+$route['DIR_NAVY/view_edit_warning/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_warning/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_warning/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_warning/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_observation/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_observation/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_observation/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_observation/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_warning/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_warning/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_warning/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_warning/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_inspection/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_inspection/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_inspection/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_inspection/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_officer_record/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_officer_record/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_officer_record/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_officer_record/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_personal_record/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_personal_record/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_personal_record/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_personal_record/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_biography/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_biography/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_biography/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_biography/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_psychologist_report/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_psychologist_report/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_psychologist_report/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_psychologist_report/check-activity'] = 'ChatController/check_activity';
+
+$route['DIR_NAVY/view_edit_qualities/(:any)/update-notification'] = 'ChatController/$1/update_notification';
+$route['DIR_NAVY/view_edit_qualities/(:any)/update-activity'] = 'ChatController/$1/update_activity';
+$route['DIR_NAVY/view_edit_qualities/(:any)/check-notification'] = 'ChatController/$1/check_notification';
+$route['DIR_NAVY/view_edit_qualities/(:any)/check-activity'] = 'ChatController/$1/check_activity';
+
+$route['DIR_NAVY/view_edit_punishment/update-notification'] = 'ChatController/update_notification';
+$route['DIR_NAVY/view_edit_punishment/update-activity'] = 'ChatController/update_activity';
+$route['DIR_NAVY/view_edit_punishment/check-notification'] = 'ChatController/check_notification';
+$route['DIR_NAVY/view_edit_punishment/check-activity'] = 'ChatController/check_activity';
+
 
 $route['chat-clear'] = 'ChatController/chat_clear_client_cs';
 

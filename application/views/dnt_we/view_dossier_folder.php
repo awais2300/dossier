@@ -1,5 +1,40 @@
-<?php $this->load->view('dnt_s/common/header'); ?>
+<?php if ($this->session->userdata('acct_type') == 'do') {
+    $this->load->view('do/common/header');
+} else if ($this->session->userdata('acct_type') == 'joto') {
+    $this->load->view('joto/common/header');
+} else if ($this->session->userdata('acct_type') == 'exo') {
+    $this->load->view('exo/common/header');
+} else if ($this->session->userdata('acct_type') == 'co') {
+    $this->load->view('co/common/header');
+} else if ($this->session->userdata('acct_type') == 'ct') {
+    $this->load->view('ct/common/header');
+} else if ($this->session->userdata('acct_type') == 'sqc') {
+    $this->load->view('sqc/common/header');
+} else if ($this->session->userdata('acct_type') == 'cao') {
+    $this->load->view('cao/common/header');
+} else if ($this->session->userdata('acct_type') == 'cao_sec') {
+    $this->load->view('cao_sec/common/header');
+} else if ($this->session->userdata('acct_type') == 'smo') {
+    $this->load->view('smo/common/header');
+} else if ($this->session->userdata('acct_type') == 'ctmwt') {
+    $this->load->view('ctmwt/common/header');
+} else if ($this->session->userdata('acct_type') == 'dean') {
+    $this->load->view('dean/common/header');
+} else if ($this->session->userdata('acct_type') == 'hougp') {
+    $this->load->view('hougp/common/header');
+} else if ($this->session->userdata('acct_type') == 'dirnavy') {
+    $this->load->view('dir_navy/common/header');
+} else if ($this->session->userdata('acct_type') == 'dntops') {
+    $this->load->view('dnt_ops/common/header');
+} else if ($this->session->userdata('acct_type') == 'dntwe') {
+    $this->load->view('dnt_we/common/header');
+} else if ($this->session->userdata('acct_type') == 'dntme') {
+    $this->load->view('dnt_me/common/header');
+} else if ($this->session->userdata('acct_type') == 'dnts') {
+    $this->load->view('dnt_s/common/header');
+} ?>
 <?php !isset($oc_no_entered) ? $oc_no_entered = '' : $oc_no_entered; ?>
+
 <style>
     .red-border {
         border: 1px solid red !important;
@@ -211,10 +246,26 @@
                                         <a href="#" style="color:black" id="btn_punish_term3">
                                             <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
                                         </a>
+                                        <a href="#" style="color:black" id="btn_punish_term4">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-IV</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term5">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-V</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term6">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VI</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term7">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VII</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_punish_term8">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VIII</li>
+                                        </a>
                                     </ul>
                                 </div>
                                 <div id="terms_list_obs" class="col-lg-2" style="text-align:left;font-weight: bold;display:none">
                                     <ul class="list-group">
+
                                         <a href="#" style="color:black" id="btn_obs_term1">
                                             <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
                                         </a>
@@ -224,6 +275,22 @@
                                         <a href="#" style="color:black" id="btn_obs_term3">
                                             <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
                                         </a>
+                                        <a href="#" style="color:black" id="btn_obs_term4">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-IV</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term5">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-V</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term6">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VI</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term7">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VII</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_obs_term8">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-VIII</li>
+                                        </a>
+
                                     </ul>
                                 </div>
                             </div>
@@ -263,18 +330,27 @@
                             <div id="acad_list" class="row" style="display:none ;">
                                 <div class="col-lg-4" style="text-align:left;font-weight: bold;">
                                     <ul class="list-group">
-                                        <a href="#" style="color:black" id="btn_result_t1">
-                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-I)</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_sea_training_report">
-                                            <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_result_t2">
-                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-II)</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_result_t3">
-                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM III)</li>
-                                        </a>
+                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                            <a href="#" style="color:black" id="btn_result_t1">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-I)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_sea_training_report">
+                                                <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_result_t2">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-II)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_result_t3">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM III)</li>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="#" style="color:black" id="btn_result_t1">
+                                                <li class="list-group-item bg-custom3 custom_list">RESULT (<?php echo $pn_data['term'] ?>)</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_sea_training_report">
+                                                <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
+                                            </a>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -290,15 +366,21 @@
                                 </div>
                                 <div id="terms_olq_record" class="col-lg-2" style="text-align:left;font-weight: bold;display:none">
                                     <ul class="list-group">
-                                        <a href="#" style="color:black" id="btn_olq_term1">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_olq_term2">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_olq_term3">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
-                                        </a>
+                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                            <a href="#" style="color:black" id="btn_olq_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_olq_term2">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_olq_term3">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="#" style="color:black" id="btn_olq_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-<?php echo $pn_data['term']; ?></li>
+                                            </a>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -336,15 +418,21 @@
                                 </div>
                                 <div id="terms_general_remarks_record" class="col-lg-2" style="text-align:left;font-weight: bold">
                                     <ul class="list-group">
-                                        <a href="#" style="color:black" id="btn_general_remarks_term1">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_general_remarks_term2">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
-                                        </a>
-                                        <a href="#" style="color:black" id="btn_general_remarks_term3">
-                                            <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
-                                        </a>
+                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term2">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
+                                            </a>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term3">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="#" style="color:black" id="btn_general_remarks_term1">
+                                                <li class="list-group-item bg-custom3 custom_list">TERM-<?php echo $pn_data['term']; ?></li>
+                                            </a>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                                 <div id="general_remarks_mid_final_term1" class="col-lg-3" style="text-align:left;font-weight: bold;display:none">
@@ -400,108 +488,6 @@
 
     </div>
 
-    <div class="card-body bg-custom3" id="container-2">
-        <?php if (!isset($pn_data['name'])) { ?>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-
-                        <div class="card-header bg-custom1">
-                            <h1 class="h4">Select Cadet</h1>
-                        </div>
-
-                        <div class="card-body bg-custom2" style="font-size:small;text-align: justify;">
-                            <div class="form-group row">
-                                <div class="col-sm-3">
-                                    <h4><strong>Termwise</strong></h4>
-                                </div>
-                                <div class="col-sm-3">
-                                    <select class="form-control rounded-pill" name="term_select" id="term_select" data-placeholder="Select Contractor" style="font-size: 0.8rem; height:100%;">
-                                        <option class="form-control form-control-user" value="">Select Term</option>
-                                        <option class="form-control form-control-user" value="Term-P">Term-Prep</option>
-                                        <option class="form-control form-control-user" value="Term-I">Term-I</option>
-                                        <option class="form-control form-control-user" value="Term-II">Term-II</option>
-                                        <option class="form-control form-control-user" value="Term-III">Term-III</option>
-                                        <option class="form-control form-control-user" value="Term-IV">Midshipman</option>
-                                        <option class="form-control form-control-user" value="Term-V">Sub-Lieutinant</option>
-                                    </select>
-                                </div>
-
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-
-                                </div>
-                                <div class="col-sm-6">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-3">
-                                    <h4><strong>Divisionwise</strong></h4>
-                                </div>
-                                <div class="col-sm-3">
-                                    <select id="div_select" class="form-control rounded-pill" name="div_select" id="div_select" data-placeholder="Select ship" style="font-size: 0.8rem; height:100%;">
-                                        <option class="form-control form-control-user" value="">Select Division</option>
-                                        <?php foreach ($divisions as $data) { ?>
-                                            <option class="form-control form-control-user" value="<?= $data['division_name'] ?>"><?= $data['division_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        <?php } ?>
-
-
-    </div>
-
-
-    <div class="card-body bg-custom3" id="cadet_list_container" style="display:none">
-        <?php if (!isset($pn_data['name'])) {
-        ?>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header bg-custom1">
-                            <h1 class="h4">List of Cadets</h1>
-                        </div>
-                    </div>
-                    <div class="card-body bg-custom2" style="font-size:small;text-align: justify;">
-                        <div class="col-sm-12">
-                            <div class="card-body">
-                                <div id="table_div">
-                                    <table id="datatable" class="table table-striped" style="color:black;">
-                                        <thead>
-                                            <tr>
-                                                <th style="border:none !important" scope="col">Sr. No.</th>
-                                                <th style="border:none !important" scope="col">Cadet Name</th>
-                                                <th style="border:none !important" scope="col">OC No.</th>
-                                                <th style="border:none !important" scope="col">Term</th>
-                                                <th style="border:none !important" scope="col">Division Name</th>
-                                                <th style="border:none !important; text-align:center" scope="col">Action</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody id="list_of_cadets">
-                                            <tr>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        <?php } ?>
-
-
-    </div>
-
 
     <div class="card-body bg-custom3" id="container-2">
         <?php if (!isset($pn_data['name'])) { ?>
@@ -550,7 +536,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--   <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -627,7 +613,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?= base_url() ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -702,7 +688,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -776,13 +762,408 @@
         </div>
 
     </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term4">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/4'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-IV</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term4) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term4 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term4">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term5">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/5'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-V</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term5) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term5 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term5">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term6">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/6'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VI</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term6) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term6 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term6">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term7">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/7'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term7) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term7 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term7">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="punish_term8">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--     <a onclick="location.href='#'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/punishment_records_report/<?= $pn_data['oc_no'] ?>/8'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF PUNISHMENT</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VIII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_punish_data_term8) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="">DATE</th>
+                                            <td scope="" style="width:350px">OFFENCE</th>
+                                            <td scope="">PUNISHMENT AWARDED</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">AWARDED BY</th>
+                                            <td scope="" style="border-right:1px solid black; white-space:nowrap">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_punish_data_term8 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="white-space:nowrap;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px"><?= $data['offence']; ?></td>
+                                                <td scope=""><?= $data['punishment_awarded']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;"><?= $data['awarded_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_punishment/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_punish_term8">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <div id="no_data" class="row my-2" style="display:none;">
+            <div class="col-lg-12">
+                <h4 style="color:red;">No Cadet Found. Please check the OC No.</h4>
+            </div>
+        </div>
+
+    </div>
 
     <div class="card-body bg-custom3" style="display:none" id="obs_term1">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -854,7 +1235,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -926,7 +1307,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -993,13 +1374,373 @@
         </form>
 
     </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term4">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/4'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-IV</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term4) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term4 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term4">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term5">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/5'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-V</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term5) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term5 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term5">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term6">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/6'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VI</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term6) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term6 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term6">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term7">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/7'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term7) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term7 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term7">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="obs_term8">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!--  <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_observation/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:60%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/observation_records_report/<?= $pn_data['oc_no'] ?>/8'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RECORD OF OBSERVATION</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-VIII</strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (count($pn_obs_data_term8) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:70px">DATE</th>
+                                            <td scope="" style="width:300px">OBSERVATION</th>
+                                            <td scope="" style="width:70px !important">OBSERVED/ CHECKED BY</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">REMARKS/ ACTION TAKEN</th>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important">EDIT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_obs_data_term8 as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
+                                                <td scope="" style="height:80px;text-align: center;"><?= $data['observation']; ?></td>
+                                                <td scope="" style="text-align: center;"><?= $data['observed_by']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><?= $data['action_taken']; ?></td>
+                                                <td scope="" style="border-right:1px solid black;text-align: center;"><a href="<?= base_url() ?>DNT_WE/view_edit_observation/<?= $data['id'] ?>" style="color: black"><i class="fa fa-edit"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_obs_term8">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
 
     <div class="card-body bg-custom3" style="display:none" id="warning_record">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_warning/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/warning_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/warning_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1075,7 +1816,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_warning/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a> -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/warning_record_insert_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/warning_record_insert_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1144,7 +1885,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/inspection_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/inspection_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1155,8 +1896,7 @@
                                 <h4 style="text-decoration:underline"><strong>INSPECTION RECORD</strong></h4>
                             </div>
                         </div>
-
-                        <div id="table_div" style="padding:20px !important">
+                        <div id="table_div" style=" padding:20px !important">
                             <?php if (count($pn_inspection_data) > 0) { ?>
                                 <table style="color:black; width:100% !important;">
                                     <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
@@ -1165,6 +1905,7 @@
                                             <td scope="" style="width:70px">REMARKS</th>
                                             <td scope="" style="border-right:1px solid black;width:100px !important">INSPECTION OFFICER'S SIGNATURE</th>
                                             <td scope="" style="width:70px;border-right:1px solid black;">EDIT</td>
+
                                         </tr>
                                     </thead>
                                     <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
@@ -1174,7 +1915,7 @@
                                                 <td scope="" style="text-align: center;"><?= $data['date']; ?></td>
                                                 <td scope="" style="height:80px;text-align: center;"><?= $data['remarks']; ?></td>
                                                 <td scope="" style="border-right:1px solid black; text-align: center;"><?= $data['inspecting_officer_name']; ?></td>
-                                                <td scope="" style="border-right:1px solid black;width:100px !important;text-align: center;"><a style="color: black;" href="<?php echo base_url() ?>DNT_WE/view_edit_inspection/<?= $data['id']; ?>"><i class="fa fa-edit"></i></a></td>>
+                                                <td scope="" style="border-right:1px solid black;width:100px !important;text-align: center;"><a style="color: black;" href="<?php echo base_url() ?>DNT_WE/view_edit_inspection/<?= $data['id']; ?>"><i class="fa fa-edit"></i></a></td>
                                             </tr>
                                         <?php
                                             $count++;
@@ -1212,7 +1953,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/medical_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/medical_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1292,7 +2033,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/saluting_swimming_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/saluting_swimming_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1976,7 +2717,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_qualities/<?= $pn_data['p_id'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 65%"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -1985,7 +2726,11 @@
                         <div class="container my-3">
                             <div style="text-align:center">
                                 <h4 style="text-decoration:underline"><strong>OFFICER LIKE QUALITIES</strong></h4>
-                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -2296,7 +3041,7 @@
                                         <tr style="border-left: none;">
                                             <td scope="" style="height:80px; border-left:none"></td>
                                             <td scope="" style="height:80px; border-left:none"></td>
-                                            <td scope="" colspan="3" style="border-right:1px solid black;"> DNT_WE/COMMANDANT'S SIGNATURE </td>
+                                            <td scope="" colspan="3" style="border-right:1px solid black;"> CO/COMMANDANT'S SIGNATURE </td>
                                         </tr>
                                         <tr>
                                             <td scope="" style="border-left:none"></td>
@@ -2333,7 +3078,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_qualities/<?= $pn_data['p_id'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 65%"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-II'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -2653,7 +3398,7 @@
                                         <tr style="border-left: none;">
                                             <td scope="" style="height:80px; border-left:none"></td>
                                             <td scope="" style="height:80px; border-left:none"></td>
-                                            <td scope="" colspan="3" style="border-right:1px solid black;"> DNT_WE/COMMANDANT'S SIGNATURE </td>
+                                            <td scope="" colspan="3" style="border-right:1px solid black;"> CO/COMMANDANT'S SIGNATURE </td>
                                         </tr>
                                         <tr>
                                             <td scope="" style="border-left:none"></td>
@@ -2690,7 +3435,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_qualities/<?= $pn_data['p_id'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 65%"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-III'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3010,7 +3755,7 @@
                                         <tr style="border-left: none;">
                                             <td scope="" style="height:80px; border-left:none"></td>
                                             <td scope="" style="height:80px; border-left:none"></td>
-                                            <td scope="" colspan="3" style="border-right:1px solid black;"> DNT_WE/COMMANDANT'S SIGNATURE </td>
+                                            <td scope="" colspan="3" style="border-right:1px solid black;"> CO/COMMANDANT'S SIGNATURE </td>
                                         </tr>
                                         <tr>
                                             <td scope="" style="border-left:none"></td>
@@ -3047,7 +3792,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_personal_record/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/personal_data_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/personal_data_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <?php if (isset($pn_personal_data['p_no'])) { ?>
                 <div class="row">
@@ -3498,7 +4243,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/divisional_officer_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/divisional_officer_records_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3580,7 +4325,7 @@
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_biography/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>
 
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/autobiography_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/autobiography_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3647,7 +4392,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_psychologist_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/psychology_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/psychology_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3716,7 +4461,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_result_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-I/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-I/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3724,7 +4469,11 @@
 
                         <div class="container my-3">
                             <div style="text-align:center">
-                                <h4 style="text-decoration:underline"><strong>RESULT REPORT (TERM-I)</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>RESULT REPORT (TERM-I)</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>RESULT REPORT (<?php echo $pn_data['term'] ?>)</strong></h4>
+                                <?php } ?>
                             </div>
                             <div style="text-align:center">
                                 <h5>(TO BE PASTED HERE)</h5>
@@ -3784,7 +4533,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_result_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3852,7 +4601,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_ressult_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-III/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-III/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3920,7 +4669,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
                 <!-- <a onclick="location.href='<?php echo base_url() ?>DNT_WE/view_edit_sea_training_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/SeaTraining'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/result_record_report/<?= $pn_data['oc_no'] ?>/Term-II/SeaTraining'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3988,7 +4737,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -3998,7 +4747,11 @@
                                 <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
                             </div>
                             <div style="text-align:center">
-                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -4052,7 +4805,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4062,7 +4815,11 @@
                                 <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
                             </div>
                             <div style="text-align:center">
-                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
+                                <?php } else { ?>
+                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -4118,7 +4875,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4182,7 +4939,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-II/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4249,7 +5006,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4313,7 +5070,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-III/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4380,7 +5137,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/progress_chart_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/progress_chart_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4459,7 +5216,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/distinction_achieved_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/distinction_achieved_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4523,7 +5280,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/seniority_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/seniority_record_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4660,7 +5417,7 @@
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
-                <a onclick="location.href='<?php echo base_url() ?>/DNT_WE/branch_allocation_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_WE/branch_allocation_report/<?= $pn_data['oc_no'] ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -4944,6 +5701,76 @@
         $('#back_btn_punish').show();
     });
 
+    $('#btn_punish_term4').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term4').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term5').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term5').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term6').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term6').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term7').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term7').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term8').hide();
+        $('#back_btn_punish').show();
+    });
+
+    $('#btn_punish_term8').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#punish_term8').show();
+        $('#punish_term1').hide();
+        $('#punish_term2').hide();
+        $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#back_btn_punish').show();
+    });
+
     $('#btn_obs_term1').on('click', function() {
         $('#main-container').hide();
         $('#container-2').hide();
@@ -4968,12 +5795,76 @@
         $('#obs_term2').hide();
         $('#back_btn_punish').show();
     });
+    $('#btn_obs_term4').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term4').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term5').hide();
+        $('#obs_term6').hide();
+        $('#obs_term7').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term5').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term5').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#obs_term6').hide();
+        $('#obs_term7').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term6').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term6').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#obs_term7').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term7').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term7').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#obs_term8').hide();
+        $('#back_btn_punish').show();
+    });
+    $('#btn_obs_term8').on('click', function() {
+        $('#main-container').hide();
+        $('#container-2').hide();
+        $('#obs_term8').show();
+        $('#obs_term1').hide();
+        $('#obs_term2').hide();
+        $('#obs_term3').hide();
+        $('#obs_term4').hide();
+        $('#back_btn_punish').show();
+    });
 
-    $('#back_btn_punish_term1, #back_btn_punish_term2, #back_btn_punish_term3').on('click', function() {
+    $('#back_btn_punish_term1, #back_btn_punish_term2, #back_btn_punish_term3, #back_btn_punish_term4, #back_btn_punish_term5, #back_btn_punish_term6, #back_btn_punish_term7, #back_btn_punish_term8').on('click', function() {
         $('#main-container').show();
         $('#punish_term1').hide();
         $('#punish_term2').hide();
         $('#punish_term3').hide();
+        $('#punish_term4').hide();
+        $('#punish_term5').hide();
+        $('#punish_term6').hide();
+        $('#punish_term7').hide();
+        $('#punish_term8').hide();
         $('#terms_list_punish').hide();
         $('#terms_list_obs').hide();
     });
@@ -5245,121 +6136,4 @@
             async: true
         });
     });
-
-    $('#term_select').on('change', function() {
-        var selectedValue = $(this).val();
-        var selectedValuediv = $('#div_select').val();
-        // alert(selectedValue);
-        $.ajax({
-            url: '<?= base_url(); ?>DNT_WE/search_cadet_termwise',
-            method: 'POST',
-            data: {
-                'term': selectedValue,
-                'div': selectedValuediv
-            },
-            success: function(data) {
-                var result = jQuery.parseJSON(data);
-                var len = result.length;
-
-                $("#list_of_cadets").empty();
-                if (len > 0) {
-                    for (var i = 0; i < len; i++) {
-
-                        $("#list_of_cadets").append(`<tr>
-                                                        <td style="border:none !important">${i+1}</td>
-                                                        <td style="border:none !important">${result[i]['name']}</td>
-                                                        <td style="border:none !important">${result[i]['oc_no']}</td>
-                                                        <td style="border:none !important">${result[i]['term']}</td>
-                                                        <td style="border:none !important">${result[i]['divison_name']}</td>
-                                                        <td scope="row" style="border:none !important;text-align:center"><button type="button" onclick="show_cadet(${"'" + result[i]['oc_no'] + "'"})" class="btn btn-primary btn-user rounded-pill" data-toggle="modal" data-target="#punishments">Veiw Dossier</button></td>
-                                                    </tr>`);
-                    }
-                } else {
-                    $("#list_of_cadets").append(`<tr>
-                                                    <td style="border:none !important">No Data Found</td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    </tr>`);
-                }
-            },
-            async: true
-        });
-        $('#cadet_list_container').show();
-    });
-
-    $('#div_select').on('change', function() {
-        var selectedValueterm = $('#term_select').val();
-        var selectedValuediv = $(this).val();
-        //alert(selectedValueterm);
-        //alert(selectedValuediv);
-
-        $.ajax({
-            url: '<?= base_url(); ?>DNT_WE/search_cadet_divisionwise',
-            method: 'POST',
-            data: {
-                'term': selectedValueterm,
-                'division': selectedValuediv
-            },
-            success: function(data) {
-                // alert("Successss")
-                var result = jQuery.parseJSON(data);
-                var len = result.length;
-                // alert(len);
-
-                $("#list_of_cadets").empty();
-                if (len > 0) {
-                    //alert("data exist");
-                    for (var i = 0; i < len; i++) {
-
-                        $("#list_of_cadets").append(`<tr>
-                                                        <td style="border:none !important">${i+1}</td>
-                                                        <td style="border:none !important">${result[i]['name']}</td>
-                                                        <td style="border:none !important">${result[i]['oc_no']}</td>
-                                                        <td style="border:none !important">${result[i]['term']}</td>
-                                                        <td style="border:none !important">${result[i]['divison_name']}</td>
-                                                        <td scope="row" style="border:none !important;text-align:center"><button type="button" onclick="show_cadet(${"'"+result[i]['oc_no']+"'"})" class="btn btn-primary btn-user rounded-pill" data-toggle="modal" data-target="#punishments">Veiw Dossier</button></td>
-                                                    </tr>`);
-                    }
-                } else {
-                    //alert("data not exist");
-                    $("#list_of_cadets").append(`<tr>
-                                                    <td style="border:none !important">No Data Found</td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    <td style="border:none !important"></td>
-                                                    </tr>`);
-                }
-            },
-            async: true
-        });
-        $('#cadet_list_container').show();
-    });
-
-    function show_cadet(oc_no) {
-
-        $.ajax({
-            url: '<?= base_url(); ?>DNT_WE/search_cadet_for_dossier_folder',
-            method: 'POST',
-            data: {
-                'oc_no': oc_no
-            },
-            success: function(data) {
-                if (data != '0') {
-                    var newDoc = document.open("text/html", "replace");
-                    newDoc.write(data);
-                    newDoc.close();
-                    $('#cadet_dossier').show();
-                } else {
-                    $('#no_data').show();
-                    $('#cadet_dossier').hide();
-                }
-            },
-            async: true
-        });
-    }
 </script>
