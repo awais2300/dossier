@@ -2870,5 +2870,8 @@ ALTER TABLE term_i_details CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unic
 
 ALTER TABLE term_ii_details CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+update security_info 
+set unit = "ALL Units"
+where acct_type  in ('dirnavy','dntops','dntme','dntwe','dnts');
 
 COMMIT;
