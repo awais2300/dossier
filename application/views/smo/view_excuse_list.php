@@ -111,6 +111,9 @@
                                             <th scope="col">Date</th>
                                             <th scope="col">Excuse</th>
                                             <th scope="col">Disease</th>
+                                            <th scope="col">Admitted In</th>
+                                            <th scope="col">Specialist Opinion</th>
+                                            <th scope="col">Instructional Loss</th>
                                             <th scope="col">Start Date</th>
                                             <th scope="col">End Date</th>
                                             <th scope="col" style="width:100px">Days left</th>
@@ -130,6 +133,9 @@
                                                 <td scope="row"><?= date('Y-m-d', strtotime($data['date'])); ?></td>
                                                 <td scope="row"><?= $data['mo_remarks']; ?></td>
                                                 <td scope="row"><?= $data['disease']; ?></td>
+                                                <td scope="row"><?= $data['admitted']; ?></td>
+                                                <td scope="row"><?= $data['specialist_opinion']; ?></td>
+                                                <td scope="row"><?= $data['instructional_loss']; ?></td>
                                                 <td scope="row"><?= $data['start_date']; ?></td>
                                                 <td scope="row"><?= $data['end_date']; ?></td>
                                                 <td scope="row"><?php echo $diff->format('%d days'); ?></td>

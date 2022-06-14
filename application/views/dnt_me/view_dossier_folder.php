@@ -1,38 +1,5 @@
-<?php if ($this->session->userdata('acct_type') == 'do') {
-    $this->load->view('do/common/header');
-} else if ($this->session->userdata('acct_type') == 'joto') {
-    $this->load->view('joto/common/header');
-} else if ($this->session->userdata('acct_type') == 'exo') {
-    $this->load->view('exo/common/header');
-} else if ($this->session->userdata('acct_type') == 'co') {
-    $this->load->view('co/common/header');
-} else if ($this->session->userdata('acct_type') == 'ct') {
-    $this->load->view('ct/common/header');
-} else if ($this->session->userdata('acct_type') == 'sqc') {
-    $this->load->view('sqc/common/header');
-} else if ($this->session->userdata('acct_type') == 'cao') {
-    $this->load->view('cao/common/header');
-} else if ($this->session->userdata('acct_type') == 'cao_sec') {
-    $this->load->view('cao_sec/common/header');
-} else if ($this->session->userdata('acct_type') == 'smo') {
-    $this->load->view('smo/common/header');
-} else if ($this->session->userdata('acct_type') == 'ctmwt') {
-    $this->load->view('ctmwt/common/header');
-} else if ($this->session->userdata('acct_type') == 'dean') {
-    $this->load->view('dean/common/header');
-} else if ($this->session->userdata('acct_type') == 'hougp') {
-    $this->load->view('hougp/common/header');
-} else if ($this->session->userdata('acct_type') == 'dirnavy') {
-    $this->load->view('dir_navy/common/header');
-} else if ($this->session->userdata('acct_type') == 'dntops') {
-    $this->load->view('dnt_ops/common/header');
-} else if ($this->session->userdata('acct_type') == 'dntwe') {
-    $this->load->view('dnt_we/common/header');
-} else if ($this->session->userdata('acct_type') == 'dntme') {
-    $this->load->view('dnt_me/common/header');
-} else if ($this->session->userdata('acct_type') == 'dnts') {
-    $this->load->view('dnt_s/common/header');
-} ?>
+<?php $this->load->view('dnt_me/common/header'); ?>
+
 <?php !isset($oc_no_entered) ? $oc_no_entered = '' : $oc_no_entered; ?>
 
 <style>
@@ -317,7 +284,8 @@
                                         <a href="#" style="color:black" id="btn_physical_record">
                                             <li class="list-group-item bg-custom3 custom_list">RECORD PHYSICAL EFFICIENCY</li>
                                         </a>
-                                        <a href="#" style="color:black" id="btn_proficiency_games"> <!-- new -->
+                                        <a href="#" style="color:black" id="btn_proficiency_games">
+                                            <!-- new -->
                                             <li class="list-group-item bg-custom3 custom_list">PROFICIENCY IN GAMES</li>
                                         </a>
                                         <a href="#" style="color:black" id="btn_medical_record">
@@ -330,27 +298,30 @@
                             <div id="acad_list" class="row" style="display:none ;">
                                 <div class="col-lg-4" style="text-align:left;font-weight: bold;">
                                     <ul class="list-group">
-                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
-                                            <a href="#" style="color:black" id="btn_result_t1">
-                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-I)</li>
-                                            </a>
-                                            <a href="#" style="color:black" id="btn_sea_training_report">
+                                        <!-- <?php //if ($this->session->userdata('unit_id') == '1') { 
+                                                ?> -->
+                                        <a href="#" style="color:black" id="btn_result_t1">
+                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-I)</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_sea_training_report">
+                                            <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_result_t2">
+                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-II)</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_result_t3">
+                                            <li class="list-group-item bg-custom3 custom_list">RESULT (TERM III)</li>
+                                        </a>
+                                        <!-- <?php //} else { 
+                                                ?> -->
+                                        <a href="#" style="color:black" id="btn_result_tn">
+                                            <li class="list-group-item bg-custom3 custom_list">RESULT (<?php echo $pn_data['term'] ?>)</li>
+                                        </a>
+                                        <!-- <a href="#" style="color:black" id="btn_sea_training_report">
                                                 <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
-                                            </a>
-                                            <a href="#" style="color:black" id="btn_result_t2">
-                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM-II)</li>
-                                            </a>
-                                            <a href="#" style="color:black" id="btn_result_t3">
-                                                <li class="list-group-item bg-custom3 custom_list">RESULT (TERM III)</li>
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="#" style="color:black" id="btn_result_t1">
-                                                <li class="list-group-item bg-custom3 custom_list">RESULT (<?php echo $pn_data['term'] ?>)</li>
-                                            </a>
-                                            <a href="#" style="color:black" id="btn_sea_training_report">
-                                                <li class="list-group-item bg-custom3 custom_list">SEA TRAINING REPORT (TERM-II)</li>
-                                            </a>
-                                        <?php } ?>
+                                            </a> -->
+                                        <!-- <?php //} 
+                                                ?> -->
                                     </ul>
                                 </div>
                             </div>
@@ -366,21 +337,24 @@
                                 </div>
                                 <div id="terms_olq_record" class="col-lg-2" style="text-align:left;font-weight: bold;display:none">
                                     <ul class="list-group">
-                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
-                                            <a href="#" style="color:black" id="btn_olq_term1">
-                                                <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
-                                            </a>
-                                            <a href="#" style="color:black" id="btn_olq_term2">
-                                                <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
-                                            </a>
-                                            <a href="#" style="color:black" id="btn_olq_term3">
-                                                <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="#" style="color:black" id="btn_olq_term1">
-                                                <li class="list-group-item bg-custom3 custom_list">TERM-<?php echo $pn_data['term']; ?></li>
-                                            </a>
-                                        <?php } ?>
+                                        <!-- <?php //if ($this->session->userdata('unit_id') == '1') { 
+                                                ?> -->
+                                        <a href="#" style="color:black" id="btn_olq_term1">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_olq_term2">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-II</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_olq_term3">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
+                                        </a>
+                                        <!-- <?php //} else { 
+                                                ?> -->
+                                        <a href="#" style="color:black" id="btn_olq_term_n">
+                                            <li class="list-group-item bg-custom3 custom_list">TERM-<?php echo $pn_data['term']; ?></li>
+                                        </a>
+                                        <!-- <?php //} 
+                                                ?> -->
                                     </ul>
                                 </div>
                             </div>
@@ -418,7 +392,7 @@
                                 </div>
                                 <div id="terms_general_remarks_record" class="col-lg-2" style="text-align:left;font-weight: bold">
                                     <ul class="list-group">
-                                        <?php if ($this->session->userdata('unit_id') == '1') { ?>
+                                        <!-- <?php //if ($this->session->userdata('unit_id') == '1') { ?> -->
                                             <a href="#" style="color:black" id="btn_general_remarks_term1">
                                                 <li class="list-group-item bg-custom3 custom_list">TERM-I</li>
                                             </a>
@@ -428,11 +402,11 @@
                                             <a href="#" style="color:black" id="btn_general_remarks_term3">
                                                 <li class="list-group-item bg-custom3 custom_list">TERM-III</li>
                                             </a>
-                                        <?php } else { ?>
-                                            <a href="#" style="color:black" id="btn_general_remarks_term1">
+                                        <!-- <?php //} else { ?> -->
+                                            <a href="#" style="color:black" id="btn_general_remarks_term_n">
                                                 <li class="list-group-item bg-custom3 custom_list">TERM-<?php echo $pn_data['term']; ?></li>
                                             </a>
-                                        <?php } ?>
+                                        <!-- <?php //} ?> -->
                                     </ul>
                                 </div>
                                 <div id="general_remarks_mid_final_term1" class="col-lg-3" style="text-align:left;font-weight: bold;display:none">
@@ -465,6 +439,17 @@
                                         </a>
                                     </ul>
                                 </div>
+                                <div id="general_remarks_mid_final_term_n" class="col-lg-3" style="text-align:left;font-weight: bold;display:none">
+                                    <ul class="list-group">
+                                        <a href="#" style="color:black" id="btn_general_remarks_term_n_mid">
+                                            <li class="list-group-item bg-custom3 custom_list">MID TERM ASSESSMENT</li>
+                                        </a>
+                                        <a href="#" style="color:black" id="btn_general_remarks_term_n_final">
+                                            <li class="list-group-item bg-custom3 custom_list">FINAL TERM ASSESSMENT</li>
+                                        </a>
+                                    </ul>
+                                </div>
+                                
                             </div>
 
                             <div class="col-lg-4">
@@ -2645,7 +2630,8 @@
 
     </div>
 
-    <div class="card-body bg-custom3" style="display:none" id="proficiency_games_record"> <!-- new -->
+    <div class="card-body bg-custom3" style="display:none" id="proficiency_games_record">
+        <!-- new -->
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
                 <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
@@ -2726,11 +2712,7 @@
                         <div class="container my-3">
                             <div style="text-align:center">
                                 <h4 style="text-decoration:underline"><strong>OFFICER LIKE QUALITIES</strong></h4>
-                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
-                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
-                                <?php } else { ?>
-                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
-                                <?php } ?>
+                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
                             </div>
                         </div>
 
@@ -3787,6 +3769,363 @@
 
     </div>
 
+    <div class="card-body bg-custom3" style="display:none" id="officer_qualities_record_term_n">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_ME/view_edit_qualities/<?= $pn_data['p_id'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 65%"><i class="fas fa-edit text-white-50"></i> Edit Record</a>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_ME/officer_qualities_records_report/<?= $pn_data['oc_no'] ?>/Term-I'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>OFFICER LIKE QUALITIES</strong></h4>
+                                <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style=" padding:20px !important">
+                            <?php if (isset($pn_officer_qualities_data_t1['term'])) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:10px;border-top:none !important;border-left:none !important"></td>
+                                            <td scope="" style="width:70px;border-top:none !important;border-left:none !important"></td>
+                                            <td scope="" style="width:70px;border-top:1px solid black;">MAX MARKS</td>
+                                            <td scope="" style="width:70px;border-top:1px solid black;">MID TERM</td>
+                                            <td scope="" style="border-right:1px solid black;width:100px !important;border-top:1px solid black;">TERMINAL</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0; ?>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Truthfulness</td>
+                                            <td scope="" style="text-align:center">20</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['truthfulness_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['truthfulness_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Integrity</td>
+                                            <td scope="" style="text-align:center">25</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['integrity_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['integrity_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Sense of Pride</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['pride_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['pride_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Moral Courage</td>
+                                            <td scope="" style="text-align:center">15</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['courage_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['courage_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Confidence and Behaviour Under Stress</td>
+                                            <td scope="" style="text-align:center">15</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['confidence_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['confidence_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Initiative</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['initiative_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['inititative_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Ability to Command, Control and Assert</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['command_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['command_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Self and General Discipline</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['discipline_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['discipline_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Sense of Duty</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['duty_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['duty_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Reliability</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['reliability_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['reliability_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">General Appearance & Bearing</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['appearance_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['appearance_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Physical Fittness</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['fitness_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['fitness_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Manners and Social Conduct</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['conduct_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['conduct_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Intelligence and Common Sense</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['cs_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['cs_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Cooperation Adaptability and Team Work</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['teamwork_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['teamwork_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"><?= ++$count; ?></td>
+                                            <td scope="">Power of Expression (Oral & Written)</td>
+                                            <td scope="" style="text-align:center">10</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['expression_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['expression_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="height:80px"></td>
+                                            <td scope=""> <strong>Grand Total: </strong> </td>
+                                            <td scope="" style="text-align:center">200</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['total_mid']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['total_terminal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr style="border-left: none;">
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" colspan="" style="border-right:1px solid black;"> MARKS FOR TERM </td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['mid_marks']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['terminal_marks']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr style="border-left: none;">
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" colspan="" style="border-right:1px solid black;"> DATE OF ASSESSMENT</td>
+                                            <td scope="" style="text-align:center"><?= $pn_officer_qualities_data_t1['mid_marks_date']; ?></td>
+                                            <td scope="" style="border-right:1px solid black;text-align:center"><?= $pn_officer_qualities_data_t1['terminal_marks_date']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr style="border-left: none;">
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" colspan="3" style="border-right:1px solid black;"> DIVISIONAL OFFICER'S SIGNATURE </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr style="border-left: none;">
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" colspan="3" style="border-right:1px solid black;"> CAPTAIN TRAINNING'S SIGNATURE </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                        <tr style="border-left: none;">
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" style="height:80px; border-left:none"></td>
+                                            <td scope="" colspan="3" style="border-right:1px solid black;"> CO/COMMANDANT'S SIGNATURE </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-left:none"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_olq_term_n">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
     <div class="card-body bg-custom3" style="display:none" id="personal_data_record">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
@@ -4469,11 +4808,7 @@
 
                         <div class="container my-3">
                             <div style="text-align:center">
-                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
-                                    <h4 style="text-decoration:underline"><strong>RESULT REPORT (TERM-I)</strong></h4>
-                                <?php } else { ?>
-                                    <h4 style="text-decoration:underline"><strong>RESULT REPORT (<?php echo $pn_data['term'] ?>)</strong></h4>
-                                <?php } ?>
+                                <h4 style="text-decoration:underline"><strong>RESULT REPORT (TERM-I)</strong></h4>
                             </div>
                             <div style="text-align:center">
                                 <h5>(TO BE PASTED HERE)</h5>
@@ -4664,6 +4999,75 @@
         </form>
 
     </div>
+    <div class="card-body bg-custom3" style="display:none" id="result_record_tn">
+        <!-- new4 -->
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <!-- <a onclick="location.href='<?php echo base_url() ?>DNT_ME/view_edit_result_report/<?= $pn_data['p_id']; ?>'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left:65%; margin-right:1%;"><i class="far fa-edit"></i> Edit Record</a>  -->
+                <a onclick="location.href='<?php echo base_url() ?>DNT_ME/result_record_report/<?= $pn_data['oc_no'] ?>/Term-I/Result'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>RESULT REPORT (<?php echo $pn_data['term'] ?>)</strong></h4>
+                            </div>
+                            <div style="text-align:center">
+                                <h5>(TO BE PASTED HERE)</h5>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style="padding:20px">
+                            <?php if (count($pn_result_record_t1) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="width:20%">S NO.</th>
+                                            <td scope="" style="width:40%">FILENAME</th>
+                                            <td scope="" style="border-right:1px solid black;width:40%">DOWNLOAD</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important">
+                                        <?php $count = 0;
+                                        foreach ($pn_result_record_t1 as $data) { ?>
+                                            <tr>
+                                                <td scope=""><?= ++$count; ?></td>
+                                                <td scope=""><?= $data['file_name'] ?></td>
+                                                <td scope="" style="border-right:black 1px solid;text-align:center"><a style="color:black;width:100%;text-align:center;hover:black;" href="<?= base_url(); ?>uploads/documents/<?= $data['file_name']; ?>"><i class="fas fa-download"></i></a></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black"></td>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_result_tn">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
     <div class="card-body bg-custom3" style="display:none" id="sea_training_record">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
@@ -4747,11 +5151,7 @@
                                 <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
                             </div>
                             <div style="text-align:center">
-                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
-                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
-                                <?php } else { ?>
-                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
-                                <?php } ?>
+                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
                             </div>
                         </div>
 
@@ -4800,7 +5200,6 @@
         </form>
 
     </div>
-
     <div class="card-body bg-custom3" style="display:none" id="general_remarks_term1_final">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
@@ -4815,11 +5214,7 @@
                                 <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
                             </div>
                             <div style="text-align:center">
-                                <?php if ($this->session->userdata('unit_id') == '1') { ?>
-                                    <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
-                                <?php } else { ?>
-                                    <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
-                                <?php } ?>
+                                <h4 style="text-decoration:underline"><strong>TERM-I</strong></h4>
                             </div>
                         </div>
 
@@ -4871,6 +5266,7 @@
         </form>
 
     </div>
+
     <div class="card-body bg-custom3" style="display:none" id="general_remarks_term2_mid">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
@@ -4934,7 +5330,6 @@
         </form>
 
     </div>
-
     <div class="card-body bg-custom3" style="display:none" id="general_remarks_term2_final">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
@@ -5065,7 +5460,6 @@
         </form>
 
     </div>
-
     <div class="card-body bg-custom3" style="display:none" id="general_remarks_term3_final">
         <?php if (isset($pn_data['name'])) { ?>
             <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
@@ -5125,6 +5519,136 @@
             <div class="form-group row justify-content-center my-2">
                 <div class="col-sm-4">
                     <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_general_remarks_term3_final">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="card-body bg-custom3" style="display:none" id="general_remarks_term_n_mid">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_ME/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/Mid'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
+                            </div>
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4>
+                            </div>
+                        </div>
+
+                        <div id="table_div" style="padding:20px;">
+                            <?php if (count($pn_general_remarks_term1_mid) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="border-right:1px solid black;width:40%">MID TERM ASSESSMENT </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important;">
+                                        <?php $count = 0;
+                                        foreach ($pn_general_remarks_term1_mid as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="border-right:black 1px solid;text-align:center"><?= $data['remarks'] ?></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-right:1px solid black;height:500px"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;text-align:right;padding:60px"><strong>DIVISIONAL OFFICER</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_general_remarks_term_n_mid">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="card-body bg-custom3" style="display:none" id="general_remarks_term_n_final">
+        <?php if (isset($pn_data['name'])) { ?>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 my-2">
+                <h1 class="h3 mb-0 text-black-800"><strong> DOSSIER FOLDER </strong></h1>
+                <a onclick="location.href='<?php echo base_url() ?>DNT_ME/general_remarks_report/<?= $pn_data['oc_no'] ?>/Term-I/final'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print text-white-50"></i> Print Page</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="container my-3">
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>GENERAL REMARKS</strong></h4>
+                            </div>
+                            <div style="text-align:center">
+                                <h4 style="text-decoration:underline"><strong>TERM-<?php echo $pn_data['term']; ?></strong></h4> 
+                            </div>
+                        </div>
+
+                        <div id="table_div" style="padding:20px;">
+                            <?php if (count($pn_general_remarks_term1_final) > 0) { ?>
+                                <table style="color:black; width:100% !important;">
+                                    <thead style="border-top:1px solid black; font-weight:bold;padding:5px; text-align:center">
+                                        <tr>
+                                            <td scope="" style="border-right:1px solid black;width:40%">TERMINAL ASSESSMENT </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_rows_cont" style="border-top:1px solid black; padding:5px;width:100% !important;">
+                                        <?php $count = 0;
+                                        foreach ($pn_general_remarks_term1_final as $data) { ?>
+                                            <tr>
+                                                <td scope="" style="border-right:black 1px solid;text-align:center"><?= $data['remarks'] ?></td>
+                                            </tr>
+                                        <?php
+                                            $count++;
+                                        } ?>
+                                        <tr>
+                                            <td scope="" style="border-right:1px solid black;height:500px"></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-right:1px solid black;text-align:right;padding:40px"><strong>DIVISIONAL OFFICER</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="" style="border-bottom:1px solid black;border-right:1px solid black;text-align:right;padding:40px"><strong>CAPTAIN TRAINING</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <a> No Data Available yet </a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <form class="user" role="form" method="" id="" action="">
+            <div class="form-group row justify-content-center my-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-user btn-block" id="back_btn_general_remarks_term_n_final">
                         Back
                     </button>
                 </div>
@@ -5506,8 +6030,8 @@
                                             <td scope="" style="border:none;width:60%"></td>
                                             <td scope="" style="border: none;width: 40%;height: 400px;text-align: center;font-weight: bold;">
                                                 <p><strong>NAVAL HEADQUARTERS</strong></p>
-                                                <p><strong>LETTER NO: <?= $pn_branch_allocations['letter_no'];?></strong></p> <!-- new2 -->
-                                                <p><strong>DATED: <?= $pn_branch_allocations['created_at'];?></strong></p> <!-- new2 -->
+                                                <p><strong>LETTER NO: <?= $pn_branch_allocations['letter_no']; ?></strong></p> <!-- new2 -->
+                                                <p><strong>DATED: <?= $pn_branch_allocations['created_at']; ?></strong></p> <!-- new2 -->
                                             </td>
                                         </tr>
 
@@ -5869,7 +6393,7 @@
         $('#terms_list_obs').hide();
     });
 
-    $('#back_btn_obs_term1, #back_btn_obs_term2, #back_btn_obs_term3, #back_btn_warning, #back_btn_inspection, #back_btn_medical, #back_btn_saluting_swimming, #back_btn_physical_efficiency, #back_btn_olq_term1, #back_btn_olq_term2, #back_btn_olq_term3, #back_btn_personal_record, #back_btn_divisional_officer, #back_btn_autobiography, #back_btn_psychologhy, #back_btn_general_remarks_term1_mid, #back_btn_general_remarks_term1_final, #back_btn_general_remarks_term2_mid, #back_btn_general_remarks_term2_final, #back_btn_general_remarks_term3_mid, #back_btn_general_remarks_term3_final, #back_btn_distinction_achieved, #back_btn_progress_chart, #back_btn_seniority_record, #back_btn_branch_allocation, #back_btn_warning_insert, #back_btn_result_t1, #back_btn_result_t2, #back_btn_result_t3, #back_btn_sea_training, #back_btn_proficiency_games').on('click', function() { //new
+    $('#back_btn_obs_term1, #back_btn_obs_term2, #back_btn_obs_term3, #back_btn_warning, #back_btn_inspection, #back_btn_medical, #back_btn_saluting_swimming, #back_btn_physical_efficiency, #back_btn_olq_term1, #back_btn_olq_term2, #back_btn_olq_term3, #back_btn_olq_term_n, #back_btn_personal_record, #back_btn_divisional_officer, #back_btn_autobiography, #back_btn_psychologhy, #back_btn_general_remarks_term1_mid, #back_btn_general_remarks_term1_final, #back_btn_general_remarks_term2_mid, #back_btn_general_remarks_term2_final, #back_btn_general_remarks_term3_mid, #back_btn_general_remarks_term3_final, #back_btn_general_remarks_term_n_mid, #back_btn_general_remarks_term_n_final, #back_btn_distinction_achieved, #back_btn_progress_chart, #back_btn_seniority_record, #back_btn_branch_allocation, #back_btn_warning_insert, #back_btn_result_t1, #back_btn_result_t2, #back_btn_result_t3, #back_btn_result_tn, #back_btn_sea_training, #back_btn_proficiency_games').on('click', function() { //new
         $('#main-container').show();
         $('#obs_term1').hide();
         $('#obs_term2').hide();
@@ -5883,6 +6407,7 @@
         $('#officer_qualities_record_term1').hide();
         $('#officer_qualities_record_term2').hide();
         $('#officer_qualities_record_term3').hide();
+        $('#officer_qualities_record_term_n').hide(); //new4
         $('#personal_data_record').hide();
         $('#divisional_officer_record').hide();
         $('#autobiography_record').hide();
@@ -5893,9 +6418,12 @@
         $('#general_remarks_term2_final').hide();
         $('#general_remarks_term3_mid').hide();
         $('#general_remarks_term3_final').hide();
+        $('#general_remarks_term_n_mid').hide(); //new4
+        $('#general_remarks_term_n_final').hide(); //new4
         $('#general_remarks_mid_final_term1').hide();
         $('#general_remarks_mid_final_term2').hide();
         $('#general_remarks_mid_final_term3').hide();
+        $('#general_remarks_mid_final_term_n').hide(); //new4
         $('#distinction_achieved_record').hide();
         $('#progress_chart_record').hide();
         $('#seniority_record').hide();
@@ -5905,6 +6433,7 @@
         $('#result_record_t1').hide();
         $('#result_record_t2').hide();
         $('#result_record_t3').hide();
+        $('#result_record_tn').hide(); //new4
         $('#sea_training_record').hide();
         $('#proficiency_games_record').hide(); //new
 
@@ -5977,6 +6506,12 @@
         $('#container-2').hide();
     });
 
+    $('#btn_olq_term_n').on('click', function() { //new4
+        $('#officer_qualities_record_term_n').show();
+        $('#main-container').hide();
+        $('#container-2').hide();
+    });
+
     $('#btn_personal_record').on('click', function() {
         $('#personal_data_record').show();
         $('#main-container').hide();
@@ -6011,6 +6546,7 @@
         $('#general_remarks_mid_final_term1').show();
         $('#general_remarks_mid_final_term2').hide();
         $('#general_remarks_mid_final_term3').hide();
+        $('#general_remarks_mid_final_term_n').hide(); //new4
         $('#assess_list').hide();
     });
 
@@ -6018,12 +6554,21 @@
         $('#general_remarks_mid_final_term2').show();
         $('#general_remarks_mid_final_term1').hide();
         $('#general_remarks_mid_final_term3').hide();
+        $('#general_remarks_mid_final_term_n').hide(); //new4
         $('#assess_list').hide();
     });
     $('#btn_general_remarks_term3').on('click', function() {
         $('#general_remarks_mid_final_term3').show();
         $('#general_remarks_mid_final_term1').hide();
         $('#general_remarks_mid_final_term2').hide();
+        $('#general_remarks_mid_final_term_n').hide(); //new4
+        $('#assess_list').hide();
+    });
+    $('#btn_general_remarks_term_n').on('click', function() {
+        $('#general_remarks_mid_final_term3').hide();
+        $('#general_remarks_mid_final_term1').hide();
+        $('#general_remarks_mid_final_term2').hide();
+        $('#general_remarks_mid_final_term_n').show();
         $('#assess_list').hide();
     });
 
@@ -6057,6 +6602,18 @@
 
     $('#btn_general_remarks_term3_final').on('click', function() {
         $('#general_remarks_term3_final').show();
+        $('#main-container').hide();
+        $('#container-2').hide();
+    });
+
+    $('#btn_general_remarks_term_n_mid').on('click', function() {
+        $('#general_remarks_term_n_mid').show();
+        $('#main-container').hide();
+        $('#container-2').hide();
+    });
+
+    $('#btn_general_remarks_term_n_final').on('click', function() {
+        $('#general_remarks_term_n_final').show();
         $('#main-container').hide();
         $('#container-2').hide();
     });
@@ -6108,6 +6665,13 @@
         $('#main-container').hide();
         $('#container-2').hide();
     });
+
+    $('#btn_result_tn').on('click', function() {
+        $('#result_record_tn').show();
+        $('#main-container').hide();
+        $('#container-2').hide();
+    });
+
     $('#btn_sea_training_report').on('click', function() {
         $('#sea_training_record').show();
         $('#main-container').hide();

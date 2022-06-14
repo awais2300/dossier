@@ -158,6 +158,30 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-4">
+                                    <h6>&nbsp;Admitted in:</h6>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6>&nbsp;Specialist Opinion</h6>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h6>&nbsp;Instructional Loss:</h6>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-4 mb-1">
+                                    <input type="text" class="form-control form-control-user" name="admitted" id="admitted" placeholder="Enter Hospital/Sickbay">
+                                </div>
+                                <div class="col-sm-4 mb-1">
+                                    <input type="text" class="form-control form-control-user" name="specialist_opinion" id="specialist_opinion" placeholder="Enter Specialist Opinion">
+                                </div>
+                                <div class="col-sm-4 mb-1">
+                                    <input type="text" class="form-control form-control-user" name="instructional_loss" id="instructional_loss" placeholder="Instructional Loss">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-4">
                                     <h6>&nbsp;Start Date:</h6>
                                 </div>
                                 <div class="col-sm-4">

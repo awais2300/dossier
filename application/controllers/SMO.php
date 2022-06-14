@@ -959,6 +959,9 @@ class SMO extends CI_Controller
             $term = $postData['term'];
             $start_date = $postData['start_date'];
             $end_date = $postData['end_date'];
+            $admitted = $postData['admitted'];
+            $specialist_opinion = $postData['specialist_opinion'];
+            $instructional_loss = $postData['instructional_loss'];
             // $awarded_by = $this->session->userdata('username');
             $awarded_id = $this->session->userdata('user_id');
 
@@ -969,6 +972,9 @@ class SMO extends CI_Controller
                 'disease' => $disease,
                 'mo_remarks' => $excuse,
                 'do_id' => $awarded_id,
+                'admitted' => $admitted,
+                'specialist_opinion' => $specialist_opinion,
+                'instructional_loss' => $instructional_loss,
                 // 'awarded_by' => $awarded_by,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
